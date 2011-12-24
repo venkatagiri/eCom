@@ -1,0 +1,29 @@
+/* Public stylesheet */
+
+/* Search styles */
+.products {
+}
+.products li {
+  display: inline-block;
+  padding: 0 10px 10px;
+  vertical-align: top;
+}
+.products .product {
+  display: inline-block;
+  width: 150px;
+  padding: 5px;
+  color: #333;
+  border: 1px solid #F1F1F1;
+}
+.product-name {
+  font-weight: bold;
+}
+.product img {
+  width: 150px; height: 150px;
+}
+.product-price {
+  font-size: 90%;
+}
+.product:hover {
+  background: #EAEAEA;
+}

@@ -1,0 +1,20 @@
+/* Admin stylesheet */
+
+/* Login Page */
+#login .content section {
+  margin-left: 0;
+}
+
+.login-form {
+  padding: 5px 20px;
+}
+
+.login-form label {
+  display: inline-block;
+  min-width: 100px;
+  margin-bottom: 15px;
+}
+
+.controls {
+  text-align: center;
+}

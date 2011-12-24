@@ -1,0 +1,19 @@
+ErrorDocument 404 /ecom/404.php
+
+# compress text, html, javascript, css, xml
+AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4.0[678] no-gzip
+BrowserMatch bMSIE !no-gzip !gzip-only-text/html
+
+# Rewrite search?... & categories
+# <IfModule mod_rewrite.c>
+# RewriteEngine On
+# RewriteBase /ecom
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^search search.php [L,QSA]
+# RewriteRule ^categories(.+)$ categories.php?c=$1 [L,QSA]
+# </IfModule>
+
+

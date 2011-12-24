@@ -1,0 +1,5 @@
+/* ie6 inline-block fix */
+header h1, header h3, nav li, nav li > a, nav .sub_nav .col a {
+  zoom: 1;
+  *display: inline;
+}
