@@ -17,7 +17,7 @@ CREATE TABLE categories (
 	PRIMARY KEY(id)
 );
 
-CREATE TABLE products {
+CREATE TABLE products (
   id INT NOT NULL AUTO_INCREMENT,
   name CHAR(50) NOT NULL,
   description CHAR(250) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE products {
   brand CHAR(30) NOT NULL,
   category CHAR(30) NOT NULL,
   is_visible int(1) DEFAULT 1,
-	PRIMARY KEY(id),
+  PRIMARY KEY(id),
   FOREIGN KEY(brand) REFERENCES brands(name),
   FOREIGN KEY(category) REFERENCES categories(name)
-};
+);
