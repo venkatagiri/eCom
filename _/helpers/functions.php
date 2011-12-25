@@ -21,7 +21,7 @@ function get_admin_footer() {
 
 function check_login() {
   global $session;
-  if(!$session->isLoggedIn()) { redirect_to("login.php?url={$_SERVER['REQUEST_URI']}"); }
+  if(!$session->is_logged_in()) { redirect_to("login.php?url={$_SERVER['REQUEST_URI']}"); }
 }
 
 function redirect_to($location = NULL) {
@@ -31,19 +31,19 @@ function redirect_to($location = NULL) {
    }
 }
 
-function __autoload($className) {
-   $className = strtolower($className);
-   $path = LIB_ROOT.DS."models".DS."{$className}.php";
+function __autoload($class_name) {
+   $class_name = strtolower($class_name);
+   $path = LIB_ROOT.DS."models".DS."{$class_name}.php";
    if(file_exists($path)) {
       require_once($path);
    } else {
-      die("The file {$className}.php doesn't exist.");
+      die("The file {$class_name}.php doesn't exist.");
    }
 }
 
 function log_action($action, $message="") {
-   $logFile = SITE_ROOT.DS.'logs'.DS.'log.txt';
-   if($handle = fopen($logFile, 'a')) {
+   $log_file = SITE_ROOT.DS.'logs'.DS.'log.txt';
+   if($handle = fopen($log_file, 'a')) {
       $timestamp = strftime("%d-%m-%Y %H:%M:%S", time());
       $content = "{$timestamp} | {$action} - {$message}\n";
       fwrite($handle, $content);
@@ -55,13 +55,13 @@ function log_action($action, $message="") {
 function generate() {
    $length = 32;
    $string ="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-   $invitationCode = array();
+   $invitation_code = array();
    $i = 0;
    while($i<$length) {
-      $invitationCode[] = $string[rand(0, strlen($string))];
+      $invitation_code[] = $string[rand(0, strlen($string))];
       $i++;
    }
-   return join('', $invitationCode);
+   return join('', $invitation_code);
 }
 function include_layout($file) {
    include_once(SITE_ROOT.DS.'public'.DS.'layouts'.DS.$file);

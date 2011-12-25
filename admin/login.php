@@ -1,6 +1,6 @@
 <?php
 	include_once('../_/init.php');
-	if($session->isLoggedIn()) { redirect_to('.'); }
+	if($session->is_logged_in()) { redirect_to('.'); }
 	if(isset($_POST['submit'])) {
 		$username = trim($_POST['username']);
 		$password = trim($_POST['password']);
@@ -21,7 +21,7 @@
 
 <h1>Login</h1>
 
-<form method="post" name="login_form" class="login-form">
+<form method="post" name="login_form" class="login_form">
   <label for="username">Username</label>
   <input type="text" name="username" size="25" value="<?php echo htmlentities($username); ?>"/>
   <br />

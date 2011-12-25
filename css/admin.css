@@ -5,11 +5,11 @@
   margin-left: 0;
 }
 
-.login-form {
+.login_form {
   padding: 5px 20px;
 }
 
-.login-form label {
+.login_form label {
   display: inline-block;
   min-width: 100px;
   margin-bottom: 15px;

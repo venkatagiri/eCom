@@ -1,5 +1,5 @@
 <?php
-	require_once("../_/init.php");
+	require_once("/_/init.php");
   check_login();
 
   if(isset($_POST["submit"]) && $_POST["action"] == "add") {
@@ -22,7 +22,7 @@
     }
   }
 
-  $brands = Brand::findAll();
+  $brands = Brand::find_all();
 
 ?>
 <?php get_admin_header('Brands'); ?>

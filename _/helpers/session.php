@@ -1,37 +1,37 @@
 <?php
 class Session {
-   private $loggedIn = false;
-   public $userId;
+   private $logged_in = false;
+   public $user_id;
    public $msg;
    function __construct() {
       session_start();
-      $this->checkMsg();
-      $this->checkLogin();
+      $this->check_msg();
+      $this->check_login();
    }
-   public function checkLogin() {
-      if(isset($_SESSION['userId'])) {
-         $this->userId = $_SESSION['userId'];
-         $this->loggedIn = true;
+   public function check_login() {
+      if(isset($_SESSION['user_id'])) {
+         $this->user_id = $_SESSION['user_id'];
+         $this->logged_in = true;
       } else {
-         unset($this->userId);
-         $this->loggedIn = false;
+         unset($this->user_id);
+         $this->logged_in = false;
       }
    }
    public function login($user) {
       if($user) {
-         $this->userId = $_SESSION['userId'] = $user;
-         $this->loggedIn = true;
+         $this->user_id = $_SESSION['user_id'] = $user;
+         $this->logged_in = true;
       }
    }
    public function logout() {
-      unset($_SESSION['userId']);
-      unset($this->userId);
-      $this->loggedIn = false;
+      unset($_SESSION['user_id']);
+      unset($this->user_id);
+      $this->logged_in = false;
    }
-   public function isLoggedIn() {
-      return $this->loggedIn;
+   public function is_logged_in() {
+      return $this->logged_in;
    }
-   private function checkMsg() {
+   private function check_msg() {
       if(isset($_SESSION['msg'])) {
          $this->msg = $_SESSION['msg'];
          unset($_SESSION['msg']);

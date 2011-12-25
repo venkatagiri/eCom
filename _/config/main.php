@@ -1,5 +1,5 @@
 <?php
 
-define('BRAND_NAME','Ketan Electronics');
+define('STORE_NAME','RED Electronics Depot');
 
 ?>
