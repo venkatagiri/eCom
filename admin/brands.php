@@ -12,7 +12,7 @@
         $brand->name = $brand_name;
         if($brand->save()) {
           $session->message("$brand_name brand was created successfully.");
-          redirect_to("brands.php");
+          redirect_to("brands");
         } else {
           $message = "There was an error while saving the brand. Please try again!";
         }
@@ -64,6 +64,6 @@
   <?php endforeach; ?>
 </table>
 <br />
-<a href="brands.php" class="button">Add a New Brand</a>
+<a href="brands" class="button">Add a New Brand</a>
 
 <?php get_admin_footer(); ?>

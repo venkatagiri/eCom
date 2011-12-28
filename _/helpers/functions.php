@@ -21,7 +21,7 @@ function get_admin_footer() {
 
 function check_login() {
   global $session;
-  if(!$session->is_logged_in()) { redirect_to("login.php?url={$_SERVER['REQUEST_URI']}"); }
+  if(!$session->is_logged_in()) { redirect_to("login?url={$_SERVER['REQUEST_URI']}"); }
 }
 
 function redirect_to($location = NULL) {
