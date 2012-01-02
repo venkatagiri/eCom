@@ -29,7 +29,6 @@
 
 <h1>Brands</h1>
 
-<h2>Add a new Brand</h2>
 <form action="" method="post">
   <input type="hidden" name="action" value="add" />
   <input type="text" name="brand_name" value="" />

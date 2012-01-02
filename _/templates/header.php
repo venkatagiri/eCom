@@ -29,12 +29,12 @@
     <li class="category">
       <a href="#categories/mobiles">Mobiles</a>
       <table class="sub_nav"><tr><td class="col">
-        <h6>Categories</h6>
+        <h6 class="header">Categories</h6>
         <a href="#">Dual-Sim</a>
         <a href="#">Touch Screen</a>
         <a href="#">Music</a>
-      </td><td class="col">
-        <h6>Brands</h6>
+      </td><td class="col last">
+        <h6 class="header">Brands</h6>
         <a href="#">Nokia</a>
         <a href="#">Sony Ericsson</a>
         <a href="#">Apple</a>
@@ -43,12 +43,12 @@
     <li class="category">
       <a href="#categories/cameras">Cameras</a>
       <table class="sub_nav"><tr><td class="col">
-        <h6>Categories</h6>
+        <h6 class="header">Categories</h6>
         <a href="#">Dual-Sim</a>
         <a href="#">Touch Screen</a>
         <a href="#">Music</a>
-      </td><td class="col">
-        <h6>Brands</h6>
+      </td><td class="col last">
+        <h6 class="header">Brands</h6>
         <a href="#">Nokia</a>
         <a href="#">Sony Ericsson</a>
         <a href="#">Apple</a>
@@ -57,12 +57,12 @@
     <li class="category">
       <a href="#categories/computers">Computers</a>
       <table class="sub_nav"><tr><td class="col">
-        <h6>Categories</h6>
+        <h6 class="header">Categories</h6>
         <a href="#">Dual-Sim</a>
         <a href="#">Touch Screen</a>
         <a href="#">Music</a>
-      </td><td class="col">
-        <h6>Brands</h6>
+      </td><td class="col last">
+        <h6 class="header">Brands</h6>
         <a href="#">Nokia</a>
         <a href="#">Sony Ericsson</a>
         <a href="#">Apple</a>
@@ -71,26 +71,26 @@
     <li class="category">
       <a href="#categories/electronics">Electronics</a>
       <table class="sub_nav"><tr><td class="col">
-        <h6>Categories</h6>
+        <h6 class="header">Categories</h6>
         <a href="#">Dual-Sim</a>
         <a href="#">Touch Screen</a>
         <a href="#">Music</a>
-      </td><td class="col">
-        <h6>Brands</h6>
+      </td><td class="col last">
+        <h6 class="header">Brands</h6>
         <a href="#">Nokia</a>
         <a href="#">Sony Ericsson</a>
         <a href="#">Apple</a>
       </td></tr></table>
     </li>
     <li class="category">
-      <a href="#categories/home-appliances">Home Appliances</a>
+      <a href="#categories/home-appliances">Mobiles & Accessories</a>
       <table class="sub_nav"><tr><td class="col">
-        <h6>Categories</h6>
+        <h6 class="header">Categories</h6>
         <a href="#">Dual-Sim</a>
         <a href="#">Touch Screen</a>
         <a href="#">Music</a>
-      </td><td class="col">
-        <h6>Brands</h6>
+      </td><td class="col last">
+        <h6 class="header">Brands</h6>
         <a href="#">Nokia</a>
         <a href="#">Sony Ericsson</a>
         <a href="#">Apple</a>
