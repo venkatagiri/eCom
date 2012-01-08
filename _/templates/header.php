@@ -82,20 +82,6 @@
         <a href="#">Apple</a>
       </td></tr></table>
     </li>
-    <li class="category">
-      <a href="#categories/home-appliances">Mobiles & Accessories</a>
-      <table class="sub_nav"><tr><td class="col">
-        <h6 class="header">Categories</h6>
-        <a href="#">Dual-Sim</a>
-        <a href="#">Touch Screen</a>
-        <a href="#">Music</a>
-      </td><td class="col last">
-        <h6 class="header">Brands</h6>
-        <a href="#">Nokia</a>
-        <a href="#">Sony Ericsson</a>
-        <a href="#">Apple</a>
-      </td></tr></table>
-    </li>
   </ul>
 </nav>
 <div class="content">
