@@ -37,18 +37,7 @@
 
 <h3>There are <?php echo count($brands);  ?> brands.</h3>
 
-<style>
-  .brands {
-  }
-  .brands th, .brands td {
-    padding: 5px 10px;
-    border: 1px solid #BBB;
-  }
-  .brands td {
-    border-color: #DDD;
-  }
-</style>
-<table class="brands">
+<table class="table">
   <tr class="header">
     <th>Name</th>
     <th>Visible</th>

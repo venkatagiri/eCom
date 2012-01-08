@@ -11,6 +11,7 @@ class Base {
       $result_array = static::find_by_sql($sql);
       return !empty($result_array) ? $result_array[0] : false;
    }
+   
    static public function find_by_sql($sql) {
       global $db;
       $result_set = $db->query($sql);
@@ -20,12 +21,15 @@ class Base {
       }
       return $obj_array;
    }
+   
    static public function find_all() {
       return static::find_by_sql("SELECT * FROM ".static::$table_name);
    }
-   static public function count() {
+   
+   static public function count($where_clause="") {
       global $db;
       $sql = "SELECT COUNT(*) FROM ".static::$table_name;
+      if(!empty($where_clause)) $sql .= " WHERE ".$where_clause;
       $result_set = $db->query($sql);
       $row = $db->fetch_array($result_set);
       return array_shift($row);
@@ -41,10 +45,12 @@ class Base {
       }
       return $obj;
    }
+   
    private function has_attr($attr) {
       $object_vars = $this->attrs();
       return array_key_exists($attr, $object_vars);
    }
+   
    protected function attrs() {
       $attrs = array();
       foreach(static::$db_fields as $field) {
@@ -54,6 +60,7 @@ class Base {
       }
       return $attrs;
    }
+   
    protected function clean_attrs() {
       global $db;
       $clean_attrs = array();
@@ -62,9 +69,11 @@ class Base {
       }
       return $clean_attrs;
    }
+   
    public function save() {
       return isset($this->id)? $this->update() : $this->create();
    }
+   
    public function create() {
       global $db;
       $attrs = $this->clean_attrs();
@@ -80,6 +89,7 @@ class Base {
          return false;
       }
    }
+   
    public function update() {
       global $db;
       $attrs = $this->clean_attrs();
@@ -93,6 +103,7 @@ class Base {
       $db->query($sql);
       return ($db->affected_rows() == 1)? true : false ;
    }
+   
    public function delete() {
       global $db;
       $sql = "DELETE FROM ".static::$table_name;

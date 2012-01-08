@@ -11,11 +11,7 @@ class Brand extends Base {
   public $is_visible;
 
   static public function exists($brand_name) {
-    $sql = "SELECT count(1) FROM ".self::$table_name;
-    $sql .= " WHERE name='$brand_name'";
-    $result = self::find_by_sql($sql);
-    
-    return count($result) > 0 ? true : false;
+    return self::count("name='$brand_name'") > 0 ? true : false;
   }
 }
 ?>

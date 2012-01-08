@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF8" />
-  <title><?php echo ($g_title != "") ? $g_title." | " : ""; ?>eCom</title>
+  <title><?php echo ($g_title != "") ? $g_title." | " : ""; ?>Admin Panel | eCom</title>
   <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/fonts.css" type="text/css" />
   <link rel="stylesheet" href="/css/reset.css" type="text/css" />
