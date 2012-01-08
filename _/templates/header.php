@@ -1,8 +1,18 @@
 <!DOCTYPE html>
+<!-- 
+         ________         __         _________ 
+    ___  _\_____  \  ____ |  | _______\______  \
+    \  \/ / _(__  < /    \|  |/ /\__  \   /    /
+     \   / /       \   |  \    <  / __ \_/    / 
+      \_/ /______  /___|  /__|_ \(____  /____/  
+                 \/     \/     \/     \/        
+
+    Developed By Venkata Giri Reddy - http://v3nka7.tk/
+-->
 <html>
 <head>
   <meta charset="UTF8" />
-  <title><?php echo ($g_title != "") ? $g_title." | " : ""; ?>eCom</title>
+  <title><?php echo ($g_title != "") ? $g_title." | " : ""; ?><?php echo STORE_NAME; ?></title>
   <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/fonts.css" type="text/css" />
   <link rel="stylesheet" href="/css/reset.css" type="text/css" />
@@ -15,7 +25,7 @@
 </head>
 <body>
 <div id="extras"></div>
-<header>
+<header><div class="wrapper">
   <form method="GET" action="search">
     <input type="text" name="q" id="search_box"
       value="" size="25" placeholder="Search and you will find it..." />
@@ -23,9 +33,9 @@
   <h1><a href="/" title="Home">
     <?php echo STORE_NAME; ?>
   </a></h1>
-</header>
+</div></header>
 <nav>
-  <ul>
+  <ul class="wrapper">
     <li class="category">
       <a href="#categories/mobiles">Mobiles</a>
       <table class="sub_nav"><tr><td class="col">
@@ -33,7 +43,7 @@
         <a href="#">Dual-Sim</a>
         <a href="#">Touch Screen</a>
         <a href="#">Music</a>
-      </td><td class="col last">
+      </td><td class="col">
         <h6 class="header">Brands</h6>
         <a href="#">Nokia</a>
         <a href="#">Sony Ericsson</a>
@@ -47,7 +57,7 @@
         <a href="#">Dual-Sim</a>
         <a href="#">Touch Screen</a>
         <a href="#">Music</a>
-      </td><td class="col last">
+      </td><td class="col">
         <h6 class="header">Brands</h6>
         <a href="#">Nokia</a>
         <a href="#">Sony Ericsson</a>
@@ -61,7 +71,7 @@
         <a href="#">Dual-Sim</a>
         <a href="#">Touch Screen</a>
         <a href="#">Music</a>
-      </td><td class="col last">
+      </td><td class="col">
         <h6 class="header">Brands</h6>
         <a href="#">Nokia</a>
         <a href="#">Sony Ericsson</a>
@@ -75,7 +85,7 @@
         <a href="#">Dual-Sim</a>
         <a href="#">Touch Screen</a>
         <a href="#">Music</a>
-      </td><td class="col last">
+      </td><td class="col">
         <h6 class="header">Brands</h6>
         <a href="#">Nokia</a>
         <a href="#">Sony Ericsson</a>
@@ -84,4 +94,4 @@
     </li>
   </ul>
 </nav>
-<div class="content">
+<div class="content wrapper">

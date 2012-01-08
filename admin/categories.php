@@ -1,8 +1,8 @@
 <?php 
-	require_once("../_/init.php");
+  require_once("../_/init.php");
   check_login();
 ?>
-<?php get_admin_header('Admin'); ?>
+<?php get_admin_header('Categories'); ?>
 
 <h1>Categories</h1>
 

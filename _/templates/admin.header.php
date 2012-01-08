@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<!-- 
+         ________         __         _________ 
+    ___  _\_____  \  ____ |  | _______\______  \
+    \  \/ / _(__  < /    \|  |/ /\__  \   /    /
+     \   / /       \   |  \    <  / __ \_/    / 
+      \_/ /______  /___|  /__|_ \(____  /____/  
+                 \/     \/     \/     \/        
+
+    Developed By Venkata Giri Reddy - http://v3nka7.tk/
+-->
 <html>
 <head>
   <meta charset="UTF8" />
@@ -15,7 +25,7 @@
 </head>
 <body>
 <div id="extras"></div>
-<header>
+<header><div class="wrapper">
   <form method="GET" action="search">
     <input type="text" name="q" id="search_box"
       value="" size="25" placeholder="Search and you will find it..." />
@@ -23,9 +33,9 @@
   <h1><a href="/admin" title="Home">
     eCom<span> - admin panel </span>
   </a></h1>
-</header>
+</div></header>
 <nav>
-  <ul>
+  <ul class="wrapper">
     <li>
       <a href="brands">Brands</a>
     </li>
@@ -37,7 +47,7 @@
     </li>
   </ul>
 </nav>
-<div class="content">
+<div class="content wrapper">
 
   <?php if($message != "") { ?>
     <p class="message"><?php echo $message; ?></p>
