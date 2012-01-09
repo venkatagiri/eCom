@@ -32,7 +32,7 @@ h6 {font-size:1em;font-weight:bold;}
 
 /* header */
 header {
-  background: #FBFBFB;
+  background: #F8F8F8;
 }
 header h1, header span {
   display: inline-block;
@@ -54,8 +54,8 @@ header h1 span {
 /* nav */
 nav {
   background: #EEE;
-  border-top: 2px solid #EAEAEA;
-  border-bottom: 2px solid #EAEAEA;
+  border-top: 1px solid #EAEAEA;
+  border-bottom: 1px solid #EAEAEA;
 }
 nav .wrapper {
   padding: 0 20px;
@@ -189,8 +189,8 @@ aside .box {
 footer {
   min-height: 60px;
   background: #EEE;
-  border-top: 2px solid #EAEAEA;
-  border-bottom: 2px solid #EAEAEA;
+  color: #666;
+  border-top: 1px solid #EAEAEA;
 }
 footer .col {
   display: inline-block;
