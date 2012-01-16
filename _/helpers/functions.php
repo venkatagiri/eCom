@@ -24,6 +24,11 @@ function check_login() {
   if(!$session->is_logged_in()) { redirect_to("login?url={$_SERVER['REQUEST_URI']}"); }
 }
 
+function is_logged_in() {
+  global $session;
+  return $session->is_logged_in();
+}
+
 function redirect_to($location = NULL) {
    if($location != NULL) {
       header("Location: {$location}");

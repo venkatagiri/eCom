@@ -1,5 +1,9 @@
 /* Admin stylesheet */
 
+nav li.category > a {
+  cursor: default;
+}
+
 /* Table View */
 .table {
   width: 100%;
@@ -38,4 +42,29 @@
 }
 
 /* brands */
+
+/* categories */
+#root-node {
+  font-size: 16px;
+}
+.list > .node {
+  margin-left: 20px;
+}
+.node.closed > .list {
+  display: none;
+}
+.node > .header {
+  padding-left: 10px;
+  cursor: pointer;
+}
+.node.closed > .header{
+  background: url(/images/arrow-right.png) no-repeat 3px 5px;
+}
+.node.opened > .header{
+  background: url(/images/arrow-down.png) no-repeat 0 6px;
+}
+.node.leaf > .header {
+  cursor: default;
+  background: none;
+}
 

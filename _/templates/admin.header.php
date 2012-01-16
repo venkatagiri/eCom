@@ -37,14 +37,27 @@
 <nav>
   <ul class="wrapper">
     <li>
-      <a href="brands">Brands</a>
+      <a href="index">Dashboard</a>
+    </li>
+    <li class="category">
+      <a>Catalog</a>
+      <table class="sub_nav"><tr><td class="col">
+        <a href="products">Products</a>
+        <a href="categories">Categories</a>
+        <a href="brands">Brands</a>
+      </td></tr></table>
     </li>
     <li>
-      <a href="categories">Categories</a>
+      <a href="orders">Orders</a>
     </li>
     <li>
-      <a href="products">Products</a>
+      <a href="customers">customers</a>
     </li>
+    <?php if(is_logged_in()) { ?>
+    <li style="float: right;">
+      <a href="logout">Logout</a>
+    </li>
+    <?php } ?>
   </ul>
 </nav>
 <div class="content wrapper">

@@ -99,10 +99,11 @@ nav .sub_nav {
   margin-top: -1px;
   background: #FFF;
   border: 1px solid #EEE;
-  font-size: 90%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
 }
 nav .sub_nav .col{
-  padding: 5px 10px;
+  padding: 5px 10px 10px;
+  min-width: 100px;
 }
 nav .sub_nav .header {
   color: #666;
@@ -160,7 +161,7 @@ nav .sub_nav a:hover {
   min-height: 300px;
 }
 aside .box {
-  border: 1px solid #DDD;
+  border: 1px solid #EAEAEA;
   margin-bottom: 10px;
 }
 .box .header{
@@ -175,14 +176,14 @@ aside .box {
   font-size: 90%;
   display: block;
   padding: 3px 5px;
-  border-bottom: 1px solid #EAEAEA;
+  border-bottom: 1px solid #EEE;
 }
 .box .list a.last {
   border-bottom: 0;
 }
 .box a:hover {
   color: #FF7200;
-  background: #EAEAEA;
+  background: #EEE;
 }
 
 /* footer */
