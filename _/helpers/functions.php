@@ -17,11 +17,35 @@ function get_admin_header($_t = '') {
 function get_admin_footer() {
 	include(LIB_ROOT.DS."templates/admin.footer.php");
 }
+function build_categories_tree($parent) {
+  $tree = "";
+  $children = $parent->get_children();
+  
+  if(count($children) == 0) $tree .= "<li class=\"node leaf\">";
+  else if($parent->id == 1) $tree .= "<li class=\"node opened\">";
+  else $tree .= "<li class=\"node closed\">";
+  
+  $tree .= <<<EOF
+    <span class="toggle"></span>
+    <a href="show?id={$parent->id}" class="header">{$parent->name}</a>
+    <a href="new?parent_id={$parent->id}" title="Add a sub Category" class="add_category">+</a>
+    <ul class="list">
+EOF;
+  
+  foreach($children as $child) $tree .= build_categories_tree($child);
+  
+  $tree .= <<<EOF
+    </ul>
+  </li>
+EOF;
+  
+  return $tree;
+}
 /* .helpers */
 
 function check_login() {
   global $session;
-  if(!$session->is_logged_in()) { redirect_to("login?url={$_SERVER['REQUEST_URI']}"); }
+  if(!$session->is_logged_in()) { redirect_to("/admin/login?url={$_SERVER['REQUEST_URI']}"); }
 }
 
 function is_logged_in() {

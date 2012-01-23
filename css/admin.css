@@ -1,5 +1,6 @@
 /* Admin stylesheet */
 
+/* navigation */
 nav li.category > a {
   cursor: default;
 }
@@ -22,7 +23,7 @@ nav li.category > a {
 }
 
 
-/* Login Page */
+/* login */
 #login .content section {
   margin-left: 0;
 }
@@ -31,40 +32,52 @@ nav li.category > a {
   padding: 5px 20px;
 }
 
-.login_form label {
-  display: inline-block;
-  min-width: 100px;
-  margin-bottom: 15px;
-}
-
-.controls {
-  text-align: center;
-}
-
 /* brands */
 
 /* categories */
 #root-node {
   font-size: 16px;
+  line-height: 1;
 }
 .list > .node {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 .node.closed > .list {
   display: none;
 }
-.node > .header {
-  padding-left: 10px;
+
+.node > .toggle {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  vertical-align: middle;
+  padding: 0 5px;
   cursor: pointer;
 }
-.node.closed > .header{
-  background: url(/images/arrow-right.png) no-repeat 3px 5px;
+.node.closed > .toggle{
+  background: url(/images/arrow-right.png) no-repeat 8px 4px;
 }
-.node.opened > .header{
-  background: url(/images/arrow-down.png) no-repeat 0 6px;
+.node.opened > .toggle{
+  background: url(/images/arrow-down.png) no-repeat 5px 5px;
 }
-.node.leaf > .header {
-  cursor: default;
+.node.leaf > .toggle {
   background: none;
+  cursor: default;
 }
-
+.node > .header {
+  display: inline-block;
+  margin-left: -5px;
+  color: #333;
+}
+.node > .header:hover {
+  border-bottom-color: #FF7200;
+}
+.node a.add_category {
+  display: inline-block;
+  font-size: 1.5em;
+  line-height: 1;
+  vertical-align: middle;
+  margin-bottom: -2px;
+  border: 0;
+  padding: 0 2px;
+}

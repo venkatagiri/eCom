@@ -21,18 +21,28 @@
 
 <h1>Login</h1>
 
-<form method="post" name="login_form" class="login_form">
-  <label for="username">Username</label>
-  <input type="text" name="username" size="25" value="<?php echo htmlentities($username); ?>"/>
-  <br />
-  <label for="password">Password</label>
-  <input type="password" name="password" size="25" value="<?php echo htmlentities($password); ?>"/>
-  <br />
-  <label for="submit"> </label>
-  <input type="submit" name="submit" value="Log In" />
+<form method="post" name="login_form" class="form">
+  <div class="entry">
+    <label for="username">Username</label>
+    <input type="text" name="username" size="25" value="<?php echo htmlentities($username); ?>"/>
+  </div>
+  
+  <div class="entry">
+    <label for="password">Password</label>
+    <input type="password" name="password" size="25" value="<?php echo htmlentities($password); ?>"/>
+  </div>
+  
+  <div class="entry">
+    <label for="submit"> </label>
+    <input type="submit" name="submit" value="Log In" />
+  </div>
 </form>
 
 <script>
-  document.login_form.username.focus();
+  //document.login_form.username.focus();
+  document.login_form.username.value="ecom";
+  document.login_form.password.value="z";
+  //document.login_form.submit.click();
 </script>
+
 <?php get_admin_footer(); ?>

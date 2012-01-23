@@ -1,5 +1,5 @@
 <?php
-  require_once("../_/init.php");
+  require_once("../../_/init.php");
   check_login();
 
   if(isset($_POST["submit"]) && $_POST["action"] == "add") {

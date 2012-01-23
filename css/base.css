@@ -20,7 +20,8 @@ h3 {font-size:1.2em;line-height:1;margin-bottom:1em;}
 h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;}
 h5 {font-size:1em;font-weight:bold;margin-bottom:0.75em;}
 h6 {font-size:1em;font-weight:bold;}
-
+.left { float: left; }
+.right { float: right; }
 #extras {
   display: none;
   position: fixed;
@@ -54,8 +55,8 @@ header h1 span {
 /* nav */
 nav {
   background: #EEE;
-  border-top: 1px solid #EAEAEA;
-  border-bottom: 1px solid #EAEAEA;
+  border-top: 2px solid #EAEAEA;
+  border-bottom: 2px solid #EAEAEA;
 }
 nav .wrapper {
   padding: 0 20px;
@@ -219,7 +220,6 @@ a.button {
   margin: 2px 5px 2px 0;
   background: #EAEAEA;
   color: #474747;
-  font-size: 90%;
   cursor: hand;
 }
 a.button:hover {
@@ -232,19 +232,23 @@ a.button:active {
 }
 
 /* forms */
-label, input {
+label, input, textarea {
   font-family: adelle, georgia, sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
 }
-input[type=text], input[type=password] {
+.form input[type=text], .form input[type=password], .form textarea {
+  width: 250px; 
+}
+input[type=text], input[type=password], textarea {
   border: 1px solid #CCC;
   outline: 0;
   background: #FAFAFA;
   padding: 7px 8px 5px;
   margin: 0;
   color: #333;
-  font-size: 90%;
 }
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
   border: 1px solid #AAA;
   background: #FFF;
 }
@@ -255,20 +259,37 @@ input[type=button], input[type=submit] {
   margin: 2px 5px 2px 0;
   background: #EAEAEA;
   color: #474747;
-  font-size: 90%;
   min-width: 54px;
   text-align: center;
   border-radius: 2px;
 }
-input[type=button]:hover, input[type=submit]:hover, input[type=button]:focus, input[type=submit]:focus  {
-  background: #E2E2E2;
+input[type=button]:hover, input[type=submit]:hover, 
+input[type=button]:focus, input[type=submit]:focus  {
+  _background: #E2E2E2;
+  border: 1px solid #AAA;
   color: #474747;
-  box-shadow: 0 0 3px rgba(0, 0, 0, .4);
+  _box-shadow: 0 0 5px rgba(0, 0, 0, .2);
 }
 input[type=button]:active, input[type=submit]:active {
-  background: #DDD;
+  _background: #DDD;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .2) inset;
 }
 
+.form label {
+  display: inline-block;
+  padding: 7px 8px 5px;
+  min-width: 125px;
+  vertical-align: top;
+}
+.form .entry {
+  margin-bottom: 10px;
+}
+.form input[type=checkbox] {
+  margin: 10px 5px;
+}
+.form textarea {
+  resize: none;
+}
 /* misc */
 fieldset {
   border: 2px solid #AAA;

@@ -12,8 +12,9 @@
 <html>
 <head>
   <meta charset="UTF8" />
+  <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
   <title><?php echo ($g_title != "") ? $g_title." | " : ""; ?>Admin Panel | eCom</title>
-  <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" href="/css/fonts.css" type="text/css" />
   <link rel="stylesheet" href="/css/reset.css" type="text/css" />
   <link rel="stylesheet" href="/css/base.css" type="text/css" />
@@ -37,25 +38,25 @@
 <nav>
   <ul class="wrapper">
     <li>
-      <a href="index">Dashboard</a>
+      <a href="/admin/index">Dashboard</a>
     </li>
     <li class="category">
       <a>Catalog</a>
       <table class="sub_nav"><tr><td class="col">
-        <a href="products">Products</a>
-        <a href="categories">Categories</a>
-        <a href="brands">Brands</a>
+        <a href="/admin/products">Products</a>
+        <a href="/admin/categories">Categories</a>
+        <a href="/admin/brands">Brands</a>
       </td></tr></table>
     </li>
     <li>
-      <a href="orders">Orders</a>
+      <a href="/admin/orders">Orders</a>
     </li>
     <li>
-      <a href="customers">customers</a>
+      <a href="/admin/customers">customers</a>
     </li>
     <?php if(is_logged_in()) { ?>
-    <li style="float: right;">
-      <a href="logout">Logout</a>
+    <li class="right">
+      <a href="/admin/logout">Logout</a>
     </li>
     <?php } ?>
   </ul>
