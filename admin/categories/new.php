@@ -20,7 +20,7 @@
     $error = "Oops! Looks like something went wrong! ";
   } else {
     $parent_category = Category::find_by_id($_GET['parent_id']);
-    if(!$parent_category) {
+    if(!$parent_category || $parent_category->parent_id != 1) {
       $error = "Invalid Parent Category";
     }
   }
@@ -38,23 +38,23 @@
 
 <form method="post" name="form_category" class="form">
   <div class="entry">
-    <label for="name">Name</label>
+    <label for="category[name]">Name</label>
     <input type="text" name="category[name]" value="<?php echo $category->name; ?>"/>
   </div>
   
   <div class="entry">
-    <label for="description">Description</label>
+    <label for="category[description]">Description</label>
     <textarea name="category[description]" rows="3"><?php echo $category->description; ?></textarea>
   </div>
   
   <div class="entry">
-    <label for="parent_id">Parent Category</label>
+    <label for="category[parent_id]">Parent Category</label>
     <input type="hidden" name="category[parent_id]" value="<?php echo $parent_category->id; ?>" />
     <input type="text" name="parent_name" readonly value="<?php echo $parent_category->name; ?>"/>
   </div>
   
   <div class="entry">
-    <label for="visible">Visible?</label>
+    <label for="category[visible]">Visible?</label>
     <input type="checkbox" name="category[visible]" value="1" <?php if($category->visible == '1') { ?>checked="checked" <?php } ?> />
   </div>
   

@@ -37,7 +37,6 @@
 
 <?php } else {?>
 
-<h2><?php echo $category->name; ?></h2>
 <form method="post" name="form_category" class="form">
   <div class="entry">
     <label for="name">Name</label>
@@ -52,7 +51,7 @@
   <div class="entry">
     <label for="parent_id">Parent Category</label>
     <input type="hidden" name="category[parent_id]" value="<?php echo $category->parent_id; ?>" />
-    <input type="text" name="parent_category_name" readonly value="<?php echo $category->get_parent()->name; ?>"/>
+    <input type="text" name="parent_category_name" readonly value="<?php echo $category->parent()->name; ?>"/>
   </div>
   
   <div class="entry">
@@ -62,7 +61,7 @@
   
   <div class="entry">
     <label for="submit"> </label>
-    <input type="submit" name="submit" value="Create" />
+    <input type="submit" name="submit" value="Save" />
   </div>
 </form>
 

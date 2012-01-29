@@ -1,5 +1,4 @@
 <?php
-require_once('database.php');
 
 class Base {
 
@@ -118,5 +117,7 @@ class Base {
     $db->query($sql);
     return ($db->affected_rows() == 1)? true : false ;
   }
+  
 }
+
 ?>
