@@ -1,6 +1,6 @@
 <?php
 
-define('DEBUG', false);
+define('DEBUG', true);
 define('STORE_NAME','Red Electronics Depot');
 
 ?>
