@@ -2,7 +2,7 @@ body {
   background: #FFF;
   overflow-y: scroll;
 
-  font: 0.9em/1.5 adelle, georgia, sans-serif;
+  font: 0.95em/1.2 adelle, georgia, sans-serif;
   color: #333;
 }
 .wrapper {
@@ -103,7 +103,7 @@ nav .sub_nav {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
 }
 nav .sub_nav .col{
-  padding: 5px 10px 10px;
+  padding: 10px;
   min-width: 100px;
 }
 nav .sub_nav .header {
@@ -133,7 +133,7 @@ nav .sub_nav a:hover {
   padding: 7px 30px 5px 10px;
   margin-top: 8px;
   color: #333;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 /* content */
@@ -145,7 +145,7 @@ nav .sub_nav a:hover {
 }
 .content a:not([class=button]):hover {
   color: #333; 
-  border-bottom-color: #FF2700; 
+  border-bottom-color: #FF7200; 
 }
 .content section::after {
   content: '';
@@ -167,7 +167,7 @@ aside .box {
 }
 .box .header{
   background: #EAEAEA;
-  padding: 3px 10px;
+  padding: 5px 10px;
   font-weight: normal;
 }
 .box .list {
@@ -176,7 +176,7 @@ aside .box {
 .box a {
   font-size: 90%;
   display: block;
-  padding: 3px 5px;
+  padding: 5px;
   border-bottom: 1px solid #EEE;
 }
 .box .list a.last {
@@ -185,6 +185,7 @@ aside .box {
 .box a:hover {
   color: #FF7200;
   background: #EEE;
+  border-bottom-color: #EEE !important;
 }
 
 /* footer */
@@ -216,35 +217,44 @@ footer .signature a {
 a.button {
   display: inline-block;
   border: 1px solid #CCC;
-  padding: 7px 8px 5px;
+  padding: 5px 8px 3px;
   margin: 2px 5px 2px 0;
   background: #EAEAEA;
   color: #474747;
-  cursor: hand;
+  min-width: 54px;
+  text-align: center;
+  border-radius: 2px;
 }
 a.button:hover {
-  background: #E2E2E2;
+  border: 1px solid #AAA;
   color: #474747;
-  box-shadow: 0 0 3px rgba(0, 0, 0, .4);
+  border-bottom-color: #AAA !important;
 }
 a.button:active {
-  background: #DDD;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .2) inset;
 }
 
 /* forms */
-label, input, textarea {
+label, input, textarea, select {
   font-family: adelle, georgia, sans-serif;
   font-size: 100%;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 .form input[type=text], .form input[type=password], .form textarea {
   width: 250px; 
+}
+.form select, .form option, .form optgroup {
+  font-size: 15px;
+  background: #EEE;
+  border: 1px solid #CCC;
+  padding: 3px 5px 1px;
+  margin: 5px 0 0;
 }
 input[type=text], input[type=password], textarea {
   border: 1px solid #CCC;
   outline: 0;
   background: #FAFAFA;
-  padding: 7px 8px 5px;
+  padding: 5px 8px 3px;
   margin: 0;
   color: #333;
 }
@@ -255,7 +265,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 input[type=button], input[type=submit] {
   display: inline-block;
   border: 1px solid #CCC;
-  padding: 7px 8px 5px;
+  padding: 5px 8px 3px;
   margin: 2px 5px 2px 0;
   background: #EAEAEA;
   color: #474747;
@@ -265,19 +275,16 @@ input[type=button], input[type=submit] {
 }
 input[type=button]:hover, input[type=submit]:hover, 
 input[type=button]:focus, input[type=submit]:focus  {
-  _background: #E2E2E2;
   border: 1px solid #AAA;
   color: #474747;
-  _box-shadow: 0 0 5px rgba(0, 0, 0, .2);
 }
 input[type=button]:active, input[type=submit]:active {
-  _background: #DDD;
   box-shadow: 0 0 5px rgba(0, 0, 0, .2) inset;
 }
 
 .form label {
   display: inline-block;
-  padding: 7px 8px 5px;
+  padding: 5px 8px 3px;
   min-width: 125px;
   vertical-align: top;
 }
