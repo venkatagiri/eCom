@@ -35,64 +35,7 @@
     <?php echo STORE_NAME; ?>
   </a></h1>
 </div></header>
-<nav>
-  <ul class="wrapper">
-    <li class="category">
-      <a href="#categories/mobiles">Mobiles</a>
-      <table class="sub_nav"><tr><td class="col">
-        <h6 class="header">Categories</h6>
-        <a href="#">Dual-Sim</a>
-        <a href="#">Touch Screen</a>
-        <a href="#">Music</a>
-      </td><td class="col">
-        <h6 class="header">Brands</h6>
-        <a href="#">Nokia</a>
-        <a href="#">Sony Ericsson</a>
-        <a href="#">Apple</a>
-      </td></tr></table>
-    </li>
-    <li class="category">
-      <a href="#categories/cameras">Cameras</a>
-      <table class="sub_nav"><tr><td class="col">
-        <h6 class="header">Categories</h6>
-        <a href="#">Dual-Sim</a>
-        <a href="#">Touch Screen</a>
-        <a href="#">Music</a>
-      </td><td class="col">
-        <h6 class="header">Brands</h6>
-        <a href="#">Nokia</a>
-        <a href="#">Sony Ericsson</a>
-        <a href="#">Apple</a>
-      </td></tr></table>
-    </li>
-    <li class="category">
-      <a href="#categories/computers">Computers</a>
-      <table class="sub_nav"><tr><td class="col">
-        <h6 class="header">Categories</h6>
-        <a href="#">Dual-Sim</a>
-        <a href="#">Touch Screen</a>
-        <a href="#">Music</a>
-      </td><td class="col">
-        <h6 class="header">Brands</h6>
-        <a href="#">Nokia</a>
-        <a href="#">Sony Ericsson</a>
-        <a href="#">Apple</a>
-      </td></tr></table>
-    </li>
-    <li class="category">
-      <a href="#categories/electronics">Electronics</a>
-      <table class="sub_nav"><tr><td class="col">
-        <h6 class="header">Categories</h6>
-        <a href="#">Dual-Sim</a>
-        <a href="#">Touch Screen</a>
-        <a href="#">Music</a>
-      </td><td class="col">
-        <h6 class="header">Brands</h6>
-        <a href="#">Nokia</a>
-        <a href="#">Sony Ericsson</a>
-        <a href="#">Apple</a>
-      </td></tr></table>
-    </li>
-  </ul>
-</nav>
+
+<?php include_once('navigation.php'); ?>
+
 <div class="content wrapper">
