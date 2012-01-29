@@ -1,6 +1,11 @@
 <?php
 /* helpers */
 
+// Used to sanitize the input provided, before using in a query.
+function __($text) {
+  global $db;
+  return $db->prepare_value($text);
+}
 function get_header($_t = '') {
   global $message;
 	$g_title = $_t;
@@ -17,30 +22,54 @@ function get_admin_header($_t = '') {
 function get_admin_footer() {
 	include(LIB_ROOT.DS."templates/admin.footer.php");
 }
-function build_categories_tree($parent) {
-  $tree = "";
-  $children = $parent->get_children();
+function list_brands($selected="-1") {
+  $brands = Brand::find_all_sorted();
+  $output = "<select name=\"product[brand_id]\">";
+  if(count($brands) == 0) {
+    $output .= "<option value=\"0\">No Brands Available</option>";
+  } else {
+    $output .= "<option value=\"0\">Select a Brand</option>";
+    foreach($brands as $brand) {
+      $output .= "<option value=\"{$brand->id}\"";
+      if($selected == $brand->id) $output .= " selected=selected ";
+      $output .= ">{$brand->name}</option>";
+    }
+  }
+  $output .= "</select>";
   
-  if(count($children) == 0) $tree .= "<li class=\"node leaf\">";
-  else if($parent->id == 1) $tree .= "<li class=\"node opened\">";
-  else $tree .= "<li class=\"node closed\">";
-  
-  $tree .= <<<EOF
-    <span class="toggle"></span>
-    <a href="show?id={$parent->id}" class="header">{$parent->name}</a>
-    <a href="new?parent_id={$parent->id}" title="Add a sub Category" class="add_category">+</a>
-    <ul class="list">
-EOF;
-  
-  foreach($children as $child) $tree .= build_categories_tree($child);
-  
-  $tree .= <<<EOF
-    </ul>
-  </li>
-EOF;
-  
-  return $tree;
+  return $output;
 }
+function list_categories($selected="-1") {
+  $main_categories = Category::root_category()->children();
+  $output = "<select name=\"product[category_id]\">";
+  $output .= "<option value=\"0\">Select a Category</option>";
+  foreach($main_categories as $main_category) {
+    $output .= "<optgroup label=\"{$main_category->name}\">";
+    foreach($main_category->children() as $sub_category) {
+      $output .= "<option value=\"{$sub_category->id}\"";
+      if($selected == $sub_category->id) $output .= " selected=selected ";
+      $output .= ">{$sub_category->name}</option>";
+    }
+    $output .= "</optgroup>";
+  }
+  $output .= "</select>";
+  
+  return $output;
+}
+function list_main_categories($selected="-1") {
+  $main_categories = Category::root_category()->children();
+  $output = "<select name=\"brand[categories]\">";
+  $output .= "<option value=\"0\">Select a Category</option>";
+  foreach($main_categories as $main_category) {
+    $output .= "<option value=\"{$main_category->id}\"";
+    if($selected == $main_category->id) $output .= " selected=selected ";
+    $output .= ">{$main_category->name}</option>";
+  }
+  $output .= "</select>";
+  
+  return $output;
+}
+
 /* .helpers */
 
 function check_login() {
