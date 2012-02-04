@@ -2,7 +2,7 @@
   require_once("../../_/init.php");
   check_login();
   
-  if(isset($_POST['submit'])) {
+  if(isset($_POST['create'])) {
     $product = Product::make($_POST['product']);
     
     if($product->create()) {
@@ -58,7 +58,7 @@
   
   <div class="entry">
     <label for="submit"> </label>
-    <input type="submit" name="submit" value="Create" />
+    <input type="submit" name="create" value="Create" />
   </div>
   
 </form>

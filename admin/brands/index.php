@@ -3,12 +3,21 @@
   check_login();
 
   $brands = Brand::find_all();
+  
+  if(empty($brands)) {
+    $error = "No Brands to show";
+  }
 
 ?>
 <?php get_admin_header('Brands'); ?>
 
-<a href="new" title="Add a new Brand" class="button right" style="font-size:90%;">Add a new Brand</a>
-<h1>Brands&nbsp;<a href="new" style="border:0" title="Add a new Brand">+</a></h1>
+<h1>Brands<a href="new" class="new" title="Add a new Brand">+</a></h1>
+
+<?php if(isset($error)) { ?>
+
+<div class="error"><?php echo $error; ?></div>
+
+<?php } else {?>
 
 <table class="table">
   <tr class="header">
@@ -28,5 +37,7 @@
   </tr>
   <?php endforeach; ?>
 </table>
+
+<?php } ?>
 
 <?php get_admin_footer(); ?>

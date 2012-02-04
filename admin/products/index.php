@@ -3,10 +3,20 @@
   check_login();
   
   $products = Product::find_all();
+  
+  if(empty($products)) {
+    $error = "No Products to show";
+  }
 ?>
 <?php get_admin_header('Products'); ?>
 
-<h1>Products&nbsp;<a href="new" style="border:0" title="Add a new Product">+</a></h1>
+<h1>Products<a href="new" class="new" title="Add a new Product">+</a></h1>
+
+<?php if(isset($error)) { ?>
+
+<div class="error"><?php echo $error; ?></div>
+
+<?php } else {?>
 
 <table class="table">
   <tr class="header">
@@ -31,5 +41,6 @@
   <?php endforeach; ?>
 </table>
 
+<?php } ?>
 
 <?php get_admin_footer(); ?>

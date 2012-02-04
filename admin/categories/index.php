@@ -22,7 +22,6 @@ window.onload = function() {
 };
 </script>
 
-  
 <ul id="root-node" class="list">
   <li class="node opened">
     <span class="toggle"></span>

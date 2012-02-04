@@ -2,7 +2,7 @@
   require_once("../../_/init.php");
   check_login();
   
-  if(isset($_POST['submit'])) {
+  if(isset($_POST['create'])) {
     $brand = Brand::make($_POST['brand']);
     
     if($brand->create()) {
@@ -29,7 +29,7 @@
   
   <div class="entry">
     <label for="brand[description]">Description</label>
-    <textarea name="brand[description]" rows="3"><?php echo $brand->description; ?></textarea>
+    <textarea name="brand[description]" rows="4"><?php echo $brand->description; ?></textarea>
   </div>
   
   <div class="entry">
@@ -44,7 +44,7 @@
   
   <div class="entry">
     <label for="submit"> </label>
-    <input type="submit" name="submit" value="Create" />
+    <input type="submit" name="create" value="Create" />
   </div>
 </form>
 

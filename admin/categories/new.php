@@ -2,7 +2,7 @@
   require_once("../../_/init.php");
   check_login();
   
-  if(isset($_POST['submit'])) {
+  if(isset($_POST['create'])) {
     $category = Category::make($_POST['category']);
     
     if($category->create()) {
@@ -32,7 +32,7 @@
 
 <?php if(isset($error)) { ?>
 
-<h2><?php echo $error; ?></h2>
+<div class="error"><?php echo $error; ?></div>
 
 <?php } else {?>
 
@@ -44,7 +44,7 @@
   
   <div class="entry">
     <label for="category[description]">Description</label>
-    <textarea name="category[description]" rows="3"><?php echo $category->description; ?></textarea>
+    <textarea name="category[description]" rows="4"><?php echo $category->description; ?></textarea>
   </div>
   
   <div class="entry">
@@ -60,7 +60,7 @@
   
   <div class="entry">
     <label for="submit"> </label>
-    <input type="submit" name="submit" value="Create" />
+    <input type="submit" name="create" value="Create" />
   </div>
 </form>
 
