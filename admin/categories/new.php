@@ -20,7 +20,7 @@
     $error = "Oops! Looks like something went wrong! ";
   } else {
     $parent_category = Category::find_by_id($_GET['parent_id']);
-    if(!$parent_category || $parent_category->parent_id != 1) {
+    if(!$parent_category || ($parent_category->parent_id != 1 && $parent_category->id != 1)) {
       $error = "Invalid Parent Category";
     }
   }
