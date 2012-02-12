@@ -2,7 +2,7 @@
 
 class Base {
 
-  static public function find_by_where($where = '1 = 1') {
+  static public function find_where($where = '1 = 1') {
     $sql = "SELECT * FROM ".static::$table_name;
     $sql .= " WHERE ".$where;
     return static::find_by_sql($sql);

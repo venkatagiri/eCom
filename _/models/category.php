@@ -22,8 +22,12 @@ class Category extends Base {
     return self::find_by_id(1);
   }
   
+  static public function main_categories() {
+    return self::root_category()->children();
+  }
+  
   public function children() {
-    return self::find_by_where('parent_id='.$this->id);
+    return self::find_where('parent_id='.$this->id);
   }
   
   public function parent() {
@@ -31,7 +35,7 @@ class Category extends Base {
   }
   
   public function brands() {
-    return Brand::find_by_where("categories like '%{$this->id}%'");
+    return Brand::find_where("categories like '%{$this->id}%'");
   }
   
 }
