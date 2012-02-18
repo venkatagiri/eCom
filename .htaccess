@@ -7,9 +7,25 @@ BrowserMatch ^Mozilla/4.0[678] no-gzip
 BrowserMatch bMSIE !no-gzip !gzip-only-text/html
 
 <IfModule mod_rewrite.c>
-RewriteEngine on
-# If requested URL-path plus ".php" exists as a file
-RewriteCond %{DOCUMENT_ROOT}/$1.php -f
-# Rewrite to append ".php" to extensionless URL-path
-RewriteRule ^(([^/]+/)*[^.]+)$ /$1.php [L]
+  RewriteEngine on
+  
+  # User (and SEO) friendly URLs.
+  # Used for main categories.
+  RewriteCond %{QUERY_STRING} ^(.*)$
+  RewriteRule ^categories.php/.*/([0-9]+)$ categories.php?cid=$1&%1 [L]
+  
+  # Used for sub-categories.
+  RewriteCond %{QUERY_STRING} ^(.*)$
+  RewriteRule ^categories.php/.*/.*/([0-9]+)$ categories.php?cid=$1&%1 [L]
+    
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  
+  # If requested URL-path plus ".php" exists as a file
+  RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+  # Rewrite to append ".php" to extensionless URL-path
+  RewriteRule ^(([^/]+/)*[^.]+)$ /$1.php [L]
+  
 </IfModule>
