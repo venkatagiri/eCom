@@ -202,6 +202,7 @@ footer .col a:hover {
 }
 footer .signature {
   float: right;
+  font-size: 89%;
 }
 footer .signature a {
   font-weight: bold;
