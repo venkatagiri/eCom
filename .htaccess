@@ -10,6 +10,15 @@ BrowserMatch bMSIE !no-gzip !gzip-only-text/html
   RewriteEngine on
   
   # User (and SEO) friendly URLs.
+  RewriteCond %{QUERY_STRING} ^(.*)$
+  RewriteRule ^products.php/.*/([0-9]+)$ products.php?pid=$1&%1 [L]
+  
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  
+  # User (and SEO) friendly URLs.
   # Used for main categories.
   RewriteCond %{QUERY_STRING} ^(.*)$
   RewriteRule ^categories.php/.*/([0-9]+)$ categories.php?cid=$1&%1 [L]
