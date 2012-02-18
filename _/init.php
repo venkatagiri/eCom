@@ -7,11 +7,13 @@ define('SITE_ROOT', dirname(LIB_ROOT));
 // Configuration Entries
 require_once(LIB_ROOT.DS.'config/db.php');
 require_once(LIB_ROOT.DS.'config/main.php');
+require_once(LIB_ROOT.DS.'config/defs.php');
 
 // Helpers
 require_once(LIB_ROOT.DS.'helpers/functions.php');
 require_once(LIB_ROOT.DS.'helpers/pagination.php');
 require_once(LIB_ROOT.DS.'helpers/session.php');
+require_once(LIB_ROOT.DS.'helpers/uploader.php');
 
 // Models
 require_once(LIB_ROOT.DS.'models/database.php');
