@@ -4,7 +4,6 @@
   
   if(isset($_POST['save'])) {
     $product = Product::make($_POST['product']);
-    $product->id = $_GET['id'];
     
     if($product->save()) {
       $session->message("Product '{$product->name}' was updated successfully!");
@@ -33,6 +32,8 @@
 <?php } else {?>
 
 <form method="post" name="form_product" class="form">
+  <input type="hidden" name="product[id]" value="<?php echo $product->id; ?>" />
+  <input type="hidden" name="product[image]" value="<?php echo $product->image; ?>" />
   <div class="entry">
     <label for="product[name]">Name</label>
     <input type="text" name="product[name]" value="<?php echo $product->name; ?>"/>
@@ -40,7 +41,7 @@
   
   <div class="entry">
     <label for="description">Description</label>
-    <textarea name="product[description]" rows="4"><?php echo $product->description; ?></textarea>
+    <textarea name="product[description]" rows="6"><?php echo $product->description; ?></textarea>
   </div>
   
   <div class="entry">
@@ -71,6 +72,7 @@
   <div class="entry">
     <label for="submit"> </label>
     <input type="submit" name="save" value="Save" />
+    <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/products'" />
   </div>
   
 </form>

@@ -1,15 +1,23 @@
 <?php 
   require_once("../../_/init.php");
   check_login();
+  define('PRODUCT_PATH', SITE_ROOT.'/assets/p');
   
   if(isset($_POST['create'])) {
     $product = Product::make($_POST['product']);
+    $uploader = new Uploader($_FILES['product-image'], PRODUCT_PATH);
     
-    if($product->create()) {
-      $session->message("Product '{$product->name}' was created successfully!");
-      redirect_to("show?id={$product->id}");
+    if($uploader->is_uploaded()) {
+      $product->image = $uploader->file_name;
+      
+      if($product->create()) {
+        $session->message("Product '{$product->name}' was created successfully!");
+        redirect_to("show?id={$product->id}");
+      } else {
+        $message = "Product creation failed! Please try again after sometime!";
+      }
     } else {
-      $message = "Product creation failed! Please try again after sometime!";
+      $message = $uploader->errors.join(', ');
     }
   } else {
     $product = new Product();
@@ -20,15 +28,20 @@
 
 <h1>Products / New</h1>
 
-<form method="post" name="form_product" class="form">
+<form method="post" enctype="multipart/form-data" name="form_product" class="form">
   <div class="entry">
     <label for="product[name]">Name</label>
     <input type="text" name="product[name]" value="<?php echo $product->name; ?>"/>
   </div>
   
   <div class="entry">
-    <label for="description">Description</label>
-    <textarea name="product[description]" rows="4"><?php echo $product->description; ?></textarea>
+    <label for="product[description]">Description</label>
+    <textarea name="product[description]" rows="6"><?php echo $product->description; ?></textarea>
+  </div>
+  
+  <div class="entry">
+    <label for="product[image]">Image</label>
+    <input type="file" name="product-image" />
   </div>
   
   <div class="entry">
@@ -59,6 +72,7 @@
   <div class="entry">
     <label for="submit"> </label>
     <input type="submit" name="create" value="Create" />
+    <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/products'" />
   </div>
   
 </form>
