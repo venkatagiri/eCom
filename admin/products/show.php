@@ -14,10 +14,12 @@
   } else if(isset($_GET['id']) && $_GET['id'] != "") {
     $product = Product::find_by_id($_GET['id']);
     if(!$product) {
-      $error = "Invalid Product ID. Please go back and try again!";
+      echo "404";
+      return;
     }
   } else {
-    $error = "Oops! Looks like something went wrong! ";
+    echo "404";
+    return;
   }
   
 ?>

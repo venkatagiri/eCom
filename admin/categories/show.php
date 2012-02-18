@@ -10,19 +10,20 @@
       $session->message("Category '$name' was saved successfully!");
       redirect_to("show?id={$category->id}");
     } else {
-      $message = "An error occured while saving! Please try again after sometime!";
-      echo $db->last_query();
+      $error = "An error occured while saving! Please try again after sometime!";
     }
   }
   
   if(!isset($_GET['id'])) {
-    $error = "Oops! Looks like something went wrong! ";
+    echo "404";
+    return;
   } else if($_GET['id'] == 1) {
     $error = "Root category cannot be modified!";
   } else {
     $category = Category::find_by_id($_GET['id']);
     if(!$category) {
-      $error = "Invalid Category ID. Please go back and try again!";
+      echo "404";
+      return;
     }
   }
   
@@ -62,6 +63,7 @@
   <div class="entry">
     <label for="submit"> </label>
     <input type="submit" name="save" value="Save" />
+    <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/categories'" />
   </div>
 </form>
 

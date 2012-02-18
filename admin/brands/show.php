@@ -15,10 +15,12 @@
   } else if(isset($_GET['id']) && $_GET['id'] != "") {
     $brand = Brand::find_by_id($_GET['id']);
     if(!$brand) {
-      $error = "Invalid Brand ID. Please go back and try again!";
+      echo "404";
+      return;
     }
   } else {
-    $error = "Oops! Looks like something went wrong! ";
+    echo "404";
+    return;
   }
   
 ?>
@@ -56,6 +58,7 @@
   <div class="entry">
     <label for="submit"> </label>
     <input type="submit" name="save" value="Save" />
+    <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/brands'" />
   </div>
 </form>
 

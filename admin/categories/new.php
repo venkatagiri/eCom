@@ -61,6 +61,7 @@
   <div class="entry">
     <label for="submit"> </label>
     <input type="submit" name="create" value="Create" />
+    <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/categories'" />
   </div>
 </form>
 
