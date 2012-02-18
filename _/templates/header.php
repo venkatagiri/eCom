@@ -38,4 +38,4 @@
 
 <?php include_once('navigation.php'); ?>
 
-<div class="content wrapper">
+<div class="content wrapper <?php echo strtolower(array_pop(explode('|', $g_title))).'-page'; ?>">
