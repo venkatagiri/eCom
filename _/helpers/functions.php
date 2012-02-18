@@ -6,6 +6,9 @@ function __($text) {
   global $db;
   return $db->prepare_value($text);
 }
+function get_key($str) {
+  return str_replace(' ', '-', trim(strtolower($str)));
+}
 function get_header($_t = '') {
   global $message;
 	$g_title = $_t;
@@ -110,16 +113,15 @@ function log_action($action, $message="") {
       echo "Could not open the file";
    }
 }
-function generate() {
-   $length = 32;
+function random_string($length = 6) {
    $string ="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-   $invitation_code = array();
+   $random_string = array();
    $i = 0;
-   while($i<$length) {
-      $invitation_code[] = $string[rand(0, strlen($string))];
+   while($i < $length) {
+      $random_string[] = $string[rand(0, strlen($string))];
       $i++;
    }
-   return join('', $invitation_code);
+   return join('', $random_string);
 }
 function include_layout($file) {
    include_once(SITE_ROOT.DS.'public'.DS.'layouts'.DS.$file);
