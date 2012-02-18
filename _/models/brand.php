@@ -2,17 +2,21 @@
 
 class Brand extends Base {
   static protected $table_name = "brands";
-  static protected $db_fields = array('id', 'name', 'description', 'categories', 'visible');
+  static protected $db_fields = array('id', 'name', 'description', 'image',
+        'categories', 'visible');
   public $id;
   public $name;
   public $description;
+  public $image;
   public $categories;
   public $visible;
   
   static public function make($b) {
     $brand = new Brand();
+    if(isset($b['id'])) $brand->id = $b['id'];
     $brand->name = $b['name'];
     $brand->description = $b['description'];
+    $brand->image = @$b['image'];
     $brand->categories = $b['categories'];
     $brand->visible = $b['visible'] == '1' ? 1 : 0;
     return $brand;

@@ -2,19 +2,23 @@
 
 class Category extends Base {
   static protected $table_name = "categories";
-  static protected $db_fields = array('id', 'name', 'description', 'parent_id', 'visible');
+  static protected $db_fields = array('id', 'name', 'description', 'image',
+         'parent_id', 'visible');
   public $id;
   public $name;
   public $description;
+  public $image;
   public $parent_id;
   public $visible;
   
   static public function make($cat) {
     $category = new Category();
-    $category->name = $cat['name'];
-    $category->description = $cat['description'];
-    $category->parent_id = $cat['parent_id'];
-    $category->visible = $cat['visible'] == '1' ? 1 : 0;
+    if(isset($c['id'])) $category->id = $c['id'];
+    $category->name = $c['name'];
+    $category->description = $c['description'];
+    $category->image = @$c['image'];
+    $category->parent_id = $c['parent_id'];
+    $category->visible = $c['visible'] == '1' ? 1 : 0;
     return $category;
   }
   
