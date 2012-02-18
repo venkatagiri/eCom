@@ -11,7 +11,7 @@ class Category extends Base {
   public $parent_id;
   public $visible;
   
-  static public function make($cat) {
+  static public function make($c) {
     $category = new Category();
     if(isset($c['id'])) $category->id = $c['id'];
     $category->name = $c['name'];
