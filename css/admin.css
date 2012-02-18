@@ -1,5 +1,15 @@
 /* Admin stylesheet */
 
+.content h1 .new {
+  display: inline-block;
+  vertical-align: top;
+  margin: -2px 0 0 5px;
+}
+.content h1 .new:hover {
+  text-decoration: none;
+  color: #333;
+}
+
 /* navigation */
 nav li.category > a {
   cursor: default;
@@ -73,11 +83,10 @@ nav li.category > a {
   border-bottom-color: #FF7200;
 }
 .node a.add_category {
-  display: inline-block;
-  font-size: 1.5em;
-  line-height: 1;
-  vertical-align: middle;
-  margin-bottom: -2px;
+  font-size: 1.4em;
   border: 0;
-  padding: 0 2px;
+}
+.node a.add_category:hover {
+  text-decoration: none;
+  color: #333;
 }
