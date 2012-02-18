@@ -2,18 +2,7 @@
 </div>
 <footer><div class="wrapper">
   <p class="signature">Developed By <a href="http://v3nka7.tk">Venkata Giri Reddy</a></p>
-  <div class="col">
-    <h6>Help</h6>
-    <a href="#help_link">Help Link</a> <br />
-    <a href="#help_link">Help Link</a> <br />
-    <a href="#help_link">Help Link</a>
-  </div>
-  <div class="col">
-    <h6>Misc</h6>
-    <a href="#misc_link">Misc Link</a> <br />
-    <a href="#misc_link">Misc Link</a> <br />
-    <a href="#misc_link">Misc Link</a>
-  </div>
+  <a href="/help">Help</a><span style="margin:0 5px;">|</span><a href="/contact">Contact</a>
 </div></footer>
 </body>
 </html>
