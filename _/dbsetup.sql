@@ -35,4 +35,4 @@ CREATE TABLE products (
 );
 
 -- DML
-INSERT INTO categories VALUES(null, 'Root Category', 'The root category', 0, 1);
+INSERT INTO categories VALUES(null, 'Root Category', 'The root category', '', 0, 1);
