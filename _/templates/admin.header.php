@@ -11,10 +11,10 @@
 -->
 <html>
 <head>
-  <meta charset="UTF8" />
+  <meta charset="UTF-8" />
   <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
   <title><?php echo ($g_title != "") ? $g_title." | " : ""; ?>Admin Panel | eCom</title>
-  <!-- <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'> -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Merienda+One|Asap' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" href="/css/fonts.css" type="text/css" />
   <link rel="stylesheet" href="/css/reset.css" type="text/css" />
   <link rel="stylesheet" href="/css/base.css" type="text/css" />
@@ -27,7 +27,7 @@
 <body>
 <div id="extras"></div>
 <header><div class="wrapper">
-  <form method="GET" action="search">
+  <form method="GET" action="/admin/search">
     <input type="text" name="q" id="search_box"
       value="" size="25" placeholder="Search and you will find it..." />
   </form>
@@ -52,7 +52,7 @@
       <a href="/admin/orders">Orders</a>
     </li>
     <li>
-      <a href="/admin/customers">customers</a>
+      <a href="/admin/customers">Customers</a>
     </li>
     <?php if(is_logged_in()) { ?>
     <li class="right">
