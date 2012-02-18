@@ -2,7 +2,7 @@ body {
   background: #FFF;
   overflow-y: scroll;
 
-  font: 0.95em/1.2 adelle, georgia, sans-serif;
+  font: 0.95em/1.2 Asap, georgia, sans-serif;
   color: #333;
 }
 .wrapper {
@@ -12,7 +12,8 @@ body {
   padding: 20px;
 }
 
-a { text-decoration: none; color: #FF7200; border-bottom: 1px solid transparent;}
+a { text-decoration: none; color: #FF7200; /*border-bottom: 1px solid transparent;*/}
+a:hover { text-decoration: underline; }
 
 h1 {font-size:2em;line-height:1;margin-bottom:0.5em;}
 h2 {font-size:1.5em;margin-bottom:0.75em;}
@@ -41,7 +42,7 @@ header h1, header span {
   font-style: normal;
 }
 header h1 {
-  font-family: 'Merienda One', adelle, georgia, sans-serif;
+  font-family: 'Merienda One', Asap, georgia, sans-serif;
   font-size: 3em;
   color: #FF7200;
 }
@@ -51,7 +52,9 @@ header h1 span {
   padding-left: 10px;
   margin-top: -10px;
 }
-
+header h1 a:hover {
+  text-decoration: none;
+}
 /* nav */
 nav {
   background: #EEE;
@@ -69,17 +72,14 @@ nav li > a {
   display: inline-block;
   position: relative;
   z-index: 2;
-  padding: 7px 15px 5px;
+  padding: 5px 15px;
   border: 1px solid #EEE;
   color: #333;
-  text-transform: uppercase;
-  font-size: 90%;
 }
 nav li:hover > a, nav li:focus > a, nav li > a.active {
   background: #FFF;
-}
-nav li.category:hover > a {
   border-bottom-color: #FFF;
+  text-decoration: none;
 }
 nav li.category > a:after {
   content: "";
@@ -104,12 +104,13 @@ nav .sub_nav {
 }
 nav .sub_nav .col{
   padding: 10px;
-  min-width: 100px;
+  min-width: 125px;
 }
 nav .sub_nav .header {
   color: #666;
   border-bottom: 1px solid #EEE;
   padding-left: 5px;
+  margin-bottom: 5px;
 }
 nav .sub_nav .col:not(:first-child) {
   padding-left: 0;
@@ -117,11 +118,12 @@ nav .sub_nav .col:not(:first-child) {
 nav .sub_nav a {
   display: block;
   white-space: nowrap;
-  padding: 3px 5px 1px;
+  padding: 5px;
 }
 nav .sub_nav a:hover {
   color: #333;
-  border-bottom-color: #FF7200;
+  text-decoration: none;
+  background: #F1F1F1;
 }
 
 /* nav search */
@@ -130,7 +132,7 @@ nav .sub_nav a:hover {
   border: 0;
   outline: 0;
   background: url(/images/btn-search.png) 97% center no-repeat #EAEAEA;
-  padding: 7px 30px 5px 10px;
+  padding: 5px 30px 5px 10px;
   margin-top: 8px;
   color: #333;
   line-height: 1.2;
@@ -142,10 +144,6 @@ nav .sub_nav a:hover {
   border: 1px solid #EAEAEA;
   border-top: 0;
   border-bottom: 0;
-}
-.content a:not([class=button]):hover {
-  color: #333; 
-  border-bottom-color: #FF7200; 
 }
 .content section::after {
   content: '';
@@ -164,9 +162,10 @@ nav .sub_nav a:hover {
 aside .box {
   border: 1px solid #EAEAEA;
   margin-bottom: 10px;
+  border-radius: 3px 3px 0 0;
 }
 .box .header{
-  background: #EAEAEA;
+  background: #EEE;
   padding: 5px 10px;
   font-weight: normal;
 }
@@ -179,13 +178,12 @@ aside .box {
   padding: 5px;
   border-bottom: 1px solid #EEE;
 }
-.box .list a.last {
+.box .list li:last-child a {
   border-bottom: 0;
 }
-.box a:hover {
-  color: #FF7200;
-  background: #EEE;
-  border-bottom-color: #EEE !important;
+.box a:hover, .box a.active {
+  color: #333;
+  text-decoration: underline;
 }
 
 /* footer */
@@ -200,12 +198,10 @@ footer .col {
   width: 16.66%;
 }
 footer .col a:hover {
-  color: #333; 
-  border-bottom-color: #FF7200; 
+  color: #333;
 }
 footer .signature {
   float: right;
-  font-family: 'Merienda One', adelle, georgia, sans-serif;
 }
 footer .signature a {
   font-weight: bold;
@@ -217,7 +213,7 @@ footer .signature a {
 a.button {
   display: inline-block;
   border: 1px solid #CCC;
-  padding: 5px 8px 3px;
+  padding: 5px 8px;
   margin: 2px 5px 2px 0;
   background: #EAEAEA;
   color: #474747;
@@ -228,7 +224,6 @@ a.button {
 a.button:hover {
   border: 1px solid #AAA;
   color: #474747;
-  border-bottom-color: #AAA !important;
 }
 a.button:active {
   box-shadow: 0 0 5px rgba(0, 0, 0, .2) inset;
@@ -236,7 +231,7 @@ a.button:active {
 
 /* forms */
 label, input, textarea, select {
-  font-family: adelle, georgia, sans-serif;
+  font-family: Asap, georgia, sans-serif;
   font-size: 100%;
   line-height: 1.2;
 }
@@ -247,14 +242,14 @@ label, input, textarea, select {
   font-size: 15px;
   background: #EEE;
   border: 1px solid #CCC;
-  padding: 3px 5px 1px;
+  padding: 3px 5px;
   margin: 5px 0 0;
 }
 input[type=text], input[type=password], textarea {
   border: 1px solid #CCC;
   outline: 0;
   background: #FAFAFA;
-  padding: 5px 8px 3px;
+  padding: 5px 8px;
   margin: 0;
   color: #333;
 }
@@ -265,7 +260,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 input[type=button], input[type=submit] {
   display: inline-block;
   border: 1px solid #CCC;
-  padding: 5px 8px 3px;
+  padding: 5px 8px;
   margin: 2px 5px 2px 0;
   background: #EAEAEA;
   color: #474747;
@@ -284,7 +279,7 @@ input[type=button]:active, input[type=submit]:active {
 
 .form label {
   display: inline-block;
-  padding: 5px 8px 3px;
+  padding: 5px 8px;
   min-width: 125px;
   vertical-align: top;
 }
@@ -309,7 +304,7 @@ fieldset {
   text-align: center;
   font-size: 90%;
   color: #444;
-  padding: 5px 8px 3px;
+  padding: 5px 8px;
   border-radius: 2px;
   border: 1px solid #AAA;
   background: #F9EDBE;
