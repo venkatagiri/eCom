@@ -1,4 +1,42 @@
-/* Public stylesheet */
+/* Styles for specific pages */
+
+/* Products */
+.products-page aside {
+  float:right;
+}
+.products-page section {
+  margin: 0 210px 0 0;
+  padding-left: 0;
+}
+.products-page .product-image {
+  width: 300px;
+  text-align: center;
+  float: left;
+  border: 1px solid #EEE;
+  margin: 0 10px 10px 0;
+}
+.products-page .product-image img {
+  max-width: 290px;  
+  padding: 5px;
+}
+.products-page .product-description {
+  color: #888;
+  margin-bottom: 15px;
+}
+.products-page .product-price {
+  display: inline-block;
+  padding: 15px;
+  color: #888;
+}
+.product-price strong {
+  font-size: 200%;  
+  color: #FF7200;
+  margin-left: 5px;
+}
+#buy-now {
+  float:right; 
+  margin-right: 15px;
+}
 
 /* Search styles */
 .products {
@@ -15,15 +53,20 @@
   color: #333;
   border: 1px solid #F1F1F1;
 }
-.product-name {
+.product .product-image {
+  text-align: center;
+}
+.product .product-image img {
+  max-width: 150px;
+  max-height: 150px;
+}
+.product .product-name {
   font-weight: bold;
 }
-.product img {
-  width: 150px; height: 150px;
-}
-.product-price {
+.product .product-price {
   font-size: 90%;
 }
 .product:hover {
   background: #EAEAEA;
+  text-decoration: none;
 }
