@@ -7,7 +7,6 @@ define('SITE_ROOT', dirname(LIB_ROOT));
 // Configuration Entries
 require_once(LIB_ROOT.DS.'config/db.php');
 require_once(LIB_ROOT.DS.'config/main.php');
-require_once(LIB_ROOT.DS.'config/defs.php');
 
 // Helpers
 require_once(LIB_ROOT.DS.'helpers/functions.php');
