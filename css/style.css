@@ -55,6 +55,8 @@
 }
 .product .product-image {
   text-align: center;
+  width: 150px;
+  height: 150px;
 }
 .product .product-image img {
   max-width: 150px;
