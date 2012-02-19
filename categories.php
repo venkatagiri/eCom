@@ -43,10 +43,10 @@
       <ul class="list">
       <?php foreach(Category::main_categories() as $c): 
             $path = "/categories/".get_key($c->name)."/".$c->id;
-            if(isset($brand)) $path .= "?bid={$brand->id}";
+            if($c->id == $main_category->id) $is_active = 'class="active"';
+            else $is_active = "";
       ?>
-        <li><a href="<?php echo $path; ?>"
-                <?php if($c->id == $main_category->id) echo 'class="active"'; ?> ><?php echo $c->name; ?></a></li>
+        <li><a href="<?php echo $path; ?>" <?php echo $is_active; ?> ><?php echo $c->name; ?></a></li>
       <?php endforeach; ?>
       </ul>
     </li>
@@ -56,9 +56,10 @@
       <?php foreach($main_category->children() as $sub_category): 
             $path = "/categories/".get_key($main_category->name)."/".get_key($sub_category->name)."/".$sub_category->id;
             if(isset($brand)) $path .= "?bid={$brand->id}";
+            if($sub_category->id == $category->id) $is_active = 'class="active"';
+            else $is_active = "";
       ?>
-        <li><a href="<?php echo $path; ?>"
-                <?php if($sub_category->id == $category->id) echo 'class="active"'; ?> ><?php echo $sub_category->name; ?></a></li>
+        <li><a href="<?php echo $path; ?>" <?php echo $is_active; ?> ><?php echo $sub_category->name; ?></a></li>
       <?php endforeach; ?>
       </ul>
     </li>
@@ -67,9 +68,10 @@
       <ul class="list">
       <?php foreach($main_category->brands() as $b): 
             $path = "/categories" . $_SERVER['PATH_INFO'] . "?bid={$b->id}";
+            if(isset($brand) && $b->id == $brand->id) $is_active = 'class="active"';
+            else $is_active = "";
       ?>
-        <li><a href="<?php echo $path; ?>"
-                <?php if(isset($brand) && $b->id == $brand->id) echo 'class="active"'; ?> ><?php echo $b->name; ?></a></li>
+        <li><a href="<?php echo $path; ?>" <?php echo $is_active; ?> ><?php echo $b->name; ?></a></li>
       <?php endforeach; ?>
       </ul>
     </li>
