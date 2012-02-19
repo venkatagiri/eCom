@@ -1,7 +1,6 @@
 <?php 
   require_once("../../_/init.php");
   check_login();
-  define('PRODUCT_PATH', SITE_ROOT.'/assets/p');
   
   if(isset($_POST['create'])) {
     $product = Product::make($_POST['product']);
