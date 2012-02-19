@@ -1,7 +1,7 @@
 <?php
 
 class Uploader {
-  protected $upload_errors = array(
+  public static $ERRORS = array(
     UPLOAD_ERR_OK           => "No errors.",
     UPLOAD_ERR_INI_SIZE     => "Larger than upload_max_filesize.",
     UPLOAD_ERR_FORM_SIZE    => "Larger than form MAX_FILE_SIZE.",
@@ -22,6 +22,10 @@ class Uploader {
     $this->errors = array();
   }
   
+  public function error_code() {
+    return $this->file['error'];
+  }
+  
   public function is_uploaded() {
     if(!$this->file || empty($this->file) || !is_array($this->file)
         || !$this->target_path || empty($this->target_path)) {
@@ -29,7 +33,7 @@ class Uploader {
       return false;
     }
     if ($this->file['error'] != 0) {
-      $this->errors[] = $this->upload_errors[$this->file['error']];
+      $this->errors[] = self::$ERRORS[$this->file['error']];
       return false;
     }
     $exts = explode("/", $this->file['type']);
