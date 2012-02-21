@@ -2,6 +2,16 @@
 
 class Base {
 
+  static public function find_with_pagination($where = '1 = 1', $current_page = 1, $per_page = 12) {
+    $total_count = static::count($where);
+    $pagination = new Pagination($current_page, $total_count, $per_page);
+    
+    $where_clause = $where;
+    $where_clause .= " LIMIT " . $pagination->per_page;
+    $where_clause .= " OFFSET " . $pagination->offset();
+    return array($pagination, static::find_where($where_clause));
+  }
+
   static public function find_where($where = '1 = 1') {
     $sql = "SELECT * FROM ".static::$table_name;
     $sql .= " WHERE ".$where;
