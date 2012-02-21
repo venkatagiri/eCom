@@ -6,6 +6,11 @@ function __($text) {
   global $db;
   return $db->prepare_value($text);
 }
+function sanitize(&$query_string, $keys) {
+  foreach($query_string as $key => $value) {
+    if(in_array($key, $keys)) $query_string[$key] = __($value);
+  }
+}
 function get_key($str) {
   return str_replace(' ', '-', trim(strtolower($str)));
 }
