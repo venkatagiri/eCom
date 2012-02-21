@@ -1,32 +1,33 @@
 <?php
 
 class Pagination {
-   public $currentPage;
-   public $perPage;
-   public $totalCount;
-   
-   function __construct($page=1, $perPage=5, $totalCount=0) {
-      $this->currentPage = (int)$page;
-      $this->perPage = (int)$perPage;
-      $this->totalCount = (int)$totalCount;
-   }
-   public function offset() {
-      return $this->perPage * ($this->currentPage - 1);
-   }
-   public function totalPages() {
-      return ceil($this->totalCount/$this->perPage);
-   }
-   public function prevPage() {
-      return $this->currentPage - 1;
-   }
-   public function nextPage() {
-      return $this->currentPage + 1;
-   }
-   public function prevExists() {
-      return ($this->prevPage() >= 1) ? true : false;
-   }
-   public function nextExists() {
-      return ($this->nextPage() <= $this->totalPages()) ? true : false;
-   }
+  public $current_page;
+  public $per_page;
+  public $total_count;
+  
+  function __construct($current_page=1, $total_count=0, $per_page=12) {
+    $this->current_page = (int)$current_page;
+    $this->total_count = (int)$total_count;
+    $this->per_page = (int)$per_page;
+  }
+  public function offset() {
+    return $this->per_page * ($this->current_page - 1);
+  }
+  public function total_pages() {
+    return ceil($this->total_count/$this->per_page);
+  }
+  public function previous_page() {
+    return $this->current_page - 1;
+  }
+  public function next_page() {
+    return $this->current_page + 1;
+  }
+  public function previous_exists() {
+    return ($this->previous_page() >= 1) ? true : false;
+  }
+  public function next_exists() {
+    return ($this->next_page() <= $this->total_pages()) ? true : false;
+  }
 }
+
 ?>
