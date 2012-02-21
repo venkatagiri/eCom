@@ -1,0 +1,7 @@
+# Redirecting all the requests to the public folder
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /public/$1
+RewriteRule ^(/)?$ /public/ [L]
