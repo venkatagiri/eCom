@@ -16,7 +16,7 @@
         $message = "Product creation failed! Please try again after sometime!";
       }
     } else {
-      $message = $uploader->errors.join(', ');
+      $message = join(', ', $uploader->errors);
     }
   } else {
     $product = new Product();
