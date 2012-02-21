@@ -4,12 +4,26 @@
   
   if(isset($_POST['save'])) {
     $product = Product::make($_POST['product']);
+    $uploader = new Uploader($_FILES['product-image'], PRODUCT_PATH);
     
-    if($product->save()) {
-      $session->message("Product '{$product->name}' was updated successfully!");
-      redirect_to("show?id={$product->id}");
+    if($uploader->is_uploaded()) {
+      // TODO A new image is attached, delete old image.
+      $product->image = $uploader->file_name;
+      if($product->save()) {
+        $session->message("Product '{$product->name}' was updated successfully!");
+        redirect_to("show?id={$product->id}");
+      } else {
+        $message = "Product updation failed! Please try again after sometime!";
+      }
+    } else if($uploader->error_code() == 4) {
+      if($product->save()) {
+        $session->message("Product '{$product->name}' was updated successfully!");
+        redirect_to("show?id={$product->id}");
+      } else {
+        $message = "Product updation failed! Please try again after sometime!";
+      }
     } else {
-      $message = "Product updation failed! Please try again after sometime!";
+      $message = join(', ', $uploader->errors);
     }
   } else if(isset($_GET['id']) && $_GET['id'] != "") {
     $product = Product::find_by_id($_GET['id']);
@@ -33,9 +47,14 @@
 
 <?php } else {?>
 
-<form method="post" name="form_product" class="form">
+<form method="post" enctype="multipart/form-data" name="form_product" class="form">
   <input type="hidden" name="product[id]" value="<?php echo $product->id; ?>" />
-  <input type="hidden" name="product[image]" value="<?php echo $product->image; ?>" />
+  
+  <div class="entry right">
+    <input type="hidden" name="product[image]" value="<?php echo $product->image; ?>" />
+    <img src="/assets/p/<?php echo $product->image; ?>" style="max-width:300px;max-height:300px;" />
+  </div>
+  
   <div class="entry">
     <label for="product[name]">Name</label>
     <input type="text" name="product[name]" value="<?php echo $product->name; ?>"/>
@@ -46,6 +65,11 @@
     <textarea name="product[description]" rows="6"><?php echo $product->description; ?></textarea>
   </div>
   
+  <div class="entry">
+    <label for="product[image]">Image</label>
+    <input type="file" name="product-image" />
+  </div>
+
   <div class="entry">
     <label for="product[price]">Price</label>
     <input type="text" name="product[price]" value="<?php echo $product->price; ?>"/>
