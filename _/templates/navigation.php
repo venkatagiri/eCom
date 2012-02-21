@@ -10,7 +10,7 @@
       <a href="<?php echo $main_path; ?>"><?php echo $main_category->name; ?></a>
       <table class="sub_nav"><tr><td class="col">
         <h6 class="header">Categories</h6>
-        <?php foreach($main_category->children() as $sub_category): 
+        <?php foreach($main_category->visible_children() as $sub_category): 
             $path = "/".get_key($main_category->name)."/".get_key($sub_category->name)."/".$sub_category->id;
         ?>
         <a href="<?php echo $path; ?>"><?php echo $sub_category->name; ?></a>
