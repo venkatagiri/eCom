@@ -31,7 +31,11 @@ class Category extends Base {
   }
   
   public function children() {
-    return self::find_where('parent_id='.$this->id);
+    return self::find_where("parent_id={$this->id}");
+  }
+
+  public function visible_children() {
+    return self::find_where("parent_id={$this->id} AND visible=1");
   }
   
   public function parent() {
