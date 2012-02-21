@@ -46,7 +46,7 @@
       <h6 class="header">Categories</h6>
       <ul class="list">
       <?php foreach(Category::main_categories() as $c): 
-            $path = "/categories/".get_key($c->name)."/".$c->id;
+            $path = "/".get_key($c->name)."/".$c->id;
             if($c->id == $main_category->id) $is_active = 'class="active"';
             else $is_active = "";
       ?>
@@ -58,7 +58,7 @@
       <h6 class="header">Sub-Categories</h6>
       <ul class="list">
       <?php foreach($main_category->children() as $sub_category): 
-            $path = "/categories/".get_key($main_category->name)."/".get_key($sub_category->name)."/".$sub_category->id;
+            $path = "/".get_key($main_category->name)."/".get_key($sub_category->name)."/".$sub_category->id;
             if(isset($brand)) $path .= "?bid={$brand->id}";
             if($sub_category->id == $category->id) $is_active = 'class="active"';
             else $is_active = "";
@@ -71,7 +71,9 @@
       <h6 class="header">Brands</h6>
       <ul class="list">
       <?php foreach($main_category->brands() as $b): 
-            $path = "/categories" . $_SERVER['PATH_INFO'] . "?bid={$b->id}";
+            $path = "/".get_key($main_category->name);
+            if($main_category !== $category) $path .= "/".get_key($category->name);
+            $path .= "/".$category->id."?bid={$b->id}";
             if(isset($brand) && $b->id == $brand->id) $is_active = 'class="active"';
             else $is_active = "";
       ?>

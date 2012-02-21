@@ -20,12 +20,16 @@ BrowserMatch bMSIE !no-gzip !gzip-only-text/html
   
   # User (and SEO) friendly URLs.
   # Used for main categories.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{QUERY_STRING} ^(.*)$
-  RewriteRule ^categories.php/.*/([0-9]+)$ categories.php?cid=$1&%1 [L]
+  RewriteRule ^.*/([0-9]+)$ categories.php?cid=$1&%1 [L]
   
   # Used for sub-categories.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{QUERY_STRING} ^(.*)$
-  RewriteRule ^categories.php/.*/.*/([0-9]+)$ categories.php?cid=$1&%1 [L]
+  RewriteRule ^.*/.*/([0-9]+)$ categories.php?cid=$1&%1 [L]
     
 </IfModule>
 
