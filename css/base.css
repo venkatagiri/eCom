@@ -186,6 +186,11 @@ aside .box {
   text-decoration: underline;
 }
 
+.page_controls {
+  text-align: center;
+  padding: 20px 0;
+}
+
 /* footer */
 footer {
   min-height: 60px;

@@ -1,25 +1,29 @@
 <?php 
   require_once("_/init.php");
-  //print_r($_SERVER);
-  //return;
+  parse_str($_SERVER['QUERY_STRING'], $QS);
+  sanitize($QS, array('cid', 'bid', 'page'));
+  $page = isset($QS['page']) ? $QS['page'] : 1;
+  unset($QS['page']); // Remove it from the query_string
   
-  if(!isset($_GET['cid'])) {
+  if(!isset($QS['cid'])) {
     echo "404";
     return;
   }
   
-  $category = Category::find_by_id(__($_GET['cid']));
+  $category = Category::find_by_id($QS['cid']);
   if(!$category) {
     echo "404";
     return;
   }
   
   $sql = "(category_id = {$category->id} OR category_id IN ( SELECT id FROM categories WHERE parent_id={$category->id} ))";
-  if(isset($_GET['bid'])) {
-    $brand = Brand::find_by_id(__($_GET['bid']));
+  if(isset($QS['bid'])) {
+    $brand = Brand::find_by_id($QS['bid']);
     $sql .= " AND brand_id = {$brand->id} ";
   }
-  $products = Product::find_where($sql);
+  
+  list($pg, $products) = Product::find_with_pagination($sql, $page);
+  
   if(!$products) {
     $error = "There are no Products to list in this cateogory.";
   }
@@ -101,6 +105,33 @@
     </a></li>
   <?php endforeach; ?>
   </ul>
+  
+  <div class="page_controls">
+  <?php
+      if($pg->total_pages() > 1) {
+        $tmp_QS = $QS;
+        if($pg->previous_exists()) {
+          $tmp_QS['page'] = $pg->previous_page();
+          $query_string = http_build_query($tmp_QS);
+          echo "<a href='?{$query_string}' >&laquo; Previous</a>&nbsp;&nbsp;";
+        }
+        for($i=1; $i<=$pg->total_pages(); $i++) {
+          $tmp_QS['page'] = $i;
+          $query_string = http_build_query($tmp_QS);
+          if($i == $page) {
+            echo "&nbsp;&nbsp;<strong>{$i}</strong>&nbsp;&nbsp;";
+          } else {
+            echo "&nbsp;&nbsp;<a href='?{$query_string}'>{$i}</a>&nbsp;&nbsp;";
+          }
+        }
+        if($pg->next_exists()) {
+          $tmp_QS['page'] = $pg->next_page();
+          $query_string = http_build_query($tmp_QS);
+          echo "&nbsp;&nbsp;<a href='?{$query_string}' >Next &raquo;</a>";
+        }      
+      }
+  ?>
+  </div>
   
 <?php } //endif ?>
 
