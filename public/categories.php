@@ -25,7 +25,7 @@
   list($pg, $products) = Product::find_with_pagination($sql, $page);
   
   if(!$products) {
-    $error = "There are no Products to list in this cateogory.";
+    $error = "There are no Products to list in this category.";
   }
   
   if($category->parent_id != 1) {
@@ -38,6 +38,7 @@
   
   if(isset($brand)) $heading .= " / " . $brand->name;
 ?>
+
 <?php get_header($category->name.' | Categories'); ?>
 
 <aside>
@@ -46,39 +47,39 @@
       <h6 class="header">Categories</h6>
       <ul class="list">
       <?php foreach(Category::main_categories() as $c): 
-            $path = "/".get_key($c->name)."/".$c->id;
-            if($c->id == $main_category->id) $is_active = 'class="active"';
-            else $is_active = "";
-      ?>
-        <li><a href="<?php echo $path; ?>" <?php echo $is_active; ?> ><?php echo $c->name; ?></a></li>
-      <?php endforeach; ?>
-      </ul>
-    </li>
-    <li class="box filter">
-      <h6 class="header">Sub-Categories</h6>
-      <ul class="list">
-      <?php foreach($main_category->children() as $sub_category): 
+        $path = "/".get_key($c->name)."/".$c->id;
+        if($c->id == $main_category->id) $is_active = 'class="active"';
+        else $is_active = "";
+        echo "<li><a href=\"{$path}\" {$is_active}>{$c->name}</a>";
+        
+        // If this category is currently active, show the sub-categories.
+        if($c->id == $main_category->id) {
+          echo "<ul class=\"sub_list\">";
+          foreach($main_category->visible_children() as $sub_category) {
             $path = "/".get_key($main_category->name)."/".get_key($sub_category->name)."/".$sub_category->id;
             if(isset($brand)) $path .= "?bid={$brand->id}";
             if($sub_category->id == $category->id) $is_active = 'class="active"';
             else $is_active = "";
-      ?>
-        <li><a href="<?php echo $path; ?>" <?php echo $is_active; ?> ><?php echo $sub_category->name; ?></a></li>
-      <?php endforeach; ?>
+            echo "<li><a href=\"{$path}\" {$is_active}>&raquo; {$sub_category->name}</a></li>";
+          }
+          echo "</ul>";
+        }
+        echo "</li>";
+      endforeach; ?>
       </ul>
     </li>
     <li class="box filter">
       <h6 class="header">Brands</h6>
       <ul class="list">
       <?php foreach($main_category->brands() as $b): 
-            $path = "/".get_key($main_category->name);
-            if($main_category !== $category) $path .= "/".get_key($category->name);
-            $path .= "/".$category->id."?bid={$b->id}";
-            if(isset($brand) && $b->id == $brand->id) $is_active = 'class="active"';
-            else $is_active = "";
-      ?>
-        <li><a href="<?php echo $path; ?>" <?php echo $is_active; ?> ><?php echo $b->name; ?></a></li>
-      <?php endforeach; ?>
+        $path = "/".get_key($main_category->name);
+        if($main_category !== $category) $path .= "/".get_key($category->name);
+        $path .= "/".$category->id."?bid={$b->id}";
+        if(isset($brand) && $b->id == $brand->id) $is_active = 'class="active"';
+        else $is_active = "";
+        
+        echo "<li><a href=\"{$path}\" {$is_active}>{$b->name}</a></li>";
+      endforeach; ?>
       </ul>
     </li>
   </ul>

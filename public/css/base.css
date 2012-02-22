@@ -172,18 +172,25 @@ aside .box {
 .box .list {
   padding: 5px;
 }
+.box .sub_list { 
+  padding: 0 0 0 5px;
+}
 .box a {
   font-size: 90%;
   display: block;
   padding: 5px;
-  border-bottom: 1px solid #EEE;
+  margin: 1px 0;
 }
-.box .list li:last-child a {
+.box .sub_list a {
+  margin-left: 5px;
+}
+.box > .list > li:last-child a{
   border-bottom: 0;
 }
 .box a:hover, .box a.active {
   color: #333;
-  text-decoration: underline;
+  text-decoration: none;
+  background: #EEE;
 }
 
 .page_controls {
