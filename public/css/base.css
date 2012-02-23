@@ -179,7 +179,7 @@ aside .box {
   font-size: 90%;
   display: block;
   padding: 5px;
-  margin: 1px 0;
+  border-bottom: 1px solid #EEE;
 }
 .box .sub_list a {
   margin-left: 5px;
@@ -191,6 +191,7 @@ aside .box {
   color: #333;
   text-decoration: none;
   background: #EEE;
+  border-color: #FFF;
 }
 
 .page_controls {
