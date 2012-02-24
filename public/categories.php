@@ -1,5 +1,5 @@
 <?php 
-  require_once("../_/init.php");
+  require_once("../core/init.php");
   parse_str($_SERVER['QUERY_STRING'], $QS);
   sanitize($QS, array('cid', 'bid', 'page'));
   $page = isset($QS['page']) ? $QS['page'] : 1;

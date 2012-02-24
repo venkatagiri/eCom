@@ -1,5 +1,5 @@
 <?php 
-  require_once("../../_/init.php");
+  require_once("../../core/init.php");
   check_login();
   
   $root = Category::root_category();

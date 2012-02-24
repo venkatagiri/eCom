@@ -1,5 +1,5 @@
 <?php
-  require_once("../../_/init.php");
+  require_once("../../core/init.php");
   check_login();
 
   $brands = Brand::find_all();

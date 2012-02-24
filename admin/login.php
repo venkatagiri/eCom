@@ -1,5 +1,5 @@
 <?php
-	include_once('../_/init.php');
+	include_once('../core/init.php');
 	if($session->is_logged_in()) { redirect_to('.'); }
 	if(isset($_POST['submit'])) {
 		$username = trim($_POST['username']);

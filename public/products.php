@@ -1,5 +1,5 @@
 <?php 
-  require_once("../_/init.php"); 
+  require_once("../core/init.php"); 
   
   if(!isset($_GET['pid'])) {
     echo "404";
