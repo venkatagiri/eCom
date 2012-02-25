@@ -1,8 +1,11 @@
 <?php
   require_once("../../core/init.php");
   check_login();
+  parse_str($_SERVER['QUERY_STRING'], $QS);
+  sanitize($QS, array('page'));
+  $page = isset($QS['page']) ? $QS['page'] : 1;
   
-  $products = Product::find_all();
+  list($pg, $products) = Product::find_with_pagination('1=1', $page, 10);
   
   if(empty($products)) {
     $error = "No Products to show";
@@ -40,6 +43,26 @@
   </tr>
   <?php endforeach; ?>
 </table>
+
+<div class="page_controls">
+<?php
+    if($pg->total_pages() > 1) {
+      if($pg->previous_exists()) {
+        echo "<a href='?page={$pg->previous_page()}' >&laquo; Previous</a>&nbsp;&nbsp;";
+      }
+      for($i=1; $i<=$pg->total_pages(); $i++) {
+        if($i == $page) {
+          echo "&nbsp;&nbsp;<strong>{$i}</strong>&nbsp;&nbsp;";
+        } else {
+          echo "&nbsp;&nbsp;<a href='?page={$i}'>{$i}</a>&nbsp;&nbsp;";
+        }
+      }
+      if($pg->next_exists()) {
+        echo "&nbsp;&nbsp;<a href='?page={$pg->next_page()}' >Next &raquo;</a>";
+      }      
+    }
+?>
+</div>
 
 <?php } ?>
 
