@@ -33,13 +33,15 @@
   </div>
   
   <div class="entry">
-    <label for="brand[visible]">Visible?</label>
-    <input type="checkbox" name="brand[visible]" value="1" <?php if($brand->visible == '1') { ?>checked="checked" <?php } ?> />
+    <label for="brand[categories]">Category</label>
+    <select name="brand[categories]">
+      <?php echo list_main_categories($brand->categories); ?>
+    </select>
   </div>
   
   <div class="entry">
-    <label for="brand[categories]">Category</label>
-    <?php echo list_main_categories($brand->categories); ?>
+    <label for="brand[visible]">Visible?</label>
+    <input type="checkbox" name="brand[visible]" value="1" <?php if($brand->visible == '1') { ?>checked="checked" <?php } ?> />
   </div>
   
   <div class="entry">

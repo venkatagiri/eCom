@@ -82,12 +82,16 @@
   
   <div class="entry">
     <label for="product[brand_id]">Brand</label>
-    <?php echo list_brands($product->brand_id); ?>
+    <select name="product[brand_id]">
+      <?php echo list_brands($product->brand_id); ?>
+    </select>
   </div>
   
   <div class="entry">
     <label for="product[category_id]">Category</label>
-    <?php echo list_categories($product->category_id); ?>
+    <select name="product[category_id]">
+      <?php echo list_categories($product->category_id); ?>
+    </select>
   </div>
   
   <div class="entry">

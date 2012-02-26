@@ -32,7 +32,7 @@ function get_admin_footer() {
 }
 function list_brands($selected="-1") {
   $brands = Brand::find_all_sorted();
-  $output = "<select name=\"product[brand_id]\">";
+  $output = "";
   if(count($brands) == 0) {
     $output .= "<option value=\"0\">No Brands Available</option>";
   } else {
@@ -43,14 +43,12 @@ function list_brands($selected="-1") {
       $output .= ">{$brand->name}</option>";
     }
   }
-  $output .= "</select>";
   
   return $output;
 }
 function list_categories($selected="-1") {
   $main_categories = Category::root_category()->children();
-  $output = "<select name=\"product[category_id]\">";
-  $output .= "<option value=\"0\">Select a Category</option>";
+  $output = "<option value=\"0\">Select a Category</option>";
   foreach($main_categories as $main_category) {
     $output .= "<optgroup label=\"{$main_category->name}\">";
     foreach($main_category->children() as $sub_category) {
@@ -60,20 +58,17 @@ function list_categories($selected="-1") {
     }
     $output .= "</optgroup>";
   }
-  $output .= "</select>";
   
   return $output;
 }
 function list_main_categories($selected="-1") {
   $main_categories = Category::root_category()->children();
-  $output = "<select name=\"brand[categories]\">";
-  $output .= "<option value=\"0\">Select a Category</option>";
+  $output = "<option value=\"0\">Select a Category</option>";
   foreach($main_categories as $main_category) {
     $output .= "<option value=\"{$main_category->id}\"";
     if($selected == $main_category->id) $output .= " selected=selected ";
     $output .= ">{$main_category->name}</option>";
   }
-  $output .= "</select>";
   
   return $output;
 }
