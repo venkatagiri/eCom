@@ -238,6 +238,7 @@ a.button {
 a.button:hover {
   border: 1px solid #AAA;
   color: #474747;
+  text-decoration: none;
 }
 a.button:active {
   box-shadow: 0 0 5px rgba(0, 0, 0, .2) inset;
