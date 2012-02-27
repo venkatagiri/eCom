@@ -13,9 +13,13 @@ define('GENERIC_SEARCH', 0);
 define('CATEGORY_SEARCH', 1);
 define('FILTERED_SEARCH', 2);
 
+$ASSETS_PATH = SITE_ROOT.'/public/assets';
+
 // Images path
-define('PRODUCT_PATH', SITE_ROOT.'/assets/p');
-define('CATEGORY_PATH', SITE_ROOT.'/assets/c');
-define('BRAND_PATH', SITE_ROOT.'/assets/b');
+$IMAGES_PATH = array(
+  'PRODUCT'   => $ASSETS_PATH.'/product',
+  'CATEGORY'  => $ASSETS_PATH.'/category',
+  'BRAND'     => $ASSETS_PATH.'/brand'
+);
 
 ?>

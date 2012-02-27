@@ -4,7 +4,7 @@
   
   if(isset($_POST['save'])) {
     $product = Product::make($_POST['product']);
-    $uploader = new Uploader($_FILES['product-image'], PRODUCT_PATH);
+    $uploader = new Uploader($_FILES['product-image'], $IMAGES_PATH['PRODUCT']);
     
     if($uploader->is_uploaded()) {
       // TODO A new image is attached, delete old image.

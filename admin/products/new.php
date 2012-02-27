@@ -4,7 +4,7 @@
   
   if(isset($_POST['create'])) {
     $product = Product::make($_POST['product']);
-    $uploader = new Uploader($_FILES['product-image'], PRODUCT_PATH);
+    $uploader = new Uploader($_FILES['product-image'], $IMAGES_PATH['PRODUCT']);
     
     if($uploader->is_uploaded()) {
       $product->image = $uploader->file_name;
