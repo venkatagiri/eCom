@@ -54,6 +54,12 @@
     <li>
       <a href="/admin/customers">Customers</a>
     </li>
+    <li class="category">
+      <a>Extensions</a>
+      <table class="sub_nav"><tr><td class="col">
+        <a href="/admin/banners">Banners</a>
+      </td></tr></table>
+    </li>
     <?php if(is_logged_in()) { ?>
     <li class="right">
       <a href="/admin/logout">Logout</a>

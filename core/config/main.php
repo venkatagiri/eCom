@@ -19,7 +19,14 @@ $ASSETS_PATH = SITE_ROOT.'/public/assets';
 $IMAGES_PATH = array(
   'PRODUCT'   => $ASSETS_PATH.'/product',
   'CATEGORY'  => $ASSETS_PATH.'/category',
-  'BRAND'     => $ASSETS_PATH.'/brand'
+  'BRAND'     => $ASSETS_PATH.'/brand',
+  'BANNER'    => $ASSETS_PATH.'/banner'
+);
+
+$BANNER_TYPES = array(
+  1 => 'Front Page',
+  2 => 'Category - Above Content',
+  3 => 'Category - Sidebar'
 );
 
 ?>

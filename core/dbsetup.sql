@@ -34,5 +34,19 @@ CREATE TABLE products (
   FOREIGN KEY(category_id) REFERENCES categories(id)
 );
 
+CREATE TABLE banners (
+  id INT NOT NULL AUTO_INCREMENT,
+  name CHAR(50) NOT NULL,
+  type INT NOT NULL,
+  category_id INT DEFAULT 0,
+  image CHAR(20) NOT NULL,
+  link CHAR(100) NOT NULL,
+  width INT NOT NULL,
+  height INT NOT NULL,
+  visible INT(1) DEFAULT 1,
+  PRIMARY KEY(id),
+  FOREIGN KEY(category_id) REFERENCES categories(id)
+);
+
 -- DML
 INSERT INTO categories VALUES(null, 'Root Category', 'The root category', '', 0, 1);
