@@ -41,6 +41,8 @@
 
 <?php get_header($category->name.' | Categories'); ?>
 
+<h1><?php echo $heading; ?></h1>
+
 <aside>
   <ul class="filters">
     <li class="box filter">
@@ -86,7 +88,6 @@
 </aside>
 
 <section role="main">
-  <h1><?php echo $heading; ?></h1>
   
 <?php if(isset($error)) { ?>
 
@@ -100,7 +101,7 @@
   ?>
     <li><a href="<?php echo $path; ?>" class="product">
       <div class="product-image">
-        <img src="/assets/p/<?php echo $product->image; ?>"
+        <img src="/assets/product/<?php echo $product->image; ?>"
           alt="<?php echo get_key($product->name); ?>" />
       </div>
       <div class="product-name"><?php echo $product->name; ?></div>
@@ -113,6 +114,7 @@
   <?php
       if($pg->total_pages() > 1) {
         $tmp_QS = $QS;
+        unset($tmp_QS['cid']); // Removing cid from the query string.
         if($pg->previous_exists()) {
           $tmp_QS['page'] = $pg->previous_page();
           $query_string = http_build_query($tmp_QS);
