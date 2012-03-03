@@ -3,6 +3,7 @@
 define('DS', '/');
 define('LIB_ROOT', dirname(__FILE__));
 define('SITE_ROOT', dirname(LIB_ROOT));
+define('STORE_ROOT', SITE_ROOT.'/store');
 
 // Configuration Entries
 require_once(LIB_ROOT.DS.'config/db.php');
