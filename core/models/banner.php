@@ -3,7 +3,8 @@
 class Banner extends Base {
   static protected $table_name = "banners";
   static protected $db_fields = array('id', 'name', 'type', 'category_id', 
-        'image', 'link', 'width', 'height', 'visible');
+        'image', 'link', 'width', 'height', 'visible',
+        'date_created', 'date_modified');
   public $id;
   public $name;
   public $type;
@@ -13,6 +14,8 @@ class Banner extends Base {
   public $width;
   public $height;
   public $visible;
+  public $date_created;
+  public $date_modified;
   
   static public function make($b) {
     $banner = new Banner();

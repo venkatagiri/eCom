@@ -2,10 +2,11 @@
 
 class Category extends Base {
   static protected $table_name = "categories";
-  static protected $db_fields = array('id', 'name', 'description', 'image',
+  static protected $db_fields = array('id', 'name', 'key', 'description', 'image',
          'parent_id', 'visible');
   public $id;
   public $name;
+  public $key;
   public $description;
   public $image;
   public $parent_id;
@@ -15,6 +16,7 @@ class Category extends Base {
     $category = new Category();
     if(isset($c['id'])) $category->id = $c['id'];
     $category->name = $c['name'];
+    $category->key = get_key($c['name']);
     $category->description = $c['description'];
     $category->image = @$c['image'];
     $category->parent_id = $c['parent_id'];

@@ -2,10 +2,11 @@
 
 class Brand extends Base {
   static protected $table_name = "brands";
-  static protected $db_fields = array('id', 'name', 'description', 'image',
+  static protected $db_fields = array('id', 'name', 'key', 'description', 'image',
         'categories', 'visible');
   public $id;
   public $name;
+  public $key;
   public $description;
   public $image;
   public $categories;
@@ -15,6 +16,7 @@ class Brand extends Base {
     $brand = new Brand();
     if(isset($b['id'])) $brand->id = $b['id'];
     $brand->name = $b['name'];
+    $brand->key = get_key($b['name']);
     $brand->description = $b['description'];
     $brand->image = @$b['image'];
     $brand->categories = $b['categories'];
