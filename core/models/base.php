@@ -92,9 +92,9 @@ class Base {
   public function create() {
     global $db;
     $attrs = $this->clean_attrs();
-    $sql = "INSERT INTO ".static::$table_name."( ";
-    $sql .= join(", ", array_keys($attrs));
-    $sql .= ") VALUES ( '";
+    $sql = "INSERT INTO ".static::$table_name."( `";
+    $sql .= join("`, `", array_keys($attrs));
+    $sql .= "`) VALUES ( '";
     $sql .= join("', '", array_values($attrs));
     $sql .= "')";
     if($db->query($sql)) {
@@ -104,13 +104,26 @@ class Base {
       return false;
     }
   }
+
+  public function has_changed() {
+    global $db;
+    if(!$this->id) return;
+    
+    $db_attrs = static::find_by_id($this->id)->clean_attrs();
+    $attrs = $this->clean_attrs();
+    foreach($attrs as $key=>$value) {
+      if(preg_match("/^date/i", $key)) continue; // Don't consider dates while comparing.
+      if($db_attrs[$key] != $value) return true;
+    }
+    return false;
+  }
   
   public function update() {
     global $db;
     $attrs = $this->clean_attrs();
     $attr_pairs = array();
     foreach($attrs as $key=>$value) {
-      $attr_pairs[] = "{$key}='{$value}'";
+      $attr_pairs[] = "`{$key}`='{$value}'";
     }
     $sql = "UPDATE ".static::$table_name." SET ";
     $sql .= join(", ", $attr_pairs);
