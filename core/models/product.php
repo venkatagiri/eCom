@@ -2,7 +2,7 @@
 
 class Product extends Base {
   static protected $table_name = "products";
-  static protected $db_fields = array('id', 'name', 'description', 'image',
+  static protected $db_fields = array('id', 'name', 'key', 'description', 'image',
         'price', 'quantity', 'brand_id', 'category_id', 'visible',
         'date_created', 'date_modified');
   public $id;
