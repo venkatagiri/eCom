@@ -39,7 +39,7 @@
   if(isset($brand)) $heading .= " / " . $brand->name;
 ?>
 
-<?php get_header($category->name.' | Categories'); ?>
+<?php get_store_header($category->name.' | Categories'); ?>
 
 <h1><?php echo $heading; ?></h1>
 
@@ -49,7 +49,7 @@
       <h6 class="header">Categories</h6>
       <ul class="list">
       <?php foreach(Category::main_categories() as $c): 
-        $path = "/".get_key($c->name)."/".$c->id;
+        $path = "/{$c->key}/{$c->id}";
         if($c->id == $main_category->id) $is_active = 'class="active"';
         else $is_active = "";
         echo "<li><a href=\"{$path}\" {$is_active}>{$c->name}</a>";
@@ -58,7 +58,7 @@
         if($c->id == $main_category->id) {
           echo "<ul class=\"sub_list\">";
           foreach($main_category->visible_children() as $sub_category) {
-            $path = "/".get_key($main_category->name)."/".get_key($sub_category->name)."/".$sub_category->id;
+            $path = "/{$main_category->key}/{$sub_category->key}/{$sub_category->id}";
             if(isset($brand)) $path .= "?bid={$brand->id}";
             if($sub_category->id == $category->id) $is_active = 'class="active"';
             else $is_active = "";
@@ -74,9 +74,9 @@
       <h6 class="header">Brands</h6>
       <ul class="list">
       <?php foreach($main_category->brands() as $b): 
-        $path = "/".get_key($main_category->name);
-        if($main_category !== $category) $path .= "/".get_key($category->name);
-        $path .= "/".$category->id."?bid={$b->id}";
+        $path = "/{$main_category->key}";
+        if($main_category !== $category) $path .= "/{$category->key}";
+        $path .= "/{$category->id}?bid={$b->id}";
         if(isset($brand) && $b->id == $brand->id) $is_active = 'class="active"';
         else $is_active = "";
         
@@ -93,16 +93,16 @@
 
   <h2><?php echo $error; ?></h2>
 
-<?php } else {?>
+<?php } else { ?>
 
   <ul class="products">
   <?php foreach($products as $product): 
-        $path = "/products/".get_key($product->name)."/".$product->id;
+        $path = "/products/{$product->key}/{$product->id}";
   ?>
     <li><a href="<?php echo $path; ?>" class="product">
       <div class="product-image">
         <img src="/assets/product/<?php echo $product->image; ?>"
-          alt="<?php echo get_key($product->name); ?>" />
+          alt="<?php echo $product->key; ?>" />
       </div>
       <div class="product-name"><?php echo $product->name; ?></div>
       <div class="product-price">Rs. <?php echo $product->price; ?></div>
@@ -142,4 +142,4 @@
 
 </section>
 
-<?php get_footer(); ?>
+<?php get_store_footer(); ?>

@@ -14,7 +14,7 @@
     return;
   }
 ?>
-<?php get_header('Products'); ?>
+<?php get_store_header('Products'); ?>
 
 <?php if(isset($error)) { ?>
 
@@ -37,7 +37,7 @@
 
 <section role="main">
   <div class="product-image">
-    <img src="/assets/p/<?php echo $product->image; ?>"/>
+    <img src="/assets/product/<?php echo $product->image; ?>"/>
   </div>
   <h1 class="product-names"><?php echo $product->name; ?></h1>
   <p class="product-description"><?php echo $product->description; ?></p>
@@ -49,4 +49,4 @@
   
 <?php } //endif ?>
 
-<?php get_footer(); ?>
+<?php get_store_footer(); ?>

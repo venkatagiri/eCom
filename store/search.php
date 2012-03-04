@@ -44,7 +44,9 @@
     return;
   }
 ?>
-<?php get_header('Search'); ?>
+<?php get_store_header('Search'); ?>
+
+<h1>Search Results - '<?php echo $query; ?>'</h1>
 
 <aside>
   <?php 
@@ -125,7 +127,6 @@
 </aside>
 
 <section role="main">
-<h1>Search Results - '<?php echo $query; ?>'</h1>
 
 <?php if(isset($error)) { ?>
 
@@ -135,17 +136,17 @@
   
   <ul class="products">
   <?php foreach($products as $product): ?>
-    <li><a href="/products/<?php echo get_key($product->name).'/'.$product->id; ?>" class="product">
+    <li><a href="<?php echo "/products/{$product->key}/{$product->id}"; ?>" class="product">
       <div class="product-image">
-        <img src="/assets/p/<?php echo $product->image; ?>"
-          alt="<?php echo get_key($product->name); ?>" />
+        <img src="/assets/product/<?php echo $product->image; ?>"
+          alt="<?php echo $product->name; ?>" />
       </div>
       <div class="product-name"><?php echo $product->name; ?></div>
       <div class="product-price">Price: Rs. <?php echo $product->price; ?></div>
     </a></li>
   <?php endforeach; ?>
   </ul>
-  <div style="text-align:center; " class="page_controls">
+  <div class="page_controls">
   <?php
       if($pg->total_pages() > 1) {
         $tmp_QS = $QS;
@@ -176,4 +177,4 @@
 
 </section>
 
-<?php get_footer(); ?>
+<?php get_store_footer(); ?>

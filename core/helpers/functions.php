@@ -14,21 +14,29 @@ function sanitize(&$query_string, $keys) {
 function get_key($str) {
   return str_replace(' ', '-', trim(strtolower($str)));
 }
-function get_header($_t = '') {
+function get_store_header($_t = '') {
   global $message;
-	$g_title = $_t;
-	include(LIB_ROOT.DS."templates/header.php");
+  $g_page = "store";
+  $g_title = join(' | ', array($_t, STORE_NAME));
+  $g_description = "";
+  $g_keywords = "";
+  include(LIB_ROOT."/templates/common.header.php");
+  include(LIB_ROOT."/templates/store.body.php");
 }
-function get_footer() {
-	include(LIB_ROOT.DS."templates/footer.php");
+function get_store_footer() {
+  include(LIB_ROOT."/templates/store.footer.php");
 }
 function get_admin_header($_t = '') {
   global $message;
-	$g_title = $_t;
-	include(LIB_ROOT.DS."templates/admin.header.php");
+  $g_page = "admin";
+  $g_title = join(' | ', array($_t, 'Admin Panel', 'eCom'));
+  $g_description = "";
+  $g_keywords = "";
+  include(LIB_ROOT."/templates/common.header.php");
+  include(LIB_ROOT."/templates/admin.body.php");
 }
 function get_admin_footer() {
-	include(LIB_ROOT.DS."templates/admin.footer.php");
+  include(LIB_ROOT."/templates/admin.footer.php");
 }
 function list_brands($selected="-1") {
   $brands = Brand::find_all_sorted();
@@ -86,44 +94,46 @@ function is_logged_in() {
 }
 
 function redirect_to($location = NULL) {
-   if($location != NULL) {
-      header("Location: {$location}");
-      exit;
-   }
+  if($location != NULL) {
+    header("Location: {$location}");
+    exit;
+  }
+}
+
+function show_404() {
+  include_once(SITE_ROOT.'/public/404.php');
+//  redirect_to("/404");
 }
 
 function __autoload($class_name) {
-   $class_name = strtolower($class_name);
-   $path = LIB_ROOT.DS."models".DS."{$class_name}.php";
-   if(file_exists($path)) {
-      require_once($path);
-   } else {
-      die("The file {$class_name}.php doesn't exist.");
-   }
+  $class_name = strtolower($class_name);
+  $path = LIB_ROOT."/models/{$class_name}.php";
+  if(file_exists($path)) {
+    require_once($path);
+  } else {
+    die("The file {$class_name}.php doesn't exist.");
+  }
 }
 
 function log_action($action, $message="") {
-   $log_file = SITE_ROOT.DS.'logs'.DS.'log.txt';
-   if($handle = fopen($log_file, 'a')) {
-      $timestamp = strftime("%d-%m-%Y %H:%M:%S", time());
-      $content = "{$timestamp} | {$action} - {$message}\n";
-      fwrite($handle, $content);
-      fclose($handle);
-   } else {
-      echo "Could not open the file";
-   }
+  $log_file = SITE_ROOT."/logs/log.txt";
+  if($handle = fopen($log_file, 'a')) {
+    $timestamp = strftime("%d-%m-%Y %H:%M:%S", time());
+    $content = "{$timestamp} | {$action} - {$message}\n";
+    fwrite($handle, $content);
+    fclose($handle);
+  } else {
+    echo "Could not open the file";
+  }
 }
 function random_string($length = 6) {
-   $string ="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-   $random_string = array();
-   $i = 0;
-   while($i < $length) {
-      $random_string[] = $string[rand(0, strlen($string))];
-      $i++;
-   }
-   return join('', $random_string);
-}
-function include_layout($file) {
-   include_once(SITE_ROOT.DS.'public'.DS.'layouts'.DS.$file);
+  $string ="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  $random_string = array();
+  $i = 0;
+  while($i < $length) {
+    $random_string[] = $string[rand(0, strlen($string))];
+    $i++;
+  }
+  return join('', $random_string);
 }
 ?>

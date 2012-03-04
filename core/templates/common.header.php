@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <!-- 
          ________         __         _________ 
     ___  _\_____  \  ____ |  | _______\______  \
@@ -9,33 +8,21 @@
 
     Developed By Venkata Giri Reddy - http://v3nka7.tk/
 -->
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8" />
+  <title><?php echo $g_title; ?></title>
   <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
-  <title><?php echo ($g_title != "") ? $g_title." | " : ""; ?><?php echo STORE_NAME; ?></title>
+  <meta name="description" content="<?php echo @$g_description; ?>" />
+  <meta name="keywords" content="<?php echo @$g_keywords; ?>" />
   <!-- <link href='http://fonts.googleapis.com/css?family=Merienda+One|Asap' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" href="/css/fonts.css" type="text/css" />
   <link rel="stylesheet" href="/css/reset.css" type="text/css" />
   <link rel="stylesheet" href="/css/base.css" type="text/css" />
-  <link rel="stylesheet" href="/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/css/<?php echo $g_page; ?>.css" type="text/css" />
   <!--[if lt IE 9]>
     <link rel="stylesheet" href="css/ie.css" type="text/css" />
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
-<body>
-<div id="extras"></div>
-<header><div class="wrapper">
-  <form method="GET" action="/search">
-    <input type="text" name="q" id="search_box"
-      value="" size="25" placeholder="Search and you will find it..." />
-  </form>
-  <h1><a href="/" title="Home">
-    <?php echo STORE_NAME; ?>
-  </a></h1>
-</div></header>
-
-<?php include_once('navigation.php'); ?>
-
-<div class="content wrapper <?php echo strtolower(array_pop(explode('|', $g_title))).'-page'; ?>">

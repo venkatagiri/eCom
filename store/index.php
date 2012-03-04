@@ -1,6 +1,6 @@
 <?php require_once("../core/init.php"); ?>
-<?php get_header(); ?>
+<?php get_store_header('The Best Store'); ?>
 
 <h1>Welcome to <strong><?php echo STORE_NAME; ?></strong></h1>
 
-<?php get_footer(); ?>
+<?php get_store_footer(); ?>
