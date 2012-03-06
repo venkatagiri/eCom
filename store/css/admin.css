@@ -82,11 +82,11 @@ nav li.category > a {
 .node > .header:hover {
   border-bottom-color: #FF7200;
 }
-.node a.add_category {
+.node a.new_entry {
   font-size: 1.4em;
   border: 0;
 }
-.node a.add_category:hover {
+.node a.new_entry:hover {
   text-decoration: none;
   color: #333;
 }
