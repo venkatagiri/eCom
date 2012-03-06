@@ -58,6 +58,13 @@ CREATE TABLE banners (
   FOREIGN KEY(category_id) REFERENCES categories(id)
 );
 
+CREATE TABLE attributes (
+  id INT NOT NULL AUTO_INCREMENT,
+  name CHAR(50) NOT NULL,
+  group_id INT NOT NULL DEFAULT 1,
+  PRIMARY KEY(id)
+);
+
 -- TRIGGERS
 CREATE TRIGGER product_created 
 BEFORE INSERT ON products 
@@ -81,3 +88,4 @@ SET NEW.date_created = OLD.date_created, NEW.date_modified = NOW();
 
 -- DML
 INSERT INTO categories VALUES(null, 'Root Category', 'root-category', 'The root category', '', 0, 1);
+INSERT INTO attributes VALUES(null, 'Root Group', 0);

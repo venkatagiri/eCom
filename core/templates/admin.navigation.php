@@ -9,6 +9,7 @@
         <a href="/admin/products">Products</a>
         <a href="/admin/categories">Categories</a>
         <a href="/admin/brands">Brands</a>
+        <a href="/admin/attributes">Attributes</a>
       </td></tr></table>
     </li>
     <li>
