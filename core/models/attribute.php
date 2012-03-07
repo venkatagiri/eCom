@@ -24,6 +24,10 @@ class Attribute extends Base {
     return self::root_group()->attributes();
   }
   
+  static public function all_attributes() {
+    return self::find_where("id != 1 AND group_id !=1"); // Don't select Root Group and Groups.
+  }
+  
   public function attributes() {
     return self::find_where("group_id={$this->id}");
   }
