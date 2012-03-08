@@ -4,13 +4,12 @@
 
   if(isset($_POST['save'])) {
     $category = Category::make($_POST['category']);
-    $category->id = $_GET['id'];
     
     if($category->save()) {
-      $session->message("Category '$name' was saved successfully!");
+      $session->message("Category '{$category->name}' was saved successfully!");
       redirect_to("show?id={$category->id}");
     } else {
-      $error = "An error occured while saving! Please try again after sometime!";
+      $message = "An error occured while saving! Please try again after sometime!";
     }
   }
   
@@ -39,6 +38,7 @@
 <?php } else {?>
 
 <form method="post" name="form_category" class="form">
+  <input type="hidden" name="category[id]" value="<?php echo $category->id; ?>" />
   <div class="entry">
     <label for="name">Name</label>
     <input type="text" name="category[name]" value="<?php echo $category->name; ?>"/>
