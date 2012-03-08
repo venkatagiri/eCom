@@ -13,7 +13,7 @@ define('GENERIC_SEARCH', 0);
 define('CATEGORY_SEARCH', 1);
 define('FILTERED_SEARCH', 2);
 
-$ASSETS_PATH = SITE_ROOT.'/public/assets';
+$ASSETS_PATH = STORE_ROOT.'/assets';
 
 // Images path
 $IMAGES_PATH = array(
