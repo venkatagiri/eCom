@@ -34,10 +34,26 @@ nav li.category > a {
 
 
 /* login */
-#login .content section {
-  margin-left: 0;
+.login-page header{
+  background: #F5F5F5;
+  border-bottom: 1px solid #EAEAEA;
 }
-
+.login-page {
+  position: absolute;
+  left: 50%; top: 50%;
+  margin-left: -250px; margin-top: -200px;
+  width: 500px;
+  height: 300px;
+  border: 1px solid #EAEAEA;
+}
+.login-page .wrapper {
+  width: 460px;
+}
+.login-page .content{
+  min-height: 0px;
+  border: 0;
+  background: white;
+}
 .login_form {
   padding: 5px 20px;
 }

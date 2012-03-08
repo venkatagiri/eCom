@@ -16,8 +16,19 @@
 		$username = "";
 		$password = "";
 	}
+	$g_title = join(' | ', array('Login', 'Admin Panel', 'eCom'));
+	$g_page = "admin";
 ?>
-<?php get_admin_header('Login'); ?>
+<?php include(LIB_ROOT."/templates/common.header.php"); ?>
+<body class="login-page">
+<header class="wrapper">
+  <h1>eCom<span> - admin panel </span></h1>
+</header>
+<div class="content wrapper">
+
+<?php if($message != "") { ?>
+  <p class="message"><?php echo $message; ?></p>
+<?php } ?>
 
 <h1>Login</h1>
 
@@ -39,10 +50,9 @@
 </form>
 
 <script>
-  //document.login_form.username.focus();
-  document.login_form.username.value="ecom";
-  document.login_form.password.value="z";
-  //document.login_form.submit.click();
+  document.login_form.username.focus();
 </script>
 
-<?php get_admin_footer(); ?>
+</div>
+</body>
+</html>
