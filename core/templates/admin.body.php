@@ -1,5 +1,5 @@
 <body>
-<div id="extras"></div>
+
 <header><div class="wrapper">
   <form method="GET" action="/admin/search">
     <input type="text" name="q" id="search_box"
@@ -14,6 +14,6 @@
 
 <div class="content wrapper">
 
-  <?php if($message != "") { ?>
-    <p class="message"><?php echo $message; ?></p>
-  <?php } ?>
+<?php if($message != "") { ?>
+  <p class="message"><?php echo $message; ?></p>
+<?php } ?>

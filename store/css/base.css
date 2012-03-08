@@ -23,14 +23,7 @@ h5 {font-size:1em;font-weight:bold;margin-bottom:0.75em;}
 h6 {font-size:1em;font-weight:bold;}
 .left { float: left; }
 .right { float: right; }
-#extras {
-  display: none;
-  position: fixed;
-  top: 0; right: 0; left: 0; bottom: 0;
-  border-top: 5px solid #FF7200;
-  border-bottom: 5px solid #FF7200;
-  opacity: .5;
-}
+.hidden { display: none; }
 
 /* header */
 header {
@@ -309,7 +302,8 @@ input[type=button]:active, input[type=submit]:active {
 }
 /* misc */
 fieldset {
-  border: 2px solid #AAA;
+  border: 1px solid #DDD;
+  margin-bottom: 10px;
 }
 .message {
   position: fixed;

@@ -1,5 +1,5 @@
 <body>
-<div id="extras"></div>
+
 <header><div class="wrapper">
   <form method="GET" action="/search">
     <input type="text" name="q" id="search_box"
