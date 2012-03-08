@@ -4,7 +4,6 @@
   
   if(isset($_POST['save'])) {
     $brand = Brand::make($_POST['brand']);
-    $brand->id = $_GET['id'];
     
     if($brand->save()) {
       $session->message("Brand '{$brand->name}' was updated successfully!");
@@ -35,6 +34,7 @@
 <?php } else {?>
 
 <form method="post" name="form_brand" class="form">
+  <input type="hidden" name="brand[id]" value="<?php echo $brand->id; ?>" />
   <div class="entry">
     <label for="brand[name]">Name</label>
     <input type="text" name="brand[name]" value="<?php echo $brand->name; ?>"/>
