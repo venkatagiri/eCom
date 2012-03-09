@@ -25,13 +25,13 @@ window.onload = function() {
   <li class="node opened">
     <span class="toggle"></span>
     <span class="header"><?php echo $root->name; ?></span>
-    <a href="new?group_id=<?php echo $root->id ?>" title="Add an Attribute Group" class="add_category">+</a>
+    <a href="new?group_id=<?php echo $root->id ?>" title="Add an Attribute Group" class="new_entry">+</a>
     <ul class="list">
     <?php foreach($groups as $group) { ?>
       <li class="node closed">
         <span class="toggle"></span>
         <a href="show?id=<?php echo $group->id; ?>" class="header"><?php echo $group->name; ?></a>
-        <a href="new?group_id=<?php echo $group->id; ?>" title="Add a new Attribute " class="add_category">+</a>
+        <a href="new?group_id=<?php echo $group->id; ?>" title="Add a new Attribute " class="new_entry">+</a>
         <ul class="list">
         <?php foreach($group->attributes() as $attribute) { ?>
           <li class="node leaf">
