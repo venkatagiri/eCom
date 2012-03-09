@@ -8,7 +8,7 @@ CREATE TABLE brands (
   categories CHAR(50),
   visible INT(1) DEFAULT 1,
   PRIMARY KEY(id),
-  UNIQUE(key)
+  UNIQUE(`key`)
 );
 
 CREATE TABLE categories (
@@ -20,7 +20,7 @@ CREATE TABLE categories (
   parent_id INT DEFAULT 1,
   visible INT(1) DEFAULT 1,
   PRIMARY KEY(id),
-  UNIQUE(key)
+  UNIQUE(`key`)
 );
 
 CREATE TABLE products (
@@ -37,7 +37,7 @@ CREATE TABLE products (
   date_modified DATETIME NOT NULL,
   visible INT(1) DEFAULT 1,
   PRIMARY KEY(id),
-  UNIQUE(key),
+  UNIQUE(`key`),
   FOREIGN KEY(brand_id) REFERENCES brands(id),
   FOREIGN KEY(category_id) REFERENCES categories(id)
 );
