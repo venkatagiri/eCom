@@ -308,6 +308,7 @@ fieldset {
 .message {
   position: fixed;
   top: 0; left: 50%;
+  z-index: 9999;
   width: 320px;
   margin: 0 0 0 -160px;
   text-align: center;
