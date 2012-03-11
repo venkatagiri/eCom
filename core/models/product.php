@@ -41,6 +41,10 @@ class Product extends Base {
     return ($this->category_id != "") ? Category::find_by_id($this->category_id) : new Category();
   }
 
+  public function attributes() {
+    return ProductAttribute::find_where("product_id = {$this->id}");
+  }
+
 }
 
 ?>
