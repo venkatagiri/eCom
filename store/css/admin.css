@@ -9,6 +9,9 @@
   text-decoration: none;
   color: #333;
 }
+.content h2.sub_heading {
+  border-bottom: 1px solid #EAEAEA;
+}
 
 /* navigation */
 nav li.category > a {
