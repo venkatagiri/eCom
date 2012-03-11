@@ -101,8 +101,8 @@ function redirect_to($location = NULL) {
 }
 
 function show_404() {
-  include_once(SITE_ROOT.'/public/404.php');
-//  redirect_to("/404");
+  // TODO: Log the 404 to check for broken links.
+  include_once(ADMIN_ROOT.'/404.php');
 }
 
 function __autoload($class_name) {
