@@ -65,6 +65,17 @@ CREATE TABLE attributes (
   PRIMARY KEY(id)
 );
 
+CREATE TABLE product_attributes (
+  id INT NOT NULL AUTO_INCREMENT,
+  product_id INT NOT NULL,
+  attribute_id INT NOT NULL,
+  name CHAR(50) NOT NULL,
+  value CHAR(50) NOT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY(product_id) REFERENCES products(id),
+  FOREIGN KEY(attribute_id) REFERENCES attributes(id)
+);
+
 -- TRIGGERS
 CREATE TRIGGER product_created 
 BEFORE INSERT ON products 
