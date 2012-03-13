@@ -14,12 +14,10 @@
   } else if(isset($_GET['id']) && $_GET['id'] != "") {
     $brand = Brand::find_by_id($_GET['id']);
     if(!$brand) {
-      echo "404";
-      return;
+      return show_404();
     }
   } else {
-    echo "404";
-    return;
+    return show_404();
   }
   
 ?>

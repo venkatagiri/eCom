@@ -28,12 +28,10 @@
   } else if(isset($_GET['id']) && $_GET['id'] != "") {
     $banner = Banner::find_by_id($_GET['id']);
     if(!$banner) {
-      echo "404";
-      return;
+      return show_404();
     }
   } else {
-    echo "404";
-    return;
+    return show_404();
   }
   
 ?>

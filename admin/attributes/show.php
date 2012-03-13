@@ -14,13 +14,11 @@
   }
   
   if(!isset($_GET['id']) || $_GET['id'] == 1) {
-    echo "404";
-    return;
+    return show_404();
   } else {
     $attribute = Attribute::find_by_id($_GET['id']);
     if(!$attribute) {
-      echo "404";
-      return;
+      return show_404();
     }
   }
   

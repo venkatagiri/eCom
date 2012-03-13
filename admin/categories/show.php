@@ -13,16 +13,12 @@
     }
   }
   
-  if(!isset($_GET['id'])) {
-    echo "404";
-    return;
-  } else if($_GET['id'] == 1) {
-    $error = "Root category cannot be modified!";
+  if(!isset($_GET['id']) || $_GET['id'] == 1) {
+    return show_404();
   } else {
     $category = Category::find_by_id($_GET['id']);
     if(!$category) {
-      echo "404";
-      return;
+      return show_404();
     }
   }
   

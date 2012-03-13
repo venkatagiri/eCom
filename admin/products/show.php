@@ -33,13 +33,11 @@
   } else if(isset($_GET['id']) && $_GET['id'] != "") {
     $product = Product::find_by_id($_GET['id']);
     if(!$product) {
-      echo "404";
-      return;
+      return show_404();
     }
     $product_attributes = $product->attributes();
   } else {
-    echo "404";
-    return;
+    return show_404();
   }
   
 ?>

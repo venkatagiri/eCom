@@ -17,13 +17,11 @@
   }
   
   if(!isset($_GET['group_id'])) {
-    echo "404";
-    return;
+    return show_404();
   } else {
     $group = Attribute::find_by_id($_GET['group_id']);
     if(!$group || ($group->group_id != 1 && $group->id != 1)) {
-      echo "404";
-      return;
+      return show_404();
     }
   }
   

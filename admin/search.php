@@ -40,8 +40,7 @@
       $error = "No Products match your search. Please try again!";
     }
   } else {
-    echo "404";
-    return;
+    return show_404();
   }
 ?>
 <?php get_admin_header('Search'); ?>

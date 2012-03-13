@@ -17,11 +17,11 @@
   }
   
   if(!isset($_GET['parent_id'])) {
-    $error = "Oops! Looks like something went wrong! ";
+    return show_404();
   } else {
     $parent_category = Category::find_by_id($_GET['parent_id']);
     if(!$parent_category || ($parent_category->parent_id != 1 && $parent_category->id != 1)) {
-      $error = "Invalid Parent Category";
+      return show_404();
     }
   }
   
@@ -29,12 +29,6 @@
 <?php get_admin_header('New | Categories'); ?>
 
 <h1>Categories / New</h1>
-
-<?php if(isset($error)) { ?>
-
-<div class="error"><?php echo $error; ?></div>
-
-<?php } else {?>
 
 <form method="post" name="form_category" class="form">
   <div class="entry">
@@ -64,7 +58,5 @@
     <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/categories'" />
   </div>
 </form>
-
-<?php } ?>
 
 <?php get_admin_footer(); ?>
