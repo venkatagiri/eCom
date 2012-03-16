@@ -33,6 +33,13 @@ class Product extends Base {
     return $product;
   }
 
+  static public function new_arrivals($category_id, $limit = 4) {
+    $where_clause = " category_id = {$category_id} OR category_id IN ( SELECT id FROM categories WHERE parent_id={$category_id} ) ";
+    $where_clause .= " ORDER BY date_created DESC ";
+    $where_clause .= " LIMIT {$limit} ";
+    return self::find_where($where_clause);
+  }
+
   public function brand() {
     return ($this->brand_id != "") ? Brand::find_by_id($this->brand_id) : new Brand();
   }
