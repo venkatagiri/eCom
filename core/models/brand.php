@@ -35,6 +35,11 @@ class Brand extends Base {
   public function categories() {
     return Category::find_by_id($this->categories)->name;
   }
+
+  public function has_products() {
+    return (Product::count("brand_id = {$this->id}") > 0) ? true : false;
+  }
+
 }
 
 ?>
