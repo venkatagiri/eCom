@@ -18,6 +18,14 @@ class Base {
     return static::find_by_sql($sql);
   }
 
+  static public function delete_where($where = '1 != 1') {
+    global $db;
+    $sql = "DELETE FROM ".static::$table_name;
+    $sql .= " WHERE ".$where;
+    $db->query($sql);
+    return true;
+  }
+
   static public function find_by_id($id) {
     global $db;
     $sql = "SELECT * FROM ".static::$table_name;
