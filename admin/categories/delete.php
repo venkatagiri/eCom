@@ -6,6 +6,11 @@
 
   $category = Category::find_by_id(__($_GET['id']));
 
+  if(count($category->children()) > 0) {
+    $session->message("Main category with sub-categories cannot be deleted!");
+    redirect_to("show?id={$category->id}");
+  }
+
   if($category->has_products()) {
   	$session->message("Has related Products. Cannot be deleted!");
     redirect_to("show?id={$category->id}");
