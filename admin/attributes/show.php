@@ -57,8 +57,17 @@
   <div class="entry">
     <label for="submit"> </label>
     <input type="submit" name="save" value="Save" />
-    <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/attributes'" />
+    <input type="button" name="delete" value="Delete" id="delete" />
+    <input type="button" name="back" value="Back to List" onclick="window.location='/admin/attributes'" />
   </div>
 </form>
+
+<script>
+$("#delete").click(function() {
+  if(confirm("Are you sure you want to delete?")) {
+    window.location = "/admin/attributes/delete?id=<?php echo $attribute->id ?>";
+  }
+});
+</script>
 
 <?php get_admin_footer(); ?>
