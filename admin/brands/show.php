@@ -21,15 +21,9 @@
   }
   
 ?>
-<?php get_admin_header('Show | Brands'); ?>
+<?php get_admin_header('Brands'); ?>
 
 <h1>Brands</h1>
-
-<?php if(isset($error)) { ?>
-
-<div class="error"><?php echo $error; ?></div>
-
-<?php } else {?>
 
 <form method="post" name="form_brand" class="form">
   <input type="hidden" name="brand[id]" value="<?php echo $brand->id; ?>" />
@@ -58,10 +52,17 @@
   <div class="entry">
     <label for="submit"> </label>
     <input type="submit" name="save" value="Save" />
-    <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/brands'" />
+    <input type="button" name="delete" value="Delete" id="delete" />
+    <input type="button" name="back" value="Back to List" onclick="window.location='/admin/brands'" />
   </div>
 </form>
 
-<?php } ?>
+<script>
+$("#delete").click(function() {
+  if(confirm("Are you sure you want to delete?")) {
+    window.location = "/admin/brands/delete?id=<?php echo $brand->id ?>";
+  }
+});
+</script>
 
 <?php get_admin_footer(); ?>

@@ -19,7 +19,7 @@
 ?>
 <?php get_admin_header('New | Brands'); ?>
 
-<h1>Brands / New</h1>
+<h1>New / Brands</h1>
 
 <form method="post" name="form_brand" class="form">
   <div class="entry">
