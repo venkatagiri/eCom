@@ -47,7 +47,11 @@ class Category extends Base {
   public function brands() {
     return Brand::find_where("categories like '%{$this->id}%'");
   }
-  
+
+  public function has_products() {
+    return (Product::count("category_id = {$this->id}") > 0) ? true : false;
+  }
+
 }
 
 ?>
