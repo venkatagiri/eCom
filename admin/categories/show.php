@@ -27,12 +27,6 @@
 
 <h1>Categories</h1>
 
-<?php if(isset($error)) { ?>
-
-<div class="error"><?php echo $error; ?></div>
-
-<?php } else {?>
-
 <form method="post" name="form_category" class="form">
   <input type="hidden" name="category[id]" value="<?php echo $category->id; ?>" />
   <div class="entry">
@@ -59,10 +53,17 @@
   <div class="entry">
     <label for="submit"> </label>
     <input type="submit" name="save" value="Save" />
-    <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/categories'" />
+    <input type="button" name="delete" value="Delete" id="delete" />
+    <input type="button" name="back" value="Back to List" onclick="window.location='/admin/categories'" />
   </div>
 </form>
 
-<?php } ?>
+<script>
+$("#delete").click(function() {
+  if(confirm("Are you sure you want to delete?")) {
+    window.location = "/admin/categories/delete?id=<?php echo $category->id ?>";
+  }
+});
+</script>
 
 <?php get_admin_footer(); ?>
