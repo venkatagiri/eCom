@@ -39,12 +39,6 @@
 
 <h1>Banners</h1>
 
-<?php if(isset($error)) { ?>
-
-<div class="error"><?php echo $error; ?></div>
-
-<?php } else {?>
-
 <form method="post" enctype="multipart/form-data" name="form_banners" class="form">
   <input type="hidden" name="banner[id]" value="<?php echo $banner->id; ?>" />
   <input type="hidden" name="banner[image]" value="<?php echo $banner->image; ?>" />
@@ -103,11 +97,17 @@
   <div class="entry">
     <label for="submit"> </label>
     <input type="submit" name="save" value="Save" />
-    <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/banners'" />
+    <input type="button" name="delete" value="Delete" id="delete" />
+    <input type="button" name="back" value="Back to List" onclick="window.location='/admin/banners'" />
   </div>
-  
 </form>
 
-<?php } ?>
+<script>
+$("#delete").click(function() {
+  if(confirm("Are you sure you want to delete?")) {
+    window.location = "/admin/banners/delete?id=<?php echo $banner->id; ?>";
+  }
+});
+</script>
 
 <?php get_admin_footer(); ?>
