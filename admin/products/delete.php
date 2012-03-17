@@ -6,6 +6,8 @@
 
   $product = Product::find_by_id(__($_GET['id']));
 
+  if(!$product) redirect_to('/admin/products');
+
   if($product->delete()) {
     unlink($IMAGES_PATH['PRODUCT']."/{$product->image}");
   	$session->message("Product '{$product->name}' was deleted successfully!");

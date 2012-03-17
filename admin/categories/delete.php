@@ -6,6 +6,8 @@
 
   $category = Category::find_by_id(__($_GET['id']));
 
+  if(!$category) redirect_to('/admin/categories');
+
   if(count($category->children()) > 0) {
     $session->message("Main category with sub-categories cannot be deleted!");
     redirect_to("show?id={$category->id}");

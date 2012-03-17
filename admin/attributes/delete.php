@@ -6,6 +6,8 @@
 
   $attribute = Attribute::find_by_id(__($_GET['id']));
 
+  if(!$attribute) redirect_to('/admin/attributes');
+
   if(count($attribute->attributes()) > 0) {
     $session->message("Attribute group with sub-attributes cannot be deleted!");
     redirect_to("show?id={$attribute->id}");

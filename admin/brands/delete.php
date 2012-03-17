@@ -6,6 +6,8 @@
 
   $brand = Brand::find_by_id(__($_GET['id']));
 
+  if(!$brand) redirect_to('/admin/brands');
+
   if($brand->has_products()) {
   	$session->message("Has related Products. Cannot be deleted!");
     redirect_to("show?id={$brand->id}");

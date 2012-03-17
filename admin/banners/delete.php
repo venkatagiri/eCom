@@ -6,6 +6,8 @@
 
   $banner = Banner::find_by_id(__($_GET['id']));
 
+  if(!$banner) redirect_to('/admin/banners');
+
   if($banner->delete()) {
     unlink($IMAGES_PATH['BANNER']."/{$banner->image}");
   	$session->message("Banner '{$banner->name}' was deleted successfully!");
