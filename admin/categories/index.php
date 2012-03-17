@@ -10,18 +10,6 @@
 
 <h1>Categories</h1>
 
-<script>
-window.onload = function() {
-  var toggles = document.querySelectorAll('.node > .toggle');
-  for(var i=0, len=toggles.length; i < len; ++i) {
-    toggles[i].addEventListener('click', function() {
-      this.parentNode.classList.toggle('opened');
-      this.parentNode.classList.toggle('closed');
-    });
-  }
-};
-</script>
-
 <ul id="root-node" class="list">
   <li class="node opened">
     <span class="toggle"></span>
@@ -46,5 +34,11 @@ window.onload = function() {
     </ul>
   </li>
 </ul>
+
+<script>
+$('.node > .toggle').click(function() {
+  $(this).parent().toggleClass('opened').toggleClass('closed');
+});
+</script>
 
 <?php get_admin_footer(); ?>
