@@ -10,10 +10,11 @@
 
   if($product->delete()) {
     unlink($IMAGES_PATH['PRODUCT']."/{$product->image}");
-  	$session->message("Product '{$product->name}' was deleted successfully!");
+    ProductAttribute::delete_where("product_id = {$product->id}");
+    $session->message("Product '{$product->name}' was deleted successfully!");
     redirect_to("/admin/products");
   } else {
-  	$session->message("Deletion failed!");
+    $session->message("Deletion failed!");
     redirect_to("show?id={$product->id}");
   }
 
