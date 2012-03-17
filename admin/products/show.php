@@ -44,8 +44,9 @@
 <?php get_admin_header('Show | Products'); ?>
 
 <span class="right">
-  <input type="button" name="back" value="Back" onclick="window.location='/admin/products'" />
   <input type="submit" name="save" value="Save" onclick="document.form_product.submit();"/>
+  <input type="button" name="delete" value="Delete" onclick="$('#delete').click();" />
+  <input type="button" name="back" value="Back to List" onclick="window.location='/admin/products'" />
 </span>
 
 <h1>Products</h1>
@@ -163,9 +164,17 @@
   <div class="entry">
     <label for="submit"> </label>
     <input type="submit" name="save" value="Save" />
-    <input type="button" name="back" value="Back" onclick="window.location='/admin/products'" />
+    <input type="button" name="delete" value="Delete" id="delete" />
+    <input type="button" name="back" value="Back to List" onclick="window.location='/admin/products'" />
   </div>
-  
 </form>
+
+<script>
+$("#delete").click(function() {
+  if(confirm("Are you sure you want to delete?")) {
+    window.location = "/admin/products/delete?id=<?php echo $product->id ?>";
+  }
+});
+</script>
 
 <?php get_admin_footer(); ?>
