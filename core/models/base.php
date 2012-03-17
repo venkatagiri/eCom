@@ -41,10 +41,10 @@ class Base {
     return static::find_by_sql("SELECT * FROM ".static::$table_name);
   }
   
-  static public function count($where_clause="") {
+  static public function count($where_clause="1 = 1") {
     global $db;
     $sql = "SELECT COUNT(*) FROM ".static::$table_name;
-    if(!empty($where_clause)) $sql .= " WHERE ".$where_clause;
+    $sql .= " WHERE ".$where_clause;
     $result_set = $db->query($sql);
     $row = $db->fetch_array($result_set);
     return array_shift($row);
