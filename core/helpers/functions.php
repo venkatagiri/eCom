@@ -20,6 +20,7 @@ function get_store_header($_t = '') {
   $g_title = join(' | ', array($_t, STORE_NAME));
   $g_description = "";
   $g_keywords = "";
+  $g_class_name = strtolower(array_pop(explode('|', $_t))).'-page';
   include(LIB_ROOT."/templates/common.header.php");
   include(LIB_ROOT."/templates/store.body.php");
 }

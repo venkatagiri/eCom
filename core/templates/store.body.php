@@ -12,4 +12,4 @@
 
 <?php include_once('store.navigation.php'); ?>
 
-<div class="content wrapper <?php echo strtolower(array_pop(explode('|', $g_title))).'-page'; ?>">
+<div class="content wrapper <?php echo $g_class_name; ?>">
