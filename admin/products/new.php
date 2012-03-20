@@ -32,8 +32,8 @@
 <?php get_admin_header('New | Products'); ?>
 
 <span class="right">
-  <input type="button" name="back" value="Back" onclick="window.location='/admin/products'" />
   <input type="submit" name="create" value="Create" onclick="$('#create').click();"/>
+  <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/products'" />
 </span>
 
 <h1>Products / New</h1>
