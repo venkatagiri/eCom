@@ -2,11 +2,13 @@
 
 class ProductAttribute extends Base {
   static protected $table_name = "product_attributes";
-  static protected $db_fields = array('id', 'product_id', 'attribute_id', 'name', 'value');
+  static protected $db_fields = array('id', 'product_id', 'attribute_id',
+        'group_id', 'name', 'value');
   
   public $id;
   public $product_id;
   public $attribute_id;
+  public $group_id;
   public $name;
   public $value;
   
@@ -15,6 +17,7 @@ class ProductAttribute extends Base {
     if(isset($pa['id'])) $product_attribute->id = $pa['id'];
     $product_attribute->product_id = @$pa['product_id'];
     $product_attribute->attribute_id = $pa['attribute_id'];
+    $product_attribute->group_id = $pa['group_id'];
     $product_attribute->name = $pa['name'];
     $product_attribute->value = $pa['value'];
     return $product_attribute;
@@ -63,7 +66,6 @@ class ProductAttribute extends Base {
     }
     return true;
   }
-
 }
 
 ?>

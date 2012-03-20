@@ -84,6 +84,7 @@
   <div class="entry" id="attributes-list">
     <div class="entry attribute_entry hidden">
       <input type="hidden" name="attribute-id" value="" />
+      <input type="hidden" name="group-id" value="" />
       <input type="hidden" name="attribute-name" value="" />
       <label for="">Attribute Name</label>
       <input type="text" name="attribute-value" value="" />
@@ -96,6 +97,7 @@
     ?>
     <div class="entry attribute_entry">
       <input type="hidden" name="product[attribute][<?php echo $count; ?>][attribute_id]" value="<?php echo $pa->attribute_id; ?>" />
+      <input type="hidden" name="product[attribute][<?php echo $count; ?>][group_id]" value="<?php echo $pa->group_id; ?>" />
       <input type="hidden" name="product[attribute][<?php echo $count; ?>][name]" value="<?php echo $pa->name; ?>" />
       <label for="product[attribute][<?php echo $count; ?>][value]"><?php echo $pa->name; ?></label>
       <input type="text" name="product[attribute][<?php echo $count; ?>][value]" value="<?php echo $pa->value; ?>" />
@@ -107,7 +109,7 @@
     <select name="attributes" id="select_list">
       <option value="0">Select an Attribute</option>
     <?php foreach(Attribute::all_attributes() as $a) { ?>
-      <option value="<?=$a->id?>" ><?=$a->name?></option>
+      <option value="<?php echo $a->id; ?>" data-groupid="<?php echo $a->group_id; ?>" ><?php echo $a->name; ?></option>
     <?php } ?>
     </select>
     <input type="button" name="add_entry" id="add_entry" value="+" style="margin-left: 10px;"/>
@@ -129,6 +131,10 @@
             "name" : "product[attribute]["+count+"][attribute_id]",
             "value" : $select_list.val()
           }).end()
+          .find("input[name=group-id]").attr({
+            "name" : "product[attribute]["+count+"][group_id]",
+            "value" : $select_list.find(':selected').attr('data-groupid')
+          }).end()
           .find("input[name=attribute-name]").attr({
             "name": "product[attribute]["+count+"][name]",
             "value" : $("#select_list option:selected").text()
@@ -146,7 +152,7 @@
   <div class="entry">
     <label for="submit"> </label>
     <input type="submit" name="create" value="Create" />
-    <input type="button" name="back" value="Back" onclick="window.location='/admin/products'" />
+    <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/products'" />
   </div>
   
 </form>

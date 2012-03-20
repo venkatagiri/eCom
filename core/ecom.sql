@@ -69,6 +69,7 @@ CREATE TABLE product_attributes (
   id INT NOT NULL AUTO_INCREMENT,
   product_id INT NOT NULL,
   attribute_id INT NOT NULL,
+  group_id INT NOT NULL,
   name CHAR(50) NOT NULL,
   value CHAR(50) NOT NULL,
   PRIMARY KEY(id),
