@@ -44,7 +44,7 @@
 <?php get_admin_header('Show | Products'); ?>
 
 <span class="right">
-  <input type="submit" name="save" value="Save" onclick="document.form_product.submit();"/>
+  <input type="submit" name="save" value="Save" onclick="$('#save').click();"/>
   <input type="button" name="delete" value="Delete" onclick="$('#delete').click();" />
   <input type="button" name="back" value="Back to List" onclick="window.location='/admin/products'" />
 </span>
@@ -169,7 +169,7 @@
   
   <div class="entry">
     <label for="submit"> </label>
-    <input type="submit" name="save" value="Save" />
+    <input type="submit" name="save" value="Save" id="save" />
     <input type="button" name="delete" value="Delete" id="delete" />
     <input type="button" name="back" value="Back to List" onclick="window.location='/admin/products'" />
   </div>

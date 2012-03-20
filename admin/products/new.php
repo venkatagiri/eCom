@@ -33,7 +33,7 @@
 
 <span class="right">
   <input type="button" name="back" value="Back" onclick="window.location='/admin/products'" />
-  <input type="submit" name="create" value="Create" onclick="document.form_product.submit();"/>
+  <input type="submit" name="create" value="Create" onclick="$('#create').click();"/>
 </span>
 
 <h1>Products / New</h1>
@@ -151,7 +151,7 @@
 
   <div class="entry">
     <label for="submit"> </label>
-    <input type="submit" name="create" value="Create" />
+    <input type="submit" name="create" value="Create" id="create" />
     <input type="button" name="cancel" value="Cancel" onclick="window.location='/admin/products'" />
   </div>
   
