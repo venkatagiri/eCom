@@ -139,7 +139,7 @@
     <th style="width:20%;">Category</th>
     <th style="width:5%;">Price</th>
     <th style="width:5%;">Qty</th>
-    <th style="width:5%;">Visible</th>
+    <th style="width:5%;">Status</th>
     <th style="width:5%;"></th>
   </tr>
   <?php foreach($products as $product): ?>
@@ -149,7 +149,7 @@
     <td><?php echo $product->category()->name; ?></td>
     <td style="text-align:center;"><?php echo $product->price; ?></td>
     <td style="text-align:center;"><?php echo $product->quantity; ?></td>
-    <td style="text-align:center;"><input type="checkbox" disabled="disabled" <?php if($product->visible == '1') echo " checked='checked' "; ?>/></td>
+    <td style="text-align:center;"><?php if($product->status == '1') echo "Enabled"; else echo "Disabled"; ?></td>
     <td><a href="/admin/products/show?id=<?php echo $product->id; ?>">Edit</a></td>
   </tr>
   <?php endforeach; ?>
