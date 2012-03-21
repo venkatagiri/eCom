@@ -1,26 +1,19 @@
 <?php 
   require_once("../core/init.php"); 
-  
-  if(!isset($_GET['pid'])) {
-    echo "404";
-    return;
+  parse_str($_SERVER['QUERY_STRING'], $QS);
+  sanitize($QS, array('pid'));
+
+  if(!isset($QS['pid'])) {
+    return show_404(true);
   }
   
-  $pid = __($_GET['pid']);
-  $product = Product::find_by_id($pid);
+  $product = Product::find_by_id($QS['pid']);
   
   if(!$product) {
-    echo "404";
-    return;
+    return show_404(true);
   }
 ?>
 <?php get_store_header('Products'); ?>
-
-<?php if(isset($error)) { ?>
-
-<h2><?php echo $error; ?></h2>
-
-<?php } else { ?>
 
 <aside>
   <ul class="filters">
@@ -39,14 +32,22 @@
   <div class="product-image">
     <img src="/assets/product/<?php echo $product->image; ?>"/>
   </div>
-  <h1 class="product-names"><?php echo $product->name; ?></h1>
-  <p class="product-description"><?php echo $product->description; ?></p>
-  <input type="image" src="/images/buy-now.jpg" id="buy-now"/>
-  <div class="product-price">
-    Price:<strong>Rs. <?php echo $product->price; ?></strong>
+  <div class="product-intro">
+    <h1 class="product-name"><?php echo $product->name; ?></h1>
+    <ul class="product-features">
+      <?php foreach($product->features() as $feature) { ?>
+        <li><?php echo $feature->value; ?></li>
+      <?php } ?>
+    </ul>
+    <input type="image" src="/images/order-now.jpg" id="order-now" />
+    <div class="product-price">
+      Price:<strong>Rs. <?php echo $product->price; ?></strong>
+    </div>
+  </div>
+  <div class="product-details clear">
+    <h2 class="sub-heading">Details of <?php echo $product->name; ?></h2>
+    <p class="product-description"><?php echo nl2br($product->description); ?></p>
   </div>
 </section>
-  
-<?php } //endif ?>
 
 <?php get_store_footer(); ?>
