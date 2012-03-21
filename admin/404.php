@@ -1,6 +1,6 @@
 <?php get_admin_header('Page Not Found'); ?>
 
 <h1>Oops!</h1>
-<p>Something has gone wrong, dont worry our tech ninjas have been informed and will resolve the issue as soon as possible.</p>
+<P>Something's gone wrong. Don't worry! Our coding monkeys have been informed and they're working to get it fixed ASAP.</P>
 
 <?php get_admin_footer(); ?>
