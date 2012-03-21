@@ -62,7 +62,7 @@ class ProductAttribute extends Base {
   
   static public function delete_attributes($ids) {
     foreach($ids as $id) {
-      if(!self::make($id)->delete()) return false;
+      if(!self::find_by_id($id)->delete()) return false;
     }
     return true;
   }
