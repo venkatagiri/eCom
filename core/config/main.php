@@ -9,6 +9,15 @@ if(DEBUG == true) {
   ini_set('display_errors', '1');
 }
 
+// Log files
+define('ADMIN_LOG_FILE', LIB_ROOT.'/logs/admin.log');
+define('STORE_LOG_FILE', LIB_ROOT.'/logs/store.log');
+
+// Log levels
+define('ECOM_ERROR', 0);
+define('ECOM_DEBUG', 1);
+define('ECOM_INFO', 2);
+
 // Search Types
 define('GENERIC_SEARCH', 0);
 define('CATEGORY_SEARCH', 1);

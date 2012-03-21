@@ -117,11 +117,22 @@ function __autoload($class_name) {
   }
 }
 
-function log_action($action, $message="") {
-  $log_file = SITE_ROOT."/logs/log.txt";
+function log_admin($log_level, $action, $message="") {
+  return log_action(ADMIN_LOG_FILE, $log_level, $action, $message);
+}
+function log_store($log_level, $action, $message="") {
+  return log_action(STORE_LOG_FILE, $log_level, $action, $message);
+}
+function log_action($log_file, $log_level, $action, $message="") {
+  switch($log_level) {
+    case ECOM_ERROR: $level = "ERROR"; break;
+    case ECOM_DEBUG: $level = "DEBUG"; break;
+    case ECOM_INFO: 
+    default: $level = "INFO";
+  }
   if($handle = fopen($log_file, 'a')) {
     $timestamp = strftime("%d-%m-%Y %H:%M:%S", time());
-    $content = "{$timestamp} | {$action} - {$message}\n";
+    $content = "{$level} | {$timestamp} | {$action} - {$message}\n";
     fwrite($handle, $content);
     fclose($handle);
   } else {
@@ -138,4 +149,5 @@ function random_string($length = 6) {
   }
   return join('', $random_string);
 }
+
 ?>
