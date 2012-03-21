@@ -2,6 +2,7 @@
 
 define('DEBUG', true);
 define('STORE_NAME','Red Electronics Depot');
+define('SERVER_NAME', $_SERVER['SERVER_NAME']);
 
 if(DEBUG == true) {
   error_reporting(E_ALL);
