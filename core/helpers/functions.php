@@ -101,9 +101,10 @@ function redirect_to($location = NULL) {
   }
 }
 
-function show_404() {
+function show_404($is_store = false) {
   // TODO: Log the 404 to check for broken links.
-  include_once(ADMIN_ROOT.'/404.php');
+  if($is_store) include_once(STORE_ROOT.'/404.php');
+  else include_once(ADMIN_ROOT.'/404.php');
 }
 
 function __autoload($class_name) {
