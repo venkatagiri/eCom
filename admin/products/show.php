@@ -12,11 +12,12 @@
     $old_feature_ids = ProductFeature::get_ids($product->id);
 
     if($uploader->is_uploaded()) {
-      // TODO A new image is attached, delete old image.
+      $old_image = $product->image;
       $product->image = $uploader->file_name;
       if($product->save() 
           && $product->add_attributes($product_attributes)
           && $product->add_features($product_features)) {
+        unlink($IMAGES_PATH['PRODUCT']."/{$old_image}");
         ProductAttribute::delete_attributes($old_attr_ids);
         ProductFeature::delete_features($old_feature_ids);
         $session->message("Product '{$product->name}' was updated successfully!");
