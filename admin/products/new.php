@@ -25,6 +25,7 @@
     }
   } else {
     $product = new Product();
+    $product->status = '1'; //By default, the product is enabled.
     $product_attributes = array();
   }
   
@@ -46,12 +47,20 @@
     <input type="text" name="product[name]" value="<?php echo $product->name; ?>"/>
   </div>
   <div class="entry">
-    <label for="product[description]">Description</label>
-    <textarea name="product[description]" rows="6"><?php echo $product->description; ?></textarea>
+    <label for="product[short_description]">Short Description<br />(upto 250 chars)</label>
+    <textarea name="product[short_description]" rows="8" 
+      onkeydown="if(value.length>250)value=value.substr(0,250); if(value.length==250)if(window.event.keyCode>46 && window.event.keyCode<112 || window.event.keyCode>123)return false;"><?php echo $product->short_description; ?></textarea>
   </div>
   <div class="entry">
-    <label for="product[visible]">Visible?</label>
-    <input type="checkbox" name="product[visible]" value="1" <?php if($product->visible == '1') echo "checked=\"checked\""; ?> />
+    <label for="product[description]">Description</label>
+    <textarea name="product[description]" rows="15" class="long"><?php echo $product->description; ?></textarea>
+  </div>
+  <div class="entry">
+    <label for="product[status]">Status</label>
+    <select name="product[status]">
+      <option value="0" <?php if($product->status == '0') echo "selected=\"selected\""; ?> >Disabled</option>
+      <option value="1" <?php if($product->status == '1') echo "selected=\"selected\""; ?> >Enabled</option>
+    </select>
   </div>
   
   <h2 class="sub_heading">Data</h2>
@@ -61,11 +70,11 @@
   </div>
   <div class="entry">
     <label for="product[price]">Price</label>
-    <input type="text" name="product[price]" value="<?php echo $product->price; ?>"/>
+    <input type="text" name="product[price]" value="<?php echo $product->price; ?>" class="short" />
   </div>
   <div class="entry">
     <label for="product[quantity]">Quantity</label>
-    <input type="text" name="product[quantity]" value="<?php echo $product->quantity; ?>"/>
+    <input type="text" name="product[quantity]" value="<?php echo $product->quantity; ?>" class="short" />
   </div>
   <div class="entry">
     <label for="product[brand_id]">Brand</label>
