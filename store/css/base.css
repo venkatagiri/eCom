@@ -243,16 +243,6 @@ label, input, textarea, select {
   font-size: 100%;
   line-height: 1.2;
 }
-.form input[type=text], .form input[type=password], .form textarea {
-  width: 250px; 
-}
-.form select, .form option, .form optgroup {
-  font-size: 15px;
-  background: #EEE;
-  border: 1px solid #CCC;
-  padding: 3px 5px;
-  margin: 5px 0 0;
-}
 input[type=text], input[type=password], textarea {
   border: 1px solid #CCC;
   outline: 0;
@@ -286,6 +276,17 @@ input[type=button]:active, input[type=submit]:active {
   box-shadow: 0 0 5px rgba(0, 0, 0, .2) inset;
 }
 
+
+.form input[type=text], .form input[type=password], .form textarea {
+  width: 300px; 
+}
+.form select, .form option, .form optgroup {
+  font-size: 15px;
+  background: #EEE;
+  border: 1px solid #CCC;
+  padding: 3px 5px;
+  margin: 5px 0 0;
+}
 .form label {
   display: inline-block;
   padding: 5px 8px;
@@ -302,8 +303,9 @@ input[type=button]:active, input[type=submit]:active {
   resize: none;
 }
 .form .short { width: 150px !important; }
-.form .medium { width: 250px !important; }
-.form .long { width: 400px !important; }
+.form .medium { width: 300px !important; }
+.form .long { width: 600px !important; }
+
 /* misc */
 fieldset {
   border: 1px solid #DDD;
