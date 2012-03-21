@@ -5,23 +5,31 @@
   if(isset($_POST['save'])) {
     $product = Product::make($_POST['product']);
     $product_attributes = ProductAttribute::make_array($_POST['product']['attribute']);
+    $product_features = ProductFeature::make_array($_POST['product']['feature']);
     $uploader = new Uploader($_FILES['product-image'], $IMAGES_PATH['PRODUCT']);
     
-    $old_ids = ProductAttribute::get_ids($product->id);
+    $old_attr_ids = ProductAttribute::get_ids($product->id);
+    $old_feature_ids = ProductFeature::get_ids($product->id);
 
     if($uploader->is_uploaded()) {
       // TODO A new image is attached, delete old image.
       $product->image = $uploader->file_name;
-      if($product->save() && ProductAttribute::create_attributes($product_attributes, $product->id)) {
-        ProductAttribute::delete_attributes($old_ids);
+      if($product->save() 
+          && $product->add_attributes($product_attributes)
+          && $product->add_features($product_features)) {
+        ProductAttribute::delete_attributes($old_attr_ids);
+        ProductFeature::delete_features($old_feature_ids);
         $session->message("Product '{$product->name}' was updated successfully!");
         redirect_to("show?id={$product->id}");
       } else {
         $message = "Product updation failed! Please try again after sometime!";
       }
     } else if($uploader->error_code() == 4) {
-      if($product->save() && ProductAttribute::create_attributes($product_attributes, $product->id)) {
-        ProductAttribute::delete_attributes($old_ids);
+      if($product->save() 
+          && $product->add_attributes($product_attributes)
+          && $product->add_features($product_features)) {
+        ProductAttribute::delete_attributes($old_attr_ids);
+        ProductFeature::delete_features($old_feature_ids);
         $session->message("Product '{$product->name}' was updated successfully!");
         redirect_to("show?id={$product->id}");
       } else {
@@ -36,6 +44,7 @@
       return show_404();
     }
     $product_attributes = $product->attributes();
+    $product_features = $product->features();
   } else {
     return show_404();
   }
@@ -104,6 +113,31 @@
     <select name="product[category_id]">
       <?php echo list_categories($product->category_id); ?>
     </select>
+  </div>
+
+  <h2 class="sub_heading">Key Features</h2>
+  <div class="entry" id="features-list">
+    <?php 
+      $count = 0;
+      foreach($product_features as $pf) {
+        $count++;
+    ?>
+    <div class="entry feature_entry">
+      <label for="product[category_id]">Feature <?php echo $count; ?></label>
+      <input type="text" name="product[feature][<?php echo $count; ?>][value]" value="<?php echo $pf->value; ?>" />
+    </div>
+    <?php
+      }
+      while($count < 4) {
+        $count++;
+    ?>
+    <div class="entry feature_entry">
+      <label for="product[category_id]">Feature <?php echo $count; ?></label>
+      <input type="text" name="product[feature][<?php echo $count; ?>][value]" value="" />
+    </div>
+    <?php
+      }
+    ?>
   </div>
 
   <h2 class="sub_heading">Attributes</h2>

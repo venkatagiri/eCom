@@ -43,6 +43,22 @@ class Product extends Base {
     return self::find_where($where_clause);
   }
 
+  public function add_attributes($attrs) {
+    return ProductAttribute::create_attributes($attrs, $this->id);
+  }
+
+  public function delete_attributes() {
+    return ProductAttribute::delete_where("product_id = {$this->id}");
+  }
+
+  public function add_features($features) {
+    return ProductFeature::create_features($features, $this->id);
+  }
+
+  public function delete_features() {
+    return ProductFeature::delete_where("product_id = {$this->id}");
+  }
+
   public function brand() {
     return ($this->brand_id != "") ? Brand::find_by_id($this->brand_id) : new Brand();
   }
@@ -55,6 +71,11 @@ class Product extends Base {
     $where_clause = "product_id = {$this->id}";
     if($group_id != "") $where_clause .= " AND group_id = {$group_id}";
     return ProductAttribute::find_where($where_clause);
+  }
+
+  public function features() {
+    $where_clause = "product_id = {$this->id}";
+    return ProductFeature::find_where($where_clause);
   }
 }
 

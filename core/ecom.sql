@@ -78,6 +78,14 @@ CREATE TABLE product_attributes (
   FOREIGN KEY(attribute_id) REFERENCES attributes(id)
 );
 
+CREATE TABLE product_features (
+  id INT NOT NULL AUTO_INCREMENT,
+  product_id INT NOT NULL,
+  value CHAR(50) NOT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY(product_id) REFERENCES products(id)
+);
+
 -- TRIGGERS
 CREATE TRIGGER product_created 
 BEFORE INSERT ON products 

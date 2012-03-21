@@ -5,16 +5,21 @@
   if(isset($_POST['create'])) {
     $product = Product::make($_POST['product']);
     $product_attributes = ProductAttribute::make_array($_POST['product']['attribute']);
+    $product_features = ProductFeature::make_array($_POST['product']['feature']);
     $uploader = new Uploader($_FILES['product-image'], $IMAGES_PATH['PRODUCT']);
     
     if($uploader->is_uploaded()) {
       $product->image = $uploader->file_name;
       
-      if($product->create() && ProductAttribute::create_attributes($product_attributes, $product->id)) {
+      if($product->create() 
+          && $product->add_attributes($product_attributes)
+          && $product->add_features($product_features)) {
         $session->message("Product '{$product->name}' was created successfully!");
         redirect_to("show?id={$product->id}");
       } else {
         if(isset($product->id)) {
+          $product->delete_attributes();
+          $product->delete_features();
           $product->delete();
           unset($product->id);
         }
@@ -27,6 +32,7 @@
     $product = new Product();
     $product->status = '1'; //By default, the product is enabled.
     $product_attributes = array();
+    $product_features = array();
   }
   
 ?>
@@ -87,6 +93,31 @@
     <select name="product[category_id]">
       <?php echo list_categories($product->category_id); ?>
     </select>
+  </div>
+
+  <h2 class="sub_heading">Key Features</h2>
+  <div class="entry" id="features-list">
+    <?php 
+      $count = 0;
+      foreach($product_features as $pf) {
+        $count++;
+    ?>
+    <div class="entry feature_entry">
+      <label for="product[category_id]">Feature <?php echo $count; ?></label>
+      <input type="text" name="product[feature][<?php echo $count; ?>][value]" value="<?php echo $pf->value; ?>" />
+    </div>
+    <?php
+      }
+      while($count < 4) {
+        $count++;
+    ?>
+    <div class="entry feature_entry">
+      <label for="product[category_id]">Feature <?php echo $count; ?></label>
+      <input type="text" name="product[feature][<?php echo $count; ?>][value]" value="" />
+    </div>
+    <?php
+      }
+    ?>
   </div>
 
   <h2 class="sub_heading">Attributes</h2>
