@@ -24,8 +24,8 @@
 <table class="table">
   <tr class="header">
     <th>Name</th>
-    <th style="width:20%;">Brand</th>
-    <th style="width:20%;">Category</th>
+    <th style="width:15%;">Brand</th>
+    <th style="width:15%;">Category</th>
     <th style="width:15%;">Last Modified</th>
     <th style="width:5%;">Price</th>
     <th style="width:5%;">Qty</th>
