@@ -64,10 +64,6 @@
   <input type="hidden" name="product[id]" value="<?php echo $product->id; ?>" />
   
   <h2 class="sub_heading">General</h2>
-  <div class="entry right">
-    <input type="hidden" name="product[image]" value="<?php echo $product->image; ?>" />
-    <img src="/assets/product/<?php echo $product->image; ?>" style="max-width:300px;max-height:300px;" />
-  </div>
   <div class="entry">
     <label for="product[name]">Name</label>
     <input type="text" name="product[name]" value="<?php echo $product->name; ?>"/>
@@ -90,6 +86,10 @@
   </div>
   
   <h2 class="sub_heading">Data</h2>
+  <div class="entry right">
+    <input type="hidden" name="product[image]" value="<?php echo $product->image; ?>" />
+    <img src="/assets/product/<?php echo $product->image; ?>" style="max-width:300px;max-height:300px;" />
+  </div>
   <div class="entry">
     <label for="product[image]">Image</label>
     <input type="file" name="product-image" />
@@ -115,7 +115,7 @@
     </select>
   </div>
 
-  <h2 class="sub_heading">Key Features</h2>
+  <h2 class="sub_heading clear">Key Features</h2>
   <div class="entry" id="features-list">
     <?php 
       $count = 0;
