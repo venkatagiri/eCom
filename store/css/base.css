@@ -24,6 +24,7 @@ h6 {font-size:1em;font-weight:bold;}
 .left { float: left; }
 .right { float: right; }
 .hidden { display: none; }
+.clear { clear: both; }
 
 /* header */
 header {
