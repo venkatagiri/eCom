@@ -53,10 +53,10 @@
   color: #FF7200;
   margin-left: 5px;
 }
-#order-now {
+#buy-now {
   float: right; 
   margin: 10px 25px 15px 15px;
-  width: 180px;
+  border: none;
 }
 
 /* Search styles */

@@ -16,8 +16,8 @@
 <?php get_store_header('Products'); ?>
 
 <aside>
-  <ul class="filters">
-    <li class="box filter">
+  <ul>
+    <li class="box">
       <h6 class="header">Similar Products</h6>
       <ul class="list">
         <li><a href="#">Dell</a></li>
@@ -39,7 +39,7 @@
         <li><?php echo $feature->value; ?></li>
       <?php } ?>
     </ul>
-    <input type="image" src="/images/order-now.jpg" id="order-now" />
+    <input type="image" src="/images/buy-now.png" id="buy-now" onclick="$('#cart').show();" />
     <div class="product-price">
       Price:<strong>Rs. <?php echo $product->price; ?></strong>
     </div>
