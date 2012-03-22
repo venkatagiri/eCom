@@ -47,6 +47,24 @@
   <div class="product-details clear">
     <h2 class="sub-heading">Details of <?php echo $product->name; ?></h2>
     <p class="product-description"><?php echo nl2br($product->description); ?></p>
+    <h2 class="sub-heading">Specifications</h2>
+    <div class="specifications">
+    <?php 
+      foreach(Attribute::all_groups() as $group) { //TODO: Instead of all groups, get the ones for this category.
+        $attrs = $product->attributes($group->id);
+        if(count($attrs) == 0) continue;
+    ?>
+      <table>
+        <tr><td class="header" colspan="2"><h3><?php echo $group->name; ?></h3></td></tr>
+      <?php foreach($attrs as $attr) { ?>
+        <tr>
+          <th><?php echo $attr->name; ?></th>
+          <td><?php echo $attr->value; ?></td>
+        </tr>
+      <?php } ?>
+      </table>
+    <?php } ?>
+    </div>
   </div>
 </section>
 
