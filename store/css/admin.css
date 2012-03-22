@@ -18,24 +18,6 @@ nav li.category > a {
   cursor: default;
 }
 
-/* Table View */
-.table {
-  width: 100%;
-  font-size: 90%;
-  text-align: left;
-}
-.table .header {
-  background: #F8F8F8;
-}
-.table th {
-  font-weight: bold;
-}
-.table th, .table td {
-  padding: 7px 10px 5px;
-  border: 1px solid #DDD;
-}
-
-
 /* login */
 .login-page header{
   background: #F5F5F5;
@@ -74,7 +56,6 @@ nav li.category > a {
 .node.closed > .list {
   display: none;
 }
-
 .node > .toggle {
   display: inline-block;
   width: 10px;

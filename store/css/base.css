@@ -49,6 +49,7 @@ header h1 span {
 header h1 a:hover {
   text-decoration: none;
 }
+
 /* nav */
 nav {
   background: #EEE;
@@ -187,7 +188,6 @@ aside .box {
   background: #EEE;
   border-color: #FFF;
 }
-
 .page_controls {
   text-align: center;
   padding: 20px 0;
@@ -215,9 +215,8 @@ footer .signature a {
   font-weight: bold;
   color: #FF7200;
 }
-/* Button style links
-***********************/
 
+/* Button style links */
 a.button {
   display: inline-block;
   border: 1px solid #CCC;
@@ -277,7 +276,6 @@ input[type=button]:active, input[type=submit]:active {
   box-shadow: 0 0 5px rgba(0, 0, 0, .2) inset;
 }
 
-
 .form input[type=text], .form input[type=password], .form textarea {
   width: 300px; 
 }
@@ -308,10 +306,6 @@ input[type=button]:active, input[type=submit]:active {
 .form .long { width: 600px !important; }
 
 /* misc */
-fieldset {
-  border: 1px solid #DDD;
-  margin-bottom: 10px;
-}
 .message {
   position: fixed;
   top: 0; left: 50%;
@@ -326,4 +320,20 @@ fieldset {
   border: 1px solid #AAA;
   background: #F9EDBE;
   box-shadow: 0 0 5px #bbb;
+}
+/* Table View */
+.table {
+  width: 100%;
+  font-size: 90%;
+  text-align: left;
+}
+.table .header {
+  background: #F8F8F8;
+}
+.table th {
+  font-weight: bold;
+}
+.table th, .table td {
+  padding: 5px 10px;
+  border: 1px solid #DDD;
 }
