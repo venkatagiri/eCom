@@ -7,6 +7,7 @@
 
 		if($username == "ecom" && $password == "z") {
 			$session->login("ecom");
+			log_admin(ECOM_INFO, "Login", "{$username} logged in.");
 			if(isset($_GET['url'])) redirect_to($_GET['url']);
 			else redirect_to('.');
 		} else {
@@ -16,10 +17,9 @@
 		$username = "";
 		$password = "";
 	}
-	$g_title = join(' | ', array('Login', 'Admin Panel', 'eCom'));
-	$g_page = "admin";
 ?>
-<?php include(LIB_ROOT."/templates/common.header.php"); ?>
+<?php get_admin_meta('Login'); ?>
+
 <body class="login-page">
 <header class="wrapper">
   <h1>eCom<span> - admin panel </span></h1>

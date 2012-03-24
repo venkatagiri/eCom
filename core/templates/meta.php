@@ -14,8 +14,7 @@
   <meta charset="UTF-8" />
   <title><?php echo $g_title; ?></title>
   <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
-  <meta name="description" content="<?php echo @$g_description; ?>" />
-  <meta name="keywords" content="<?php echo @$g_keywords; ?>" />
+  <meta name="description" content="<?php echo @$g_meta_description; ?>" />
   <!-- <link href='http://fonts.googleapis.com/css?family=Merienda+One|Asap' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" href="/css/fonts.css" type="text/css" />
   <link rel="stylesheet" href="/css/reset.css" type="text/css" />

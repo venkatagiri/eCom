@@ -14,31 +14,41 @@ function sanitize(&$query_string, $keys) {
 function get_key($str) {
   return str_replace(' ', '-', trim(strtolower($str)));
 }
-function get_store_header($_t = '') {
-  global $message;
+
+/* Store methods */
+function get_store_meta($_t = '', $_desc = '') {
   $g_page = "store";
   $g_title = join(' | ', array($_t, STORE_NAME));
-  $g_description = "";
-  $g_keywords = "";
-  $g_class_name = strtolower(array_pop(explode('|', $_t))).'-page';
-  include(LIB_ROOT."/templates/common.header.php");
+  $g_meta_description = $_desc;
+  include(LIB_ROOT."/templates/meta.php");
+}
+function get_store_header($_t = '', $_desc = '') {
+  global $message;
+  $g_class_name = strtolower(str_replace(' ', '-', trim(array_pop(explode('|', $_t))))).'-page';
+  get_store_meta($_t, $_desc);
   include(LIB_ROOT."/templates/store.body.php");
 }
 function get_store_footer() {
   include(LIB_ROOT."/templates/store.footer.php");
 }
-function get_admin_header($_t = '') {
-  global $message;
+
+/* Admin methods */
+function get_admin_meta($_t = '') {
   $g_page = "admin";
   $g_title = join(' | ', array($_t, 'Admin Panel', 'eCom'));
-  $g_description = "";
-  $g_keywords = "";
-  include(LIB_ROOT."/templates/common.header.php");
+  $g_meta_description = ""; // No meta description for admin page.
+  include(LIB_ROOT."/templates/meta.php");
+}
+function get_admin_header($_t = '') {
+  global $message;
+  get_admin_meta($_t);
   include(LIB_ROOT."/templates/admin.body.php");
 }
 function get_admin_footer() {
   include(LIB_ROOT."/templates/admin.footer.php");
 }
+
+/* View helpers */
 function list_brands($selected="-1") {
   $brands = Brand::find_all_sorted();
   $output = "";
