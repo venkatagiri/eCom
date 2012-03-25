@@ -26,5 +26,8 @@ require_once(LIB_ROOT.DS.'models/banner.php');
 require_once(LIB_ROOT.DS.'models/attribute.php');
 require_once(LIB_ROOT.DS.'models/product_attribute.php');
 require_once(LIB_ROOT.DS.'models/product_feature.php');
+require_once(LIB_ROOT.DS.'models/order.php');
+require_once(LIB_ROOT.DS.'models/customer.php');
+require_once(LIB_ROOT.DS.'models/order_product.php');
 
 ?>

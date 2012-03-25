@@ -18,6 +18,27 @@ define('ECOM_ERROR', 0);
 define('ECOM_DEBUG', 1);
 define('ECOM_INFO', 2);
 
+// Order Status
+define('ORDER_PENDING',     1);
+define('ORDER_PROCESSING',  2);
+define('ORDER_SHIPPED',     3);
+define('ORDER_COMPLETED',   4);
+define('ORDER_CANCELLED',   5);
+define('ORDER_FAILED',      6);
+define('ORDER_REFUNDED',    7);
+define('ORDER_EXPIRED',     8);
+
+$ORDER_STATUS = array(
+  ORDER_PENDING => 'Pending',
+  ORDER_PROCESSING => 'Processing',
+  ORDER_SHIPPED => 'Shipped',
+  ORDER_COMPLETED => 'Completed',
+  ORDER_CANCELLED => 'Cancelled',
+  ORDER_FAILED => 'Failed',
+  ORDER_REFUNDED => 'Refunded',
+  ORDER_EXPIRED => 'Expired'
+);
+
 // Search Types
 define('GENERIC_SEARCH', 0);
 define('CATEGORY_SEARCH', 1);
