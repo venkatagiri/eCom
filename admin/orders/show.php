@@ -48,13 +48,13 @@
       <td>Rs. <?php echo $order->total_amount; ?></td>
     </tr>
     <tr>
-      <th>Customer Name</th><td>:</td>
-      <td><?php echo $order->customer_name; ?></td>
+      <th>Name</th><td>:</td>
+      <td><?php echo $order->shipping_name; ?></td>
     </tr>
     <tr>
       <th>Shipping Address</th><td>:</td>
       <td>
-        <?php echo nl2br($order->customer_address); ?>
+        <?php echo nl2br($order->address()); ?>
       </td>
     </tr>
     <tr>

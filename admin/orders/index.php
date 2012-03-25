@@ -23,16 +23,16 @@
 
 <table class="table">
   <tr class="header">
-    <th>Customer Name</th>
-    <th style="width:25%;">Customer Email</th>
+    <th>Name</th>
+    <th style="width:25%;">Email</th>
     <th style="width:15%;">Total Amount</th>
     <th style="width:15%;">Status</th>
     <th style="width:5%;"></th>
   </tr>
   <?php foreach($orders as $order): ?>
   <tr>
-    <td><?php echo $order->customer_name; ?></td>
-    <td><?php echo $order->customer_email; ?></td>
+    <td><?php echo $order->shipping_name; ?></td>
+    <td><?php echo $order->shipping_email; ?></td>
     <td>Rs. <?php echo $order->total_amount; ?></td>
     <td><?php echo $ORDER_STATUS[$order->status]; ?></td>
     <td><a href="show?id=<?php echo $order->id; ?>">Show</a></td>
