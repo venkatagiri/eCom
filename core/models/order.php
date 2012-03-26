@@ -61,6 +61,10 @@ class Order extends Base {
       $this->shipping_country
     ));
   }
+  public function is_expired() {
+    // TODO: Make the interval customizable!
+    return (Order::count_where("id = {$this->id} AND date_add(date_modified, interval 60 minute) >= now()") > 0) ? true : false;
+  }
 }
 
 ?>
