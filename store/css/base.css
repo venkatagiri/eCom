@@ -210,14 +210,6 @@ footer .col {
 footer .col a:hover {
   color: #333;
 }
-footer .signature {
-  float: right;
-  font-size: 89%;
-}
-footer .signature a {
-  font-weight: bold;
-  color: #FF7200;
-}
 
 /* Button style links */
 a.button {
@@ -323,6 +315,10 @@ input[type=button]:active, input[type=submit]:active {
   border: 1px solid #AAA;
   background: #F9EDBE;
   box-shadow: 0 0 5px #bbb;
+}
+.signature {
+  text-align: center;
+  font-size: 80%;
 }
 /* Table View */
 .table {
