@@ -90,11 +90,3 @@ nav li.category > a {
   text-decoration: none;
   color: #333;
 }
-
-/* Orders/Customers */
-#details {
-  text-align: left;
-}
-#details th, #details td {
-  padding: 5px 10px;
-}

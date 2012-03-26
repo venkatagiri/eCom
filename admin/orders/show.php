@@ -30,7 +30,7 @@
 <form method="post" enctype="multipart/form-data" name="form_order" class="form">
   <input type="hidden" name="order_id" value="<?php echo $order->id; ?>" />
 
-  <table id="details">
+  <table class="details">
     <tr>
       <th>Order No.</th><td>:</td>
       <td><?php echo $order->id; ?></td>

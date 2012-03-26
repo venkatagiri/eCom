@@ -300,6 +300,13 @@ input[type=button]:active, input[type=submit]:active {
 .form .medium { width: 300px !important; }
 .form .long { width: 600px !important; }
 
+table.details {
+  text-align: left;
+}
+table.details th, table.details td {
+  padding: 5px 10px;
+}
+
 /* misc */
 .message {
   position: fixed;

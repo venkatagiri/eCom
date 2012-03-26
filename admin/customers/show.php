@@ -17,7 +17,7 @@
 <h1>Customers</h1>
 
 <form method="post" enctype="multipart/form-data" name="form_customer" class="form">
-  <table id="details">
+  <table class="details">
     <tr>
       <th>E-mail</th><td>:</td>
       <td><?php echo $customer->email; ?></td>
