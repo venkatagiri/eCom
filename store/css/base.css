@@ -157,6 +157,10 @@ nav .sub_nav a:hover {
   width: 200px;
   min-height: 300px;
 }
+section.only-section {
+  margin: 0;
+  padding: 0;
+}
 aside .box {
   border: 1px solid #EAEAEA;
   margin-bottom: 10px;
@@ -304,6 +308,7 @@ table.details {
   text-align: left;
 }
 table.details th, table.details td {
+  border: 1px solid #EEE;
   padding: 5px 10px;
 }
 

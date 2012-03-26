@@ -9,6 +9,7 @@ define('ADMIN_ROOT', SITE_ROOT.'/admin');
 // Configuration Entries
 require_once(LIB_ROOT.DS.'config/db.php');
 require_once(LIB_ROOT.DS.'config/main.php');
+require_once(LIB_ROOT.DS.'config/payment.php');
 
 // Helpers
 require_once(LIB_ROOT.DS.'helpers/functions.php');
