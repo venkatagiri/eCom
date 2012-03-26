@@ -25,10 +25,11 @@
         <a href="/admin/banners">Banners</a>
       </td></tr></table>
     </li>
-    <?php if(is_logged_in()) { ?>
     <li class="right">
       <a href="/admin/logout">Logout</a>
     </li>
-    <?php } ?>
+    <li class="right">
+      <a href="/">The Store</a>
+    </li>
   </ul>
 </nav>
