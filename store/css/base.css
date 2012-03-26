@@ -4,12 +4,14 @@ body {
 
   font: 0.95em/1.2 Asap, georgia, sans-serif;
   color: #333;
+  text-align: center;
 }
 .wrapper {
   position: relative;
   width: 960px;
   margin: 0 auto;
   padding: 20px;
+  text-align: left;
 }
 
 a { text-decoration: none; color: #FF7200; /*border-bottom: 1px solid transparent;*/}
@@ -25,6 +27,7 @@ h6 {font-size:1em;font-weight:bold;}
 .right { float: right; }
 .hidden { display: none; }
 .clear { clear: both; }
+.small { font-size: 90%; color: #888; }
 
 /* header */
 header {
