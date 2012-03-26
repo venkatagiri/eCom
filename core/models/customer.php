@@ -40,6 +40,10 @@ class Customer extends Base {
     $customer->status = $c['status'];
     return $customer;
   }
+
+  static public function email_exists($email = '') {
+    return (Customer::count("email = '{$email}'") > 0) ? true : false;
+  }
 }
 
 ?>
