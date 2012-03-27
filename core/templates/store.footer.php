@@ -14,7 +14,7 @@
 </div></footer>
 
 <p class="signature">
-  Powered By <a href="http://github.com/v3nka7/eCom" target="_blank">eCom</a><br />
+  Powered By <a href="http://github.com/venkatagiri/eCom" target="_blank">eCom</a><br />
   Developed By <a href="http://v3nka7.tk" target="_blank">Venkata Giri Reddy</a>
 </p>
 
