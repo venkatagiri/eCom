@@ -12,17 +12,26 @@
   if(!$product) {
     return show_404(true);
   }
+  
+  $similar_products = $product->similar_products(3);
 ?>
 <?php get_store_header('Products', $product->short_description); ?>
 
 <aside>
   <ul>
-    <li class="box">
-      <h6 class="header">Similar Products</h6>
-      <ul class="list">
-        <li><a href="#">Dell</a></li>
-        <li><a href="#">HP</a></li>
-        <li><a href="#" class="last">Apple</a></li>
+    <li>
+      <h2 class="sub-heading">Similar Products</h6>
+      <ul class="list" style="text-align:center">
+      <?php foreach ($similar_products as $sp) { ?>
+        <li><a href="<?php echo "/products/{$sp->key}/{$sp->id}"; ?>" class="product">
+          <div class="image">
+            <img src="/assets/product/<?=$sp->image?>"
+              alt="<?=$sp->name?>" />
+          </div>
+          <div class="name"><?=$sp->name?></div>
+          <div class="price">Rs. <?=$sp->price?></div>
+        </a></li>
+       <?php } ?>
       </ul>
     </li>
   </ul>
@@ -44,7 +53,7 @@
       Price:<strong>Rs. <?php echo $product->price; ?></strong>
     </div>
   </div>
-  <div class="product-details clear">
+  <div class="product-details clear-left">
     <h2 class="sub-heading">Details of <?php echo $product->name; ?></h2>
     <p class="product-description"><?php echo nl2br($product->description); ?></p>
     <h2 class="sub-heading">Specifications</h2>

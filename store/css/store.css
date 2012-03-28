@@ -9,9 +9,10 @@
 /* Products */
 .products-page aside {
   float:right;
+  width: 180px;
 }
 .products-page section {
-  margin: 0 210px 0 0;
+  margin: 0 185px 0 0;
   padding-left: 0;
 }
 .products-page .product-intro {
@@ -53,13 +54,28 @@
   color: #FF7200;
   margin-left: 5px;
 }
+
+.products-page aside .sub-heading {
+  margin: 0 0 5px 0;
+}
+.products-page aside .product {
+  border-color: transparent;
+  border-bottom-color: #F1F1F1;
+}
+.products-page aside .product:hover {
+  background: #F1F1F1;
+}
+.products-page aside .product .image {
+  height: inherit;
+}
+
 #buy-now {
   float: right; 
   margin: 10px 25px 15px 15px;
   border: none;
 }
 .specifications {
-  padding:0 20px;
+  padding: 0 20px;
 }
 .specifications table {
   width: 100%;
@@ -125,27 +141,28 @@
   padding: 0 10px 10px;
   vertical-align: top;
 }
-.products .product {
+.product {
   display: inline-block;
   width: 150px;
   padding: 5px;
   color: #333;
   border: 1px solid #F1F1F1;
+  text-align: left;
 }
-.product .product-image {
+.product .image {
   text-align: center;
   width: 150px;
   height: 150px;
 }
-.product .product-image img {
+.product .image img {
   max-width: 150px;
   max-height: 150px;
 }
-.product .product-name {
+.product .name {
   font-weight: bold;
   margin-top: 5px;
 }
-.product .product-price {
+.product .price {
   font-size: 90%;
 }
 .product:hover {

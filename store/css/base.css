@@ -27,6 +27,8 @@ h6 {font-size:1em;font-weight:bold;}
 .right { float: right; }
 .hidden { display: none; }
 .clear { clear: both; }
+.clear-left { clear: left; }
+.clear-right { clear: right; }
 .small { font-size: 90%; color: #888; }
 
 /* header */

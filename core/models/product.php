@@ -77,6 +77,12 @@ class Product extends Base {
     $where_clause = "product_id = {$this->id}";
     return ProductFeature::find_where($where_clause);
   }
+
+  public function similar_products($limit = 5) {
+    $where_clause = " id != {$this->id} AND category_id = {$this->category_id} AND brand_id = {$this->brand_id} ";
+    $where_clause .= " LIMIT {$limit}";
+    return Product::find_where($where_clause);
+  }
 }
 
 ?>
