@@ -137,15 +137,16 @@
   <ul class="products">
   <?php foreach($products as $product): ?>
     <li><a href="<?php echo "/products/{$product->key}/{$product->id}"; ?>" class="product">
-      <div class="product-image">
+      <div class="image">
         <img src="/assets/product/<?php echo $product->image; ?>"
           alt="<?php echo $product->name; ?>" />
       </div>
-      <div class="product-name"><?php echo $product->name; ?></div>
-      <div class="product-price">Price: Rs. <?php echo $product->price; ?></div>
+      <div class="name"><?php echo $product->name; ?></div>
+      <div class="price">Rs. <?php echo $product->price; ?></div>
     </a></li>
   <?php endforeach; ?>
   </ul>
+  
   <div class="page_controls">
   <?php
       if($pg->total_pages() > 1) {
