@@ -149,6 +149,9 @@
   border: 1px solid #F1F1F1;
   text-align: left;
 }
+.product:hover {
+  text-decoration: none;
+}
 .product .image {
   text-align: center;
   width: 150px;
@@ -164,10 +167,6 @@
 }
 .product .price {
   font-size: 90%;
-}
-.product:hover {
-  background: #EAEAEA;
-  text-decoration: none;
 }
 
 /* Shopping Cart - Checkout */
