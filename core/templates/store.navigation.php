@@ -4,14 +4,14 @@
 <nav>
   <ul class="wrapper">
   <?php foreach($main_categories as $main_category): 
-        $main_path = "/".$main_category->key."/".$main_category->id;
+        $main_path = "/".$main_category->key;
   ?>
     <li class="category">
       <a href="<?php echo $main_path; ?>"><?php echo $main_category->name; ?></a>
       <table class="sub_nav"><tr><td class="col">
         <h6 class="header">Categories</h6>
         <?php foreach($main_category->visible_children() as $sub_category): 
-            $path = "/".$main_category->key."/".$sub_category->key."/".$sub_category->id;
+            $path = "/".$main_category->key."/".$sub_category->key;
         ?>
         <a href="<?php echo $path; ?>"><?php echo $sub_category->name; ?></a>
         <?php endforeach; ?>

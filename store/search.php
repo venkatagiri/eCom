@@ -40,8 +40,7 @@
       $error = "No Products match your search. Please try again!";
     }
   } else {
-    echo "404";
-    return;
+    return show_404(true);
   }
 ?>
 <?php get_store_header('Search'); ?>
@@ -136,7 +135,7 @@
   
   <ul class="products">
   <?php foreach($products as $product): ?>
-    <li><a href="<?php echo "/products/{$product->key}/{$product->id}"; ?>" class="product">
+    <li><a href="<?php echo "/{$product->key}/p{$product->id}"; ?>" class="product">
       <div class="image">
         <img src="/assets/product/<?php echo $product->image; ?>"
           alt="<?php echo $product->name; ?>" />

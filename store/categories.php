@@ -1,31 +1,25 @@
-<?php 
+<?php
   require_once("../core/init.php");
   parse_str($_SERVER['QUERY_STRING'], $QS);
-  sanitize($QS, array('cid', 'bid', 'page'));
+  sanitize($QS, array('key', 'bid', 'page'));
   $page = isset($QS['page']) ? $QS['page'] : 1;
   unset($QS['page']); // Remove it from the query_string
   
-  if(!isset($QS['cid'])) {
-    echo "404";
-    return;
+  if(!isset($QS['key']) || $QS['key'] == "" || count(explode('/', $QS['key'])) > 2) {
+    return show_404(true);
   }
-  
-  $category = Category::find_by_id($QS['cid']);
+
+  $key = end(explode('/', $QS['key']));
+
+  $category = Category::find_by_key($key);
   if(!$category) {
-    echo "404";
-    return;
+    return show_404(true);
   }
   
   $sql = "(category_id = {$category->id} OR category_id IN ( SELECT id FROM categories WHERE parent_id={$category->id} ))";
   if(isset($QS['bid'])) {
     $brand = Brand::find_by_id($QS['bid']);
     $sql .= " AND brand_id = {$brand->id} ";
-  }
-  
-  list($pg, $products) = Product::find_with_pagination($sql, $page);
-  
-  if(!$products) {
-    $error = "There are no Products to list in this category.";
   }
   
   if($category->parent_id != 1) {
@@ -37,6 +31,8 @@
   }
   
   if(isset($brand)) $heading .= " / " . $brand->name;
+  
+  $new_arrivals = Product::new_arrivals($category->id);
 ?>
 
 <?php get_store_header($category->name.' | Categories'); ?>
@@ -49,7 +45,7 @@
       <h6 class="header">Categories</h6>
       <ul class="list">
       <?php foreach(Category::main_categories() as $c): 
-        $path = "/{$c->key}/{$c->id}";
+        $path = "/{$c->key}";
         if($c->id == $main_category->id) $is_active = 'class="active"';
         else $is_active = "";
         echo "<li><a href=\"{$path}\" {$is_active}>{$c->name}</a>";
@@ -58,7 +54,7 @@
         if($c->id == $main_category->id) {
           echo "<ul class=\"sub_list\">";
           foreach($main_category->visible_children() as $sub_category) {
-            $path = "/{$main_category->key}/{$sub_category->key}/{$sub_category->id}";
+            $path = "/{$main_category->key}/{$sub_category->key}";
             if(isset($brand)) $path .= "?bid={$brand->id}";
             if($sub_category->id == $category->id) $is_active = 'class="active"';
             else $is_active = "";
@@ -76,7 +72,7 @@
       <?php foreach($main_category->brands() as $b): 
         $path = "/{$main_category->key}";
         if($main_category !== $category) $path .= "/{$category->key}";
-        $path .= "/{$category->id}?bid={$b->id}";
+        $path .= "?bid={$b->id}";
         if(isset($brand) && $b->id == $brand->id) $is_active = 'class="active"';
         else $is_active = "";
         
@@ -89,56 +85,19 @@
 
 <section role="main">
   
-<?php if(isset($error)) { ?>
-
-  <h2><?php echo $error; ?></h2>
-
-<?php } else { ?>
-
+  <h2 class="sub-heading">New Arrivals</h2>
   <ul class="products">
-  <?php foreach($products as $product): 
-        $path = "/products/{$product->key}/{$product->id}";
-  ?>
-    <li><a href="<?php echo $path; ?>" class="product">
-      <div class="product-image">
+  <?php foreach($new_arrivals as $product): ?>
+    <li><a href="/<?=$product->key?>/p<?=$product->id?>" class="product">
+      <div class="image">
         <img src="/assets/product/<?php echo $product->image; ?>"
           alt="<?php echo $product->key; ?>" />
       </div>
-      <div class="product-name"><?php echo $product->name; ?></div>
-      <div class="product-price">Rs. <?php echo $product->price; ?></div>
+      <div class="name"><?php echo $product->name; ?></div>
+      <div class="price">Rs. <?php echo $product->price; ?></div>
     </a></li>
   <?php endforeach; ?>
   </ul>
-  
-  <div class="page_controls">
-  <?php
-      if($pg->total_pages() > 1) {
-        $tmp_QS = $QS;
-        unset($tmp_QS['cid']); // Removing cid from the query string.
-        if($pg->previous_exists()) {
-          $tmp_QS['page'] = $pg->previous_page();
-          $query_string = http_build_query($tmp_QS);
-          echo "<a href='?{$query_string}' >&laquo; Previous</a>&nbsp;&nbsp;";
-        }
-        for($i=1; $i<=$pg->total_pages(); $i++) {
-          $tmp_QS['page'] = $i;
-          $query_string = http_build_query($tmp_QS);
-          if($i == $page) {
-            echo "&nbsp;&nbsp;<strong>{$i}</strong>&nbsp;&nbsp;";
-          } else {
-            echo "&nbsp;&nbsp;<a href='?{$query_string}'>{$i}</a>&nbsp;&nbsp;";
-          }
-        }
-        if($pg->next_exists()) {
-          $tmp_QS['page'] = $pg->next_page();
-          $query_string = http_build_query($tmp_QS);
-          echo "&nbsp;&nbsp;<a href='?{$query_string}' >Next &raquo;</a>";
-        }      
-      }
-  ?>
-  </div>
-  
-<?php } //endif ?>
 
 </section>
 

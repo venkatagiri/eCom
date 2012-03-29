@@ -8,37 +8,15 @@ BrowserMatch bMSIE !no-gzip !gzip-only-text/html
 
 <IfModule mod_rewrite.c>
   RewriteEngine on
-  
-  # User (and SEO) friendly URLs.
-  RewriteCond %{QUERY_STRING} ^(.*)$
-  RewriteRule ^products.php/.*/([0-9]+)$ products.php?pid=$1&%1 [L]
-  
-</IfModule>
 
-<IfModule mod_rewrite.c>
-  RewriteEngine on
-  
-  # User (and SEO) friendly URLs.
-  # Used for main categories.
+  # Used for products.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{QUERY_STRING} ^(.*)$
-  RewriteRule ^.*/([0-9]+)$ categories.php?cid=$1&%1 [L]
+  RewriteRule ^.*/p([0-9]+)$ products.php?pid=$1 [L,QSA]
   
-  # Used for sub-categories.
+  # Used for categories.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{QUERY_STRING} ^(.*)$
-  RewriteRule ^.*/.*/([0-9]+)$ categories.php?cid=$1&%1 [L]
-    
-</IfModule>
-
-<IfModule mod_rewrite.c>
-  RewriteEngine on
-  
-  # If requested URL-path plus ".php" exists as a file
-  RewriteCond %{DOCUMENT_ROOT}/$1.php -f
-  # Rewrite to append ".php" to extensionless URL-path
-  RewriteRule ^(([^/]+/)*[^.]+)$ /$1.php [L]
+  RewriteRule ^(.*)$ categories.php?key=$1 [L,QSA]
   
 </IfModule>
