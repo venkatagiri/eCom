@@ -23,7 +23,12 @@ class Category extends Base {
     $category->visible = $c['visible'] == '1' ? 1 : 0;
     return $category;
   }
-  
+
+  static public function find_by_key($key = '') {
+    $result_array = Category::find_where("`key` = '{$key}' LIMIT 1");
+    return !empty($result_array) ? $result_array[0] : false;
+  }
+    
   static public function root_category() {
     return self::find_by_id(1);
   }
