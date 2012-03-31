@@ -25,5 +25,10 @@
       </td></tr></table>
     </li>
   <?php endforeach; ?>
+    <li class="right">
+      <form method="GET" action="/search">
+        <input type="text" name="q" id="search_box" value="" size="25" placeholder="Search and you will find it..." />
+      </form>
+    </li>
   </ul>
 </nav>
