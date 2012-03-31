@@ -96,7 +96,12 @@ function list_main_categories($selected="-1") {
 
 function check_login() {
   global $session;
-  if(!$session->is_logged_in()) { redirect_to("/admin/login?url={$_SERVER['REQUEST_URI']}"); }
+  if(!$session->is_logged_in() || !$session->is_admin()) { redirect_to("/admin/login?url={$_SERVER['REQUEST_URI']}"); }
+}
+
+function check_customer_login() {
+  global $session;
+  if(!$session->is_logged_in()) { redirect_to("/account/login?url={$_SERVER['REQUEST_URI']}"); }
 }
 
 function is_logged_in() {

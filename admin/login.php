@@ -1,12 +1,14 @@
 <?php
 	require_once('../core/init.php');
-	if($session->is_logged_in()) { redirect_to('.'); }
+	if($session->is_logged_in() && $session->is_admin()) redirect_to('.');
+  if($session->is_logged_in() && !$session->is_admin()) $message = "You are not authorised to view this page!";
+  
 	if(isset($_POST['submit'])) {
 		$username = trim($_POST['username']);
 		$password = trim($_POST['password']);
 
-		if($username == "ecom" && $password == "z") {
-			$session->login("ecom");
+		if($username == "admin" && $password == "z") {
+			$session->login("admin");
 			log_admin(ECOM_INFO, "Login", "{$username} logged in.");
 			if(isset($_GET['url'])) redirect_to($_GET['url']);
 			else redirect_to('.');
