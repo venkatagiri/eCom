@@ -12,6 +12,11 @@ class Base {
     return array($pagination, static::find_where($where_clause));
   }
 
+  static public function find_one($where = '1 = 1') {
+    $result_array = static::find_where($where);
+    return !empty($result_array) ? $result_array[0] : false;
+  }
+
   static public function find_where($where = '1 = 1') {
     $sql = "SELECT * FROM ".static::$table_name;
     $sql .= " WHERE ".$where;
