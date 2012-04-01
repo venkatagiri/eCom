@@ -42,7 +42,12 @@ class Customer extends Base {
   }
 
   static public function email_exists($email = '') {
-    return (Customer::count("email = '{$email}'") > 0) ? true : false;
+    return (self::count("email = '{$email}'") > 0) ? true : false;
+  }
+
+  static public function find_by_email($email = '') {
+    $result_array = self::find_where("email = '{$email}' LIMIT 1");
+    return !empty($result_array) ? $result_array[0] : false;
   }
 }
 
