@@ -127,13 +127,13 @@ nav .sub_nav a:hover {
 }
 
 /* nav search */
-#search_box {
+nav #search_box {
   float: right;
   border: 0;
   outline: 0;
-  background: url(/images/btn-search.png) 97% center no-repeat #EAEAEA;
-  padding: 5px 30px 5px 10px;
-  margin-top: 8px;
+  margin-top: 1px;
+  padding: 5px 30px 5px 5px;
+  background: url(/images/magnifier.png) 97% center no-repeat #FFF;
   color: #333;
   line-height: 1.2;
 }

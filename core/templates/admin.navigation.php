@@ -26,10 +26,9 @@
       </td></tr></table>
     </li>
     <li class="right">
-      <a href="/admin/logout">Logout</a>
-    </li>
-    <li class="right">
-      <a href="/">The Store</a>
+      <form method="GET" action="/admin/search">
+        <input type="text" name="q" id="search_box" value="" size="25" placeholder="Search and you will find it..." />
+      </form>
     </li>
   </ul>
 </nav>

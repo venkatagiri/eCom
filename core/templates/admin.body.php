@@ -1,10 +1,11 @@
 <body>
 
 <header><div class="wrapper">
-  <form method="GET" action="/admin/search">
-    <input type="text" name="q" id="search_box"
-      value="" size="25" placeholder="Search and you will find it..." />
-  </form>
+  <div class="account_controls right" style="margin: 15px 5px 0 0;">
+    <a href="/">Store Front</a>
+    <span style="margin:0 5px;">|</span>
+    <a href="/admin/logout">Logout</a>
+  </div>
   <h1><a href="/admin" title="Home">
     eCom<span> - admin panel </span>
   </a></h1>
