@@ -44,6 +44,29 @@ define('GENERIC_SEARCH', 0);
 define('CATEGORY_SEARCH', 1);
 define('FILTERED_SEARCH', 2);
 
+$PRICE_RANGE = array(
+  '1' => array(
+    'start_price' => 0,
+    'end_price' => 2000,
+    'text' => "Rs. 0 - Rs. 2000"
+  ),
+  '2' => array(
+    'start_price' => 2000,
+    'end_price' => 5000,
+    'text' => "Rs. 2000 - Rs. 5000"
+  ),
+  '3' => array(
+    'start_price' => 5000,
+    'end_price' => 10000,
+    'text' => "Rs. 5000 - Rs. 10000"
+  ),
+  '4' => array(
+    'start_price' => 10000,
+    'end_price' => 9999999,
+    'text' => "Above Rs. 10000"
+  )
+);
+
 $ASSETS_PATH = STORE_ROOT.'/assets';
 
 // Images path
