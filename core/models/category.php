@@ -37,6 +37,10 @@ class Category extends Base {
     return self::root_category()->children();
   }
   
+  public function is_sub_category() {
+    return ($this->parent_id != 1);
+  }
+  
   public function children() {
     return self::find_where("parent_id={$this->id}");
   }
