@@ -99,21 +99,16 @@ nav .sub_nav {
   z-index: 1;
   margin-top: -1px;
   background: #FFF;
-  border: 1px solid #EEE;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
-}
-nav .sub_nav .col{
   padding: 10px;
   min-width: 125px;
+  border: 1px solid #EEE;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
 }
 nav .sub_nav .header {
   color: #666;
   border-bottom: 1px solid #EEE;
   padding-left: 5px;
   margin-bottom: 5px;
-}
-nav .sub_nav .col:not(:first-child) {
-  padding-left: 0;
 }
 nav .sub_nav a {
   display: block;

@@ -5,25 +5,25 @@
     </li>
     <li class="category">
       <a>Catalog</a>
-      <table class="sub_nav"><tr><td class="col">
+      <div class="sub_nav">
         <a href="/admin/products">Products</a>
         <a href="/admin/categories">Categories</a>
         <a href="/admin/brands">Brands</a>
         <a href="/admin/attributes">Attributes</a>
-      </td></tr></table>
+      </div>
     </li>
     <li class="category">
       <a>Sales</a>
-      <table class="sub_nav"><tr><td class="col">
+      <div class="sub_nav">
         <a href="/admin/orders">Orders</a>
         <a href="/admin/customers">Customers</a>
-      </td></tr></table>
+      </div>
     </li>
     <li class="category">
       <a>Extensions</a>
-      <table class="sub_nav"><tr><td class="col">
+      <div class="sub_nav">
         <a href="/admin/banners">Banners</a>
-      </td></tr></table>
+      </div>
     </li>
     <li class="right">
       <form method="GET" action="/admin/search">
