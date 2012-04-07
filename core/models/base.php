@@ -56,7 +56,7 @@ class Base {
   
   static public function count($where_clause="1 = 1") {
     global $db;
-    $sql = "SELECT COUNT(*) FROM ".static::$table_name;
+    $sql = "SELECT COUNT(1) FROM ".static::$table_name;
     $sql .= " WHERE ".$where_clause;
     $result_set = $db->query($sql);
     $row = $db->fetch_array($result_set);
