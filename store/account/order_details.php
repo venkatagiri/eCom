@@ -2,7 +2,7 @@
   require_once("../../core/init.php");
   check_customer_login();
 
-  $customer = Customer::find_by_email($session->get("user_id"));
+  $customer = $session->get_customer();
   $order = false;
   
   if(isset($_GET['id']) && $_GET['id'] != "") {

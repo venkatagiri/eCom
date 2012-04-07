@@ -8,7 +8,7 @@
   if(!$order) redirect_to('/'); // Invalid Request
   if(!$session->get('payment_successful')) redirect_to('/'); // Invalid Order
   
-  $customer = Customer::find_by_id($order->customer_id);
+  $customer = $session->get_customer();
   
 ?>
 <?php get_store_meta('Success | Order'); ?>

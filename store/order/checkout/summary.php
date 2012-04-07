@@ -7,7 +7,7 @@
 
   if(!$order) redirect_to('/'); // Invalid Request! LOG HERE
 
-  $customer = Customer::find_by_id($order->customer_id);  
+  $customer = $session->get_customer();
 ?>
 <?php get_store_meta('Order Summary | Checkout | Shopping Cart'); ?>
 

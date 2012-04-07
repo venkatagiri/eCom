@@ -8,8 +8,9 @@
   if(!$order) redirect_to('/'); // Invalid Request! LOG HERE
 
   // If the customer is already logged, associate the order to the customer and redirect to address.
-  if($session->get('customer_id')) {
-    $order->customer_id = $session->get('customer_id');
+  if($session->is_customer_logged_in()) {
+    $customer = $session->get_customer();
+    $order->customer_id = $customer->id;
     if($order->save()) {
       redirect_to("address");
     } else {
@@ -24,14 +25,14 @@
       $email = __($_POST['email']);
       $password = __($_POST['password']); // TODO: Hashing(bcrypt)
 
-      $customer = Customer::find_where("email = '{$email}' AND password = '{$password}'");
+      $customer = Customer::find_one("email = '{$email}' AND password = '{$password}'");
 
       if(!$customer) {
         $message = 'Invalid Email/Password. Try again!';
       } else {
-        $order->customer_id = $customer[0]->id;
+        $order->customer_id = $customer->id;
         if($order->save()) {
-          $session->set('customer_id', $order->customer_id);
+          $session->login($customer->email);
           redirect_to("address");
         } else {
           die('order save failed!'); // TODO: Delete order and corresponding tables & log here!
@@ -53,7 +54,7 @@
         if($customer->save()) {
           $order->customer_id = $customer->id;
           if($order->save()) {
-            $session->set('customer_id', $order->customer_id);
+            $session->login($customer->email);
             redirect_to("address");
           } else {
             die('order save failed!'); // TODO: Delete order and corresponding tables & log here!
@@ -138,7 +139,7 @@
     <div class="entry" id="have-password" style="display:none;margin-top:10px;">
       <label style="font-size:110%;min-width:0;">Password</label>
       <input type="password" name="password" style="margin:0 10px;" />
-      <a href="/account/forgot-password">Forgot Password?</a>
+      <a href="/account/forgot_password">Forgot Password?</a>
     </div>
   </div>
 

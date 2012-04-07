@@ -1,7 +1,7 @@
 <?php 
   require_once("../../core/init.php");
   check_customer_login();
-  $customer = Customer::find_by_email($session->get("user_id"));
+  $customer = $session->get_customer();
 
   parse_str($_SERVER['QUERY_STRING'], $QS);
   sanitize($QS, array('page', 'status'));

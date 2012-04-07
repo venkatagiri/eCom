@@ -22,7 +22,7 @@
     }
   }
 
-  $customer = Customer::find_by_id($order->customer_id);
+  $customer = $session->get_customer();
 ?>
 <?php get_store_meta('Address | Checkout | Shopping Cart'); ?>
 

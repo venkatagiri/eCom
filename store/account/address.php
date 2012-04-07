@@ -12,7 +12,7 @@
       $message = "Updation failed!";
     }
   }
-  $customer = Customer::find_by_email($session->get("user_id"));
+  $customer = $session->get_customer();
 
 ?>
 <?php get_store_header('Account'); ?>

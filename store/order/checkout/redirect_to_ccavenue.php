@@ -7,7 +7,7 @@
   $order = Order::find_by_id(__($_POST['order_id']));
   if(!$order) redirect_to('/'); // Invalid Request.
 
-  $customer = Customer::find_by_id($order->customer_id);
+  $customer = $session->get_customer();
 
   $Merchant_Id = $CCAVENUE['MERCHANT_ID'];
   $WorkingKey = $CCAVENUE['WORKING_KEY'];
