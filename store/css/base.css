@@ -158,39 +158,38 @@ section.only-section {
   margin: 0;
   padding: 0;
 }
+.breadcrumbs {
+   margin: -5px 0 10px 0;
+   font-size:90%;
+}
 aside .box {
   border: 1px solid #EAEAEA;
   margin-bottom: 10px;
   border-radius: 3px 3px 0 0;
 }
-.box .header{
+.box .header {
+  color: #333;
   background: #EEE;
-  padding: 5px 10px;
+  border-color: #FFF;
+  padding: 5px;
   font-weight: normal;
 }
 .box .list {
-  padding: 5px;
-}
-.box .sub_list { 
-  padding: 0 0 0 5px;
+  font-size: 90%;
+  margin: 5px 0;
 }
 .box a {
-  font-size: 90%;
   display: block;
-  padding: 5px;
-  border-bottom: 1px solid #EEE;
-}
-.box .sub_list a {
-  margin-left: 5px;
-}
-.box > .list > li:last-child a {
-  border-color: #FFF;
+  padding: 5px 5px 5px 10px;
 }
 .box a:hover, .box a.active {
   color: #333;
-  text-decoration: none;
-  background: #EEE;
+  text-decoration: underline;
   border-color: #FFF;
+}
+.box li.active {
+  position: relative;
+  padding: 5px 5px 5px 10px;
 }
 .page_controls {
   text-align: center;

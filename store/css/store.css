@@ -1,9 +1,26 @@
 /* Store - Generic Styles */
 
+.breadcrumbs a:hover {
+  color: #333;
+}
+
 /* Categories */
 .sub-heading {
   margin: 0.75em 0 0.25em 0;
   border-bottom: 1px solid #FF7200;
+}
+.clear-filter {
+  float: right;
+  background-image: url('/images/clear-filter.png');
+  background-position: -17px 0;
+  width: 16px;
+  height: 16px;
+  padding: 0 !important;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.clear-filter:hover {
+  background-position: 0 0;
 }
 
 /* Products */
@@ -150,6 +167,7 @@
   text-align: left;
 }
 .product:hover {
+  border: 1px solid #DDD;
   text-decoration: none;
 }
 .product .image {
