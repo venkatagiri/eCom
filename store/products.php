@@ -12,10 +12,22 @@
   if(!$product) {
     return show_404(true);
   }
+
+  $category = $product->category();
+  if($category->is_sub_category()) $category_path = $category->parent()->key."/".$category->key;
+  else $category_path = $category->key;
+  $brand = $product->brand();
   
   $similar_products = $product->similar_products(3);
 ?>
 <?php get_store_header('Products', $product->short_description); ?>
+
+<div class="breadcrumbs">
+  <a href="/">Home</a>
+   » <a href="/<?=$category_path?>"><?=$category->name?></a>
+   » <a href="/<?=$category_path?>?brand=<?=$brand->id?>"><?=$brand->name?></a>
+   » <?=$product->name?>
+</div>
 
 <aside>
   <ul>
