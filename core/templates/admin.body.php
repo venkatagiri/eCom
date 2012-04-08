@@ -1,4 +1,4 @@
-<body>
+<body id="admin">
 
 <header><div class="wrapper">
   <div class="account_controls right" style="margin: 15px 5px 0 0;">

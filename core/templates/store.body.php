@@ -3,7 +3,7 @@
   $customer = false;
   if($session->is_logged_in()) $customer = $session->get_customer();
 ?>
-<body>
+<body id="store">
 
 <header><div class="wrapper">
   <div class="account_controls right" style="margin: 15px 5px 0 0;">
