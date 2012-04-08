@@ -25,4 +25,5 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <script src="/js/jquery-1.7.1.min.js"></script>
+  <script src="/js/validate.min.js"></script>
 </head>

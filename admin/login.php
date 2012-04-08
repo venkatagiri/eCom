@@ -53,6 +53,18 @@
 
 <script>
   document.login_form.username.focus();
+  new FormValidator('login_form', [{
+    name: 'username',
+    display: 'Username',    
+    rules: 'required|alpha_numeric'
+  }, {
+    name: 'password',
+    display: 'Password',
+    rules: 'required'
+  }], function(errors, event) {
+    if(errors.length > 0) alert(errors[0]);
+  });
+
 </script>
 
 </div>
