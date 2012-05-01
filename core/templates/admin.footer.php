@@ -9,4 +9,4 @@
 
 </body>
 </html>
-<a href="/" style="position:absolute;right:0px;top:0px;padding:15px;"><img src="/images/smiley.gif" /></a>
+<a href="/" style="position:absolute;right:0px;top:0px;padding:15px;"><img src="/img/smiley.gif" /></a>

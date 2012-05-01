@@ -144,7 +144,7 @@
   </div>
 
   <div clas="entry">
-    <input type="image" name="continue" value="Continue" src="/images/continue.png" />
+    <input type="image" name="continue" value="Continue" src="/img/continue.png" />
   </div>
 </form>
 

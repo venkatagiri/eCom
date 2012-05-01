@@ -60,7 +60,7 @@
         <li><?php echo $feature->value; ?></li>
       <?php } ?>
     </ul>
-    <input type="image" src="/images/buy-now.png" id="buy-now" onclick="$('#cart').show();" />
+    <input type="image" src="/img/buy-now.png" id="buy-now" onclick="$('#cart').show();" />
     <div class="product-price">
       Price:<strong>Rs. <?php echo $product->price; ?></strong>
     </div>
@@ -101,7 +101,7 @@
 
   <div class="popup">
     <div class="header">
-      <img src="/images/icon-cart.png" class="right"/>
+      <img src="/img/icon-cart.png" class="right"/>
       <h1>Order Details</h1>
     </div>
     <table class="cart-description table">
@@ -130,7 +130,7 @@
       <p style="border-bottom: 1px solid #EEE;margin: 20px 0;font-size:150%;">
         Grand Total <span class="right">Rs. <span style="color:#FF7200;" id="grand-total"><?php echo $product->price; ?></span></span>
       </p>
-      <input type="image" src="/images/place-your-order.jpg" style="float:right" onclick="document.order_form.submit();" />
+      <input type="image" src="/img/place-your-order.jpg" style="float:right" onclick="document.order_form.submit();" />
     </div>
   </div>
 </div>

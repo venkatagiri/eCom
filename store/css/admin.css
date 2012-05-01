@@ -65,10 +65,10 @@ nav li.category > a {
   cursor: pointer;
 }
 .node.closed > .toggle{
-  background: url(/images/arrow-right.png) no-repeat 8px 4px;
+  background: url(/img/arrow-right.png) no-repeat 8px 4px;
 }
 .node.opened > .toggle{
-  background: url(/images/arrow-down.png) no-repeat 5px 5px;
+  background: url(/img/arrow-down.png) no-repeat 5px 5px;
 }
 .node.leaf > .toggle {
   background: none;

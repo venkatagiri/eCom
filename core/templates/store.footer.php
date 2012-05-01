@@ -20,4 +20,4 @@
 
 </body>
 </html>
-<a href="/admin" style="position:absolute;right:0px;top:0px;padding:15px;"><img src="/images/smiley.gif" /></a>
+<a href="/admin" style="position:absolute;right:0px;top:0px;padding:15px;"><img src="/img/smiley.gif" /></a>

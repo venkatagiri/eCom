@@ -85,7 +85,7 @@ nav li.category > a:after {
   content: "";
   width: 5px;
   height: 5px;
-  background: transparent url(/images/tiny-arrow.png) no-repeat -12px 0;
+  background: transparent url(/img/tiny-arrow.png) no-repeat -12px 0;
   display: inline-block;
   margin-left: 5px;
 }
@@ -128,7 +128,7 @@ nav #search_box {
   outline: 0;
   margin-top: 1px;
   padding: 5px 30px 5px 5px;
-  background: url(/images/magnifier.png) 97% center no-repeat #FFF;
+  background: url(/img/magnifier.png) 97% center no-repeat #FFF;
   color: #333;
   line-height: 1.2;
 }

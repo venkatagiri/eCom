@@ -47,7 +47,7 @@
     </tr>
   </table>
   <br />
-  <input type="image" name="continue" value="Continue" src="/images/proceed-to-payment.png" />
+  <input type="image" name="continue" value="Continue" src="/img/proceed-to-payment.png" />
 </form>
 
 </section>
